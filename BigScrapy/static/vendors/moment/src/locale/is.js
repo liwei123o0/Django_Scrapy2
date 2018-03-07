@@ -38,9 +38,9 @@ function translate(number, withoutSuffix, key, isFuture) {
             return isFuture ? 'dag' : 'degi';
         case 'dd':
             if (plural(number)) {
-                if (withoutSuffix) {
-                    return result + 'dagar';
-                }
+            if (withoutSuffix) {
+                return result + 'dagar';
+            }
                 return result + (isFuture ? 'daga' : 'dögum');
             } else if (withoutSuffix) {
                 return result + 'dagur';
@@ -53,9 +53,9 @@ function translate(number, withoutSuffix, key, isFuture) {
             return isFuture ? 'mánuð' : 'mánuði';
         case 'MM':
             if (plural(number)) {
-                if (withoutSuffix) {
-                    return result + 'mánuðir';
-                }
+            if (withoutSuffix) {
+                return result + 'mánuðir';
+            }
                 return result + (isFuture ? 'mánuði' : 'mánuðum');
             } else if (withoutSuffix) {
                 return result + 'mánuður';

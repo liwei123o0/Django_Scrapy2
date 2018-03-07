@@ -111,7 +111,7 @@ module.exports = function (grunt) {
             all: {
                 files: {
                     'dist/jszip.js': ['lib/index.js']
-                },
+        },
                 options: {
                     browserifyOptions: {
                         standalone: 'JSZip',
@@ -121,7 +121,7 @@ module.exports = function (grunt) {
                                 // (or undefined).
                                 return '(typeof Buffer !== "undefined" ? Buffer : undefined)';
                             }
-                        }
+            }
                     },
                     postBundleCB: function (err, src, done) {
                         // add the license
@@ -130,7 +130,7 @@ module.exports = function (grunt) {
                         var srcWithoutSourceMapping = src.toString().replace(/\/\/@ sourceMappingURL=raw..flate.min.js.map/g, '');
                         done(err, license + srcWithoutSourceMapping);
                     }
-                }
+        }
             }
         },
         uglify: {

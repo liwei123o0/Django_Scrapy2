@@ -34,7 +34,6 @@ define(function (require) {
             function keyGetter(item) {
                 return item.name;
             }
-
             var dataDiffer = new DataDiffer(
                 this._layersSeries || [], layerSeries,
                 keyGetter, keyGetter

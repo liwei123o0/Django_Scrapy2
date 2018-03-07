@@ -12,19 +12,19 @@
     <script type="text/javascript" src="../dist/maps/jquery.vmap.brazil.js" charset="utf-8"></script>
 
     <script>
-        jQuery(document).ready(function () {
-            jQuery('#vmap').vectorMap({
-                map: 'brazil_br',
-                onRegionClick: function (element, code, region) {
-                    var message = 'You clicked "'
-                            + region
-                            + '" which has the code: '
-                            + code.toUpperCase();
+      jQuery(document).ready(function () {
+        jQuery('#vmap').vectorMap({
+          map: 'brazil_br',
+          onRegionClick: function (element, code, region) {
+            var message = 'You clicked "'
+                    + region
+                    + '" which has the code: '
+                    + code.toUpperCase();
 
-                    alert(message);
-                }
-            });
+            alert(message);
+          }
         });
+      });
     </script>
 </head>
 <body>

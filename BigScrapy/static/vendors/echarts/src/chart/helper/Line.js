@@ -12,11 +12,9 @@ define(function (require) {
     var numberUtil = require('../../util/number');
 
     var SYMBOL_CATEGORIES = ['fromSymbol', 'toSymbol'];
-
     function makeSymbolTypeKey(symbolCategory) {
         return '_' + symbolCategory + 'Type';
     }
-
     /**
      * @inner
      */

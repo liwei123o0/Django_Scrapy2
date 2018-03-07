@@ -1,3 +1,4 @@
+
 define(function (require) {
 
     var SymbolDraw = require('../helper/SymbolDraw');

@@ -5,13 +5,13 @@
  * @author Contributors: https://github.com/cjohansen/Sinon.JS/blob/master/AUTHORS
  *
  * (The BSD License)
- *
+ * 
  * Copyright (c) 2010-2013, Christian Johansen, christian@cjohansen.no
  * All rights reserved.
- *
+ * 
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
- *
+ * 
  *     * Redistributions of source code must retain the above copyright notice,
  *       this list of conditions and the following disclaimer.
  *     * Redistributions in binary form must reproduce the above copyright notice,
@@ -20,7 +20,7 @@
  *     * Neither the name of Christian Johansen nor the names of his contributors
  *       may be used to endorse or promote products derived from this software
  *       without specific prior written permission.
- *
+ * 
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -69,7 +69,7 @@ this.sinon = (function () {
                 for (var i = 1, l = arguments.length, prop; i < l; ++i) {
                     for (prop in arguments[i]) {
                         target[prop] = arguments[i][prop];
-                    }
+                }
                 }
                 return target;
             },
@@ -135,7 +135,7 @@ this.sinon = (function () {
                     if (typeof callback == "function") {
                         callback(err, res);
                         callback = null;
-                    }
+                }
                 }
 
                 if (fns.length == 0) {
@@ -164,7 +164,7 @@ this.sinon = (function () {
                 function cb(err, res) {
                     if (typeof callback == "function") {
                         callback(err, res);
-                    }
+                }
                 }
 
                 var remaining = fns.slice();
@@ -175,14 +175,14 @@ this.sinon = (function () {
                     var promise = remaining.shift()(next);
                     if (promise && typeof promise.then == "function") {
                         promise.then(buster.partial(next, null), next);
-                    }
+                }
                 }
 
                 function next(err, result) {
                     if (err) return cb(err);
                     results.push(result);
-                    callNext();
-                }
+                callNext();
+            }
 
                 callNext();
             },
@@ -190,8 +190,8 @@ this.sinon = (function () {
             countdown: function countdown(num, done) {
                 return function () {
                     if (--num == 0) done();
-                };
-            }
+            };
+        }
         };
 
         if (typeof process === "object" &&
@@ -231,7 +231,7 @@ this.sinon = (function () {
                 for (var i = 0; i < len; i++) {
                     if (arr.hasOwnProperty(i) && fun.call(thisp, arr[i], i, arr)) {
                         return true;
-                    }
+                }
                 }
 
                 return false;
@@ -262,12 +262,12 @@ this.sinon = (function () {
                         if (fn.call(thisp, val, i, t)) {
                             res.push(val);
                         }
-                    }
+                }
                 }
 
                 return res;
             };
-        }
+    }
 
         if (isNode) {
             module.exports = buster;
@@ -277,7 +277,7 @@ this.sinon = (function () {
                     return require("./define-version-getter");
                 }
             });
-        }
+    }
 
         return buster.extend(B || {}, buster);
     }(setTimeout, buster));
@@ -315,22 +315,22 @@ this.sinon = (function () {
                 for (var prop in object) {
                     if (hasOwn.call(object, prop)) {
                         k.push(prop);
-                    }
                 }
             }
+        }
 
             return k.sort();
         }
 
         function isCircular(object, objects) {
             if (typeof object != "object") {
-                return false;
-            }
+            return false;
+        }
 
             for (var i = 0, l = objects.length; i < l; ++i) {
                 if (objects[i] === object) {
                     return true;
-                }
+            }
             }
 
             return false;
@@ -367,7 +367,7 @@ this.sinon = (function () {
             if (typeof object.toString == "function" &&
                 object.toString !== Object.prototype.toString) {
                 return object.toString();
-            }
+        }
 
             for (var i = 0, l = specialObjects.length; i < l; i++) {
                 if (object === specialObjects[i].obj) {
@@ -414,7 +414,7 @@ this.sinon = (function () {
                     str = "[Circular]";
                 } else {
                     str = ascii.call(this, obj, processed, indent + 2);
-                }
+            }
 
                 str = (/\s/.test(prop) ? '"' + prop + '"' : prop) + ": " + str;
                 length += str.length;
@@ -443,7 +443,7 @@ this.sinon = (function () {
 
                 if (!!attribute.nodeValue) {
                     pairs.push(attrName + "=\"" + attribute.nodeValue + "\"");
-                }
+            }
             }
 
             var formatted = "<" + tagName + (pairs.length > 0 ? " " : "");
@@ -467,7 +467,7 @@ this.sinon = (function () {
                     return "";
                 } else if (excludes[i].test && excludes[i].test(name)) {
                     return "";
-                }
+            }
             }
 
             return name;
@@ -503,12 +503,12 @@ this.sinon = (function () {
             } catch (e) {
                 return false;
             } finally {
-                try {
-                    obj.removeChild(div);
-                } catch (e) {
-                    // Remove failed, not much we can do about that
-                }
+            try {
+                obj.removeChild(div);
+            } catch (e) {
+                // Remove failed, not much we can do about that
             }
+        }
 
             return success;
         }
@@ -525,8 +525,8 @@ this.sinon = (function () {
             for (var prop in source) {
                 if (!hasOwn.call(target, prop)) {
                     target[prop] = source[prop];
-                }
             }
+        }
         }
 
         function isRestorable(obj) {
@@ -593,8 +593,8 @@ this.sinon = (function () {
                         if (arguments[i].hasOwnProperty("toString") &&
                             arguments[i].toString != target.toString) {
                             target.toString = arguments[i].toString;
-                        }
                     }
+                }
                 }
 
                 return target;
@@ -634,14 +634,14 @@ this.sinon = (function () {
 
                 if (aString == "[object Array]") {
                     if (a.length !== b.length) {
-                        return false;
-                    }
+                    return false;
+                }
 
                     for (var i = 0, l = a.length; i < l; i += 1) {
                         if (!deepEqual(a[i], b[i])) {
-                            return false;
-                        }
+                        return false;
                     }
+                }
 
                     return true;
                 }
@@ -657,7 +657,7 @@ this.sinon = (function () {
 
                     if (!deepEqual(a[prop], b[prop])) {
                         return false;
-                    }
+                }
                 }
 
                 for (prop in b) {
@@ -692,9 +692,9 @@ this.sinon = (function () {
                         for (prop in thisValue) {
                             if (thisValue[prop] === this) {
                                 return prop;
-                            }
                         }
                     }
+                }
                 }
 
                 return this.displayName || "sinon fake";
@@ -708,7 +708,7 @@ this.sinon = (function () {
                 for (var prop in defaults) {
                     if (defaults.hasOwnProperty(prop)) {
                         config[prop] = custom.hasOwnProperty(prop) ? custom[prop] : defaults[prop];
-                    }
+                }
                 }
 
                 return config;
@@ -737,7 +737,7 @@ this.sinon = (function () {
                 for (var i = 1, l = spies.length; i < l; i++) {
                     if (!spies[i - 1].calledBefore(spies[i]) || !spies[i].called) {
                         return false;
-                    }
+                }
                 }
 
                 return true;
@@ -794,13 +794,13 @@ this.sinon = (function () {
                     for (var prop in object) {
                         if (isRestorable(object[prop])) {
                             object[prop].restore();
-                        }
                     }
                 }
+            }
                 else if (isRestorable(object)) {
                     object.restore();
-                }
             }
+        }
         };
 
         var isNode = typeof module == "object" && typeof require == "function";
@@ -834,11 +834,11 @@ this.sinon = (function () {
                 var util = require("util");
                 sinon.format = function (value) {
                     return typeof value == "object" && value.toString === Object.prototype.toString ? util.inspect(value) : value;
-                };
+            };
             } catch (e) {
                 /* Node, but no util module - would be very old, but better safe than
                  sorry */
-            }
+        }
         }
 
         return sinon;
@@ -872,13 +872,13 @@ this.sinon = (function () {
             if (actual !== type) {
                 throw new TypeError("Expected type of " + name + " to be " +
                     type + ", but was " + actual);
-            }
+        }
         }
 
         var matcher = {
             toString: function () {
                 return this.message;
-            }
+        }
         };
 
         function isMatcher(object) {
@@ -904,8 +904,8 @@ this.sinon = (function () {
                     } else if (!sinon.deepEqual(exp, act)) {
                         return false;
                     }
-                }
             }
+        }
             return true;
         }
 
@@ -917,7 +917,7 @@ this.sinon = (function () {
             var or = sinon.create(matcher);
             or.test = function (actual) {
                 return m1.test(actual) || m2.test(actual);
-            };
+        };
             or.message = m1.message + ".or(" + m2.message + ")";
             return or;
         };
@@ -925,7 +925,7 @@ this.sinon = (function () {
         matcher.and = function (m2) {
             if (!isMatcher(m2)) {
                 throw new TypeError("Matcher expected");
-            }
+        }
             var m1 = this;
             var and = sinon.create(matcher);
             and.test = function (actual) {
@@ -946,16 +946,16 @@ this.sinon = (function () {
                         };
                         m.message = "match(" + sinon.functionName(expectation.test) + ")";
                         return m;
-                    }
+            }
                     var str = [];
-                    for (var key in expectation) {
-                        if (expectation.hasOwnProperty(key)) {
-                            str.push(key + ": " + expectation[key]);
-                        }
-                    }
+            for (var key in expectation) {
+                if (expectation.hasOwnProperty(key)) {
+                    str.push(key + ": " + expectation[key]);
+                }
+            }
                     m.test = function (actual) {
                         return matchObject(expectation, actual);
-                    };
+            };
                     m.message = "match(" + str.join(", ") + ")";
                     break;
                 case "number":
@@ -986,12 +986,12 @@ this.sinon = (function () {
                         m.message = message;
                     } else {
                         m.message = "match(" + sinon.functionName(expectation) + ")";
-                    }
+            }
                     break;
                 default:
                     m.test = function (actual) {
                         return sinon.deepEqual(expectation, actual);
-                    };
+            };
             }
             if (!m.message) {
                 m.message = "match(" + expectation + ")";
@@ -1046,19 +1046,19 @@ this.sinon = (function () {
                     message += ", " + value;
                 }
                 message += ")";
-                return match(function (actual) {
-                    if (actual === undefined || actual === null || !propertyTest(actual, property)) {
-                        return false;
-                    }
-                    return onlyProperty || sinon.deepEqual(value, actual[property]);
-                }, message);
-            };
+            return match(function (actual) {
+                if (actual === undefined || actual === null || !propertyTest(actual, property)) {
+                    return false;
+                }
+                return onlyProperty || sinon.deepEqual(value, actual[property]);
+            }, message);
+        };
         }
 
         match.has = createPropertyMatcher(function (actual, property) {
             if (typeof actual === "object") {
                 return property in actual;
-            }
+        }
             return actual[property] !== undefined;
         }, "has");
 
@@ -1112,7 +1112,7 @@ this.sinon = (function () {
                 msg += " Received [" + slice.call(args).join(", ") + "]";
             }
             throw new Error(msg);
-        }
+    }
 
         var slice = Array.prototype.slice;
 
@@ -1120,7 +1120,7 @@ this.sinon = (function () {
             calledOn: function calledOn(thisValue) {
                 if (sinon.match && sinon.match.isMatcher(thisValue)) {
                     return thisValue.test(this.thisValue);
-                }
+            }
                 return this.thisValue === thisValue;
             },
 
@@ -1128,7 +1128,7 @@ this.sinon = (function () {
                 for (var i = 0, l = arguments.length; i < l; i += 1) {
                     if (!sinon.deepEqual(arguments[i], this.args[i])) {
                         return false;
-                    }
+                }
                 }
 
                 return true;
@@ -1140,7 +1140,7 @@ this.sinon = (function () {
                     var expectation = arguments[i];
                     if (!sinon.match || !sinon.match(expectation).test(actual)) {
                         return false;
-                    }
+                }
                 }
                 return true;
             },
@@ -1209,7 +1209,7 @@ this.sinon = (function () {
                     if (typeof args[i] === "function") {
                         args[i].apply(thisValue, slice.call(arguments, 1));
                         return;
-                    }
+                }
                 }
                 throwYieldError(this.proxy, " cannot yield since no callback was passed.", args);
             },
@@ -1224,7 +1224,7 @@ this.sinon = (function () {
                     if (args[i] && typeof args[i][prop] === "function") {
                         args[i][prop].apply(thisValue, slice.call(arguments, 2));
                         return;
-                    }
+                }
                 }
                 throwYieldError(this.proxy, " cannot yield to '" + prop +
                     "' since no callback was passed.", args);
@@ -1249,8 +1249,8 @@ this.sinon = (function () {
 
                     if (this.exception.message) {
                         callStr += "(" + this.exception.message + ")";
-                    }
                 }
+            }
 
                 return callStr;
             }
@@ -1305,7 +1305,7 @@ this.sinon = (function () {
             if (!object && !property) {
                 return spy.create(function () {
                 });
-            }
+        }
 
             var method = object[property];
             return sinon.wrapMethod(object, property, spy.create(method));
@@ -1314,7 +1314,7 @@ this.sinon = (function () {
         function matchingFake(fakes, args, strict) {
             if (!fakes) {
                 return;
-            }
+        }
 
             var alen = args.length;
 
@@ -1322,7 +1322,7 @@ this.sinon = (function () {
                 if (fakes[i].matches(args, strict)) {
                     return fakes[i];
                 }
-            }
+        }
         }
 
         function incrementCallCount() {
@@ -1349,7 +1349,7 @@ this.sinon = (function () {
             if (func.length) {
                 eval("p = (function proxy(" + vars.substring(0, func.length * 2 - 1) +
                     ") { return p.invoke(func, this, slice.call(arguments)); });");
-            }
+        }
             else {
                 p = function proxy() {
                     return p.invoke(func, this, slice.call(arguments));
@@ -1381,7 +1381,7 @@ this.sinon = (function () {
                 if (this.fakes) {
                     for (var i = 0; i < this.fakes.length; i++) {
                         this.fakes[i].reset();
-                    }
+                }
                 }
             },
 
@@ -1425,7 +1425,7 @@ this.sinon = (function () {
                         returnValue = matching.invoke(func, thisValue, args);
                     } else {
                         returnValue = (this.func || func).apply(thisValue, args);
-                    }
+                }
                 } catch (e) {
                     push.call(this.returnValues, undefined);
                     exception = e;
@@ -1479,7 +1479,7 @@ this.sinon = (function () {
 
                     if (match) {
                         return match;
-                    }
+                }
                 } else {
                     this.fakes = [];
                 }
@@ -1501,7 +1501,7 @@ this.sinon = (function () {
                         push.call(fake.returnValues, this.returnValues[i]);
                         push.call(fake.exceptions, this.exceptions[i]);
                         push.call(fake.callIds, this.callIds[i]);
-                    }
+                }
                 }
                 createCallProperties.call(fake);
 
@@ -1541,7 +1541,7 @@ this.sinon = (function () {
                 if (!this.called) {
                     if (notCalled) {
                         return notCalled.apply(this, arguments);
-                    }
+                }
                     return false;
                 }
 
@@ -1556,8 +1556,8 @@ this.sinon = (function () {
 
                         if (matchAny) {
                             return true;
-                        }
                     }
+                }
                 }
 
                 return matches === this.callCount;
@@ -1627,7 +1627,7 @@ this.sinon = (function () {
                     var stringifiedCall = "    " + spy.getCall(i).toString();
                     if (/\n/.test(calls[i - 1])) {
                         stringifiedCall = "\n" + stringifiedCall;
-                    }
+                }
                     push.call(calls, stringifiedCall);
                 }
 
@@ -1649,7 +1649,7 @@ this.sinon = (function () {
 
                 for (var i = 0, l = args.length; i < l; ++i) {
                     push.call(formatted, sinon.format(args[i]));
-                }
+            }
 
                 return formatted.join(", ");
             }
@@ -1714,10 +1714,10 @@ this.sinon = (function () {
                     if (typeof object[prop] === "function") {
                         stub(object, prop);
                     }
-                }
+            }
 
                 return object;
-            }
+        }
 
             return sinon.wrapMethod(object, property, wrapper);
         }
@@ -1740,16 +1740,16 @@ this.sinon = (function () {
                 for (var i = 0, l = args.length; i < l; ++i) {
                     if (!callArgProp && typeof args[i] == "function") {
                         return args[i];
-                    }
+                }
 
                     if (callArgProp && args[i] &&
                         typeof args[i][callArgProp] == "function") {
                         return args[i][callArgProp];
                     }
-                }
+            }
 
                 return null;
-            }
+        }
 
             return args[callArgAt];
         }
@@ -1771,10 +1771,10 @@ this.sinon = (function () {
 
                 if (args.length > 0) {
                     msg += " Received [" + join.call(args, ", ") + "]";
-                }
+            }
 
                 return msg;
-            }
+        }
 
             return "argument at index " + stub.callArgAtsLast + " is not a function: " + func;
         }
@@ -1804,12 +1804,12 @@ this.sinon = (function () {
 
                 if (stub.callbackAsync) {
                     nextTick(function () {
-                        func.apply(callbackContext, callbackArguments);
+                    func.apply(callbackContext, callbackArguments);
                     });
                 } else {
                     func.apply(callbackContext, callbackArguments);
-                }
             }
+        }
         }
 
         var uuid = 0;
@@ -1825,7 +1825,7 @@ this.sinon = (function () {
                     this.exception = new Error("Error");
                 } else {
                     this.exception = error;
-                }
+            }
 
                 return this;
             }
@@ -1879,7 +1879,7 @@ this.sinon = (function () {
                     if (this.fakes) {
                         for (i = 0; i < this.fakes.length; i++) {
                             this.fakes[i].resetBehavior();
-                        }
+                    }
                     }
                 },
 
@@ -2022,7 +2022,7 @@ this.sinon = (function () {
                             return this[syncFnName].apply(this, arguments);
                         };
                     })(method);
-                }
+            }
             }
 
             return proto;
@@ -2066,7 +2066,7 @@ this.sinon = (function () {
         function mock(object) {
             if (!object) {
                 return sinon.expectation.create("Anonymous mock");
-            }
+        }
 
             return mock.create(object);
         }
@@ -2077,12 +2077,12 @@ this.sinon = (function () {
             function each(collection, callback) {
                 if (!collection) {
                     return;
-                }
+            }
 
                 for (var i = 0, l = collection.length; i < l; i += 1) {
                     callback(collection[i]);
                 }
-            }
+        }
 
             return {
                 create: function create(object) {
@@ -2100,12 +2100,12 @@ this.sinon = (function () {
                 expects: function expects(method) {
                     if (!method) {
                         throw new TypeError("method is falsy");
-                    }
+                }
 
                     if (!this.expectations) {
                         this.expectations = {};
                         this.proxies = [];
-                    }
+                }
 
                     if (!this.expectations[method]) {
                         this.expectations[method] = [];
@@ -2130,7 +2130,7 @@ this.sinon = (function () {
                     each(this.proxies, function (proxy) {
                         if (typeof object[proxy].restore == "function") {
                             object[proxy].restore();
-                        }
+                    }
                     });
                 },
 
@@ -2144,8 +2144,8 @@ this.sinon = (function () {
                                 push.call(messages, expectation.toString());
                             } else {
                                 push.call(met, expectation.toString());
-                            }
-                        });
+                        }
+                    });
                     });
 
                     this.restore();
@@ -2167,7 +2167,7 @@ this.sinon = (function () {
                         if (!expectations[i].met() &&
                             expectations[i].allowsCall(thisValue, args)) {
                             return expectations[i].apply(thisValue, args);
-                        }
+                    }
                     }
 
                     var messages = [], available, exhausted = 0;
@@ -2177,7 +2177,7 @@ this.sinon = (function () {
                             available = available || expectations[i];
                         } else {
                             exhausted += 1;
-                        }
+                    }
                         push.call(messages, "    " + expectations[i].toString());
                     }
 
@@ -2206,7 +2206,7 @@ this.sinon = (function () {
                     return "never called";
                 } else {
                     return "called " + times(callCount);
-                }
+            }
             }
 
             function expectedCallCountInWords(expectation) {
@@ -2218,14 +2218,14 @@ this.sinon = (function () {
 
                     if (min != max) {
                         str = "at least " + str + " and at most " + times(max);
-                    }
+                }
 
                     return str;
-                }
+            }
 
                 if (typeof min == "number") {
                     return "at least " + times(min);
-                }
+            }
 
                 return "at most " + times(max);
             }
@@ -2238,7 +2238,7 @@ this.sinon = (function () {
             function receivedMaxCalls(expectation) {
                 if (typeof expectation.maxCalls != "number") {
                     return false;
-                }
+            }
 
                 return expectation.callCount == expectation.maxCalls;
             }
@@ -2355,7 +2355,7 @@ this.sinon = (function () {
                         if (!sinon.deepEqual(this.expectedArguments[i], args[i])) {
                             sinon.expectation.fail(this.method + " received wrong arguments " + sinon.format(args) +
                                 ", expected " + sinon.format(this.expectedArguments));
-                        }
+                    }
                     }
                 },
 
@@ -2385,8 +2385,8 @@ this.sinon = (function () {
 
                     for (var i = 0, l = this.expectedArguments.length; i < l; i += 1) {
                         if (!sinon.deepEqual(this.expectedArguments[i], args[i])) {
-                            return false;
-                        }
+                        return false;
+                    }
                     }
 
                     return true;
@@ -2492,7 +2492,7 @@ this.sinon = (function () {
         function getFakes(fakeCollection) {
             if (!fakeCollection.fakes) {
                 fakeCollection.fakes = [];
-            }
+        }
 
             return fakeCollection.fakes;
         }
@@ -2503,8 +2503,8 @@ this.sinon = (function () {
             for (var i = 0, l = fakes.length; i < l; i += 1) {
                 if (typeof fakes[i][method] == "function") {
                     fakes[i][method]();
-                }
             }
+        }
         }
 
         function compact(fakeCollection) {
@@ -2512,7 +2512,7 @@ this.sinon = (function () {
             var i = 0;
             while (i < fakes.length) {
                 fakes.splice(i, 1);
-            }
+        }
         }
 
         var collection = {
@@ -2566,7 +2566,7 @@ this.sinon = (function () {
                                 object[property] = original;
                             }
                         });
-                    }
+                }
                 }
                 if (!property && !!object && typeof object == "object") {
                     var stubbedObj = sinon.stub.apply(sinon, arguments);
@@ -2574,8 +2574,8 @@ this.sinon = (function () {
                     for (var prop in stubbedObj) {
                         if (typeof stubbedObj[prop] === "function") {
                             this.add(stubbedObj[prop]);
-                        }
                     }
+                }
 
                     return stubbedObj;
                 }
@@ -2603,14 +2603,14 @@ this.sinon = (function () {
                 };
 
                 return obj;
-            }
+        }
         };
 
         if (commonJSModule) {
             module.exports = collection;
         } else {
             sinon.collection = collection;
-        }
+    }
     }(typeof sinon == "object" && sinon || null));
 
     /*jslint eqeqeq: false, plusplus: false, evil: true, onevar: false, browser: true, forin: false*/
@@ -2661,7 +2661,7 @@ this.sinon = (function () {
 
             if (recurring === true) {
                 this.timeouts[toId].interval = delay;
-            }
+        }
 
             return toId;
         }
@@ -2684,10 +2684,10 @@ this.sinon = (function () {
 
                 if (parsed >= 60) {
                     throw new Error("Invalid time " + str);
-                }
+            }
 
                 ms += parsed * Math.pow(60, (l - i - 1));
-            }
+        }
 
             return ms * 1000;
         }
@@ -2702,7 +2702,7 @@ this.sinon = (function () {
                 };
                 F.prototype = object;
                 newObject = new F();
-            }
+        }
 
             newObject.Date.clock = newObject;
             return newObject;
@@ -2761,7 +2761,7 @@ this.sinon = (function () {
                         } catch (e) {
                             firstException = firstException || e;
                         }
-                    }
+                }
 
                     timer = this.firstTimerInRange(previous, tickTo);
                     previous = tickFrom;
@@ -2796,8 +2796,8 @@ this.sinon = (function () {
                                 id: this.timeouts[id].id,
                                 invokeArgs: this.timeouts[id].invokeArgs
                             };
-                        }
                     }
+                }
                 }
 
                 return timer || null;
@@ -2813,17 +2813,17 @@ this.sinon = (function () {
                 try {
                     if (typeof timer.func == "function") {
                         timer.func.apply(null, timer.invokeArgs);
-                    } else {
+                } else {
                         eval(timer.func);
-                    }
+                }
                 } catch (e) {
                     var exception = e;
                 }
 
                 if (!this.timeouts[timer.id]) {
-                    if (exception) {
-                        throw exception;
-                    }
+                if (exception) {
+                    throw exception;
+                }
                     return;
                 }
 
@@ -2860,7 +2860,7 @@ this.sinon = (function () {
                         default:
                             return new NativeDate(year, month, date, hour, minute, second, ms);
                     }
-                }
+            }
 
                 return mirrorDateProperties(ClockDate, NativeDate);
             }())
@@ -2870,7 +2870,7 @@ this.sinon = (function () {
             if (source.now) {
                 target.now = function now() {
                     return target.clock.now;
-                };
+            };
             } else {
                 delete target.now;
             }
@@ -2881,7 +2881,7 @@ this.sinon = (function () {
                 };
             } else {
                 delete target.toSource;
-            }
+        }
 
             target.toString = function toString() {
                 return source.toString();
@@ -2907,7 +2907,7 @@ this.sinon = (function () {
                 } else {
                     delete global[method];
                 }
-            }
+        }
 
             // Prevent multiple executions which will completely remove these props
             this.methods = [];
@@ -2928,9 +2928,9 @@ this.sinon = (function () {
                 for (var prop in clock[method]) {
                     if (clock[method].hasOwnProperty(prop)) {
                         global[method][prop] = clock[method][prop];
-                    }
                 }
             }
+        }
 
             global[method].clock = clock;
         }
@@ -2950,7 +2950,7 @@ this.sinon = (function () {
             }
 
             return clock;
-        };
+    };
     }(typeof global != "undefined" && typeof global !== "function" ? global : this));
 
     sinon.timers = {
@@ -3020,7 +3020,7 @@ this.sinon = (function () {
                 for (var i = 0, l = listeners.length; i < l; ++i) {
                     if (listeners[i] == listener) {
                         return listeners.splice(i, 1);
-                    }
+                }
                 }
             },
 
@@ -3033,8 +3033,8 @@ this.sinon = (function () {
                         listeners[i].call(this, event);
                     } else {
                         listeners[i].handleEvent(event);
-                    }
                 }
+            }
 
                 return !!event.defaultPrevented;
             }
@@ -3118,21 +3118,21 @@ this.sinon = (function () {
 
             for (var i = events.length - 1; i >= 0; i--) {
                 addEventListener(events[i]);
-            }
+        }
 
             if (typeof FakeXMLHttpRequest.onCreate == "function") {
                 FakeXMLHttpRequest.onCreate(this);
-            }
+        }
         }
 
         function verifyState(xhr) {
             if (xhr.readyState !== FakeXMLHttpRequest.OPENED) {
                 throw new Error("INVALID_STATE_ERR");
-            }
+        }
 
             if (xhr.sendFlag) {
                 throw new Error("INVALID_STATE_ERR");
-            }
+        }
         }
 
         // filtering to enable a white-list version of Sinon FakeXhr,
@@ -3147,8 +3147,7 @@ this.sinon = (function () {
         function some(collection, callback) {
             for (var index = 0; index < collection.length; index++) {
                 if (callback(collection[index]) === true) return true;
-            }
-            ;
+        };
             return false;
         }
 
@@ -3167,8 +3166,7 @@ this.sinon = (function () {
                     return obj[method](args[0], args[1], args[2], args[3]);
                 case 5:
                     return obj[method](args[0], args[1], args[2], args[3], args[4]);
-            }
-            ;
+        };
         };
 
         FakeXMLHttpRequest.filters = [];
@@ -3194,13 +3192,13 @@ this.sinon = (function () {
                         if (!IE6Re.test(navigator.userAgent)) throw e;
                     }
                 });
-            };
+        };
 
             var stateChange = function () {
                 fakeXhr.readyState = xhr.readyState;
                 if (xhr.readyState >= FakeXMLHttpRequest.HEADERS_RECEIVED) {
                     copyAttrs(["status", "statusText"]);
-                }
+            }
                 if (xhr.readyState >= FakeXMLHttpRequest.LOADING) {
                     copyAttrs(["responseText"]);
                 }
@@ -3220,7 +3218,7 @@ this.sinon = (function () {
                 xhr.addEventListener("readystatechange", stateChange);
             } else {
                 xhr.onreadystatechange = stateChange;
-            }
+        }
             apply(xhr, "open", xhrArgs);
         };
         FakeXMLHttpRequest.useFilters = false;
@@ -3228,13 +3226,13 @@ this.sinon = (function () {
         function verifyRequestSent(xhr) {
             if (xhr.readyState == FakeXMLHttpRequest.DONE) {
                 throw new Error("Request done");
-            }
+        }
         }
 
         function verifyHeadersReceived(xhr) {
             if (xhr.async && xhr.readyState != FakeXMLHttpRequest.HEADERS_RECEIVED) {
                 throw new Error("No headers received");
-            }
+        }
         }
 
         function verifyResponseBodyType(body) {
@@ -3266,7 +3264,7 @@ this.sinon = (function () {
                     });
                     if (defake) {
                         return sinon.FakeXMLHttpRequest.defake(this, arguments);
-                    }
+                }
                 }
                 this.readyStateChange(FakeXMLHttpRequest.OPENED);
             },
@@ -3279,7 +3277,7 @@ this.sinon = (function () {
                         this.onreadystatechange();
                     } catch (e) {
                         sinon.logError("Fake XHR onreadystatechange handler", e);
-                    }
+                }
                 }
 
                 this.dispatchEvent(new sinon.Event("readystatechange"));
@@ -3313,7 +3311,7 @@ this.sinon = (function () {
                 for (var header in headers) {
                     if (headers.hasOwnProperty(header)) {
                         this.responseHeaders[header] = headers[header];
-                    }
+                }
                 }
 
                 if (this.async) {
@@ -3331,9 +3329,9 @@ this.sinon = (function () {
                     if (this.requestHeaders["Content-Type"]) {
                         var value = this.requestHeaders["Content-Type"].split(";");
                         this.requestHeaders["Content-Type"] = value[0] + ";charset=utf-8";
-                    } else {
+                } else {
                         this.requestHeaders["Content-Type"] = "text/plain;charset=utf-8";
-                    }
+                }
 
                     this.requestBody = data;
                 }
@@ -3382,7 +3380,7 @@ this.sinon = (function () {
                 for (var h in this.responseHeaders) {
                     if (h.toLowerCase() == header) {
                         return this.responseHeaders[h];
-                    }
+                }
                 }
 
                 return null;
@@ -3398,7 +3396,7 @@ this.sinon = (function () {
                 for (var header in this.responseHeaders) {
                     if (this.responseHeaders.hasOwnProperty(header) && !/^Set-Cookie2?$/i.test(header)) {
                         headers += header + ": " + this.responseHeaders[header] + "\r\n";
-                    }
+                }
                 }
 
                 return headers;
@@ -3416,7 +3414,7 @@ this.sinon = (function () {
                 do {
                     if (this.async) {
                         this.readyStateChange(FakeXMLHttpRequest.LOADING);
-                    }
+                }
 
                     this.responseText += body.substring(index, index + chunkSize);
                     index += chunkSize;
@@ -3528,14 +3526,14 @@ this.sinon = (function () {
 
                 if (xhr.supportsActiveX) {
                     global.ActiveXObject = xhr.GlobalActiveXObject;
-                }
+            }
 
                 delete sinon.FakeXMLHttpRequest.restore;
 
                 if (keepOnCreate !== true) {
                     delete sinon.FakeXMLHttpRequest.onCreate;
                 }
-            };
+        };
             if (xhr.supportsXHR) {
                 global.XMLHttpRequest = sinon.FakeXMLHttpRequest;
             }
@@ -3545,10 +3543,10 @@ this.sinon = (function () {
                     if (objId == "Microsoft.XMLHTTP" || /^Msxml2\.XMLHTTP/i.test(objId)) {
 
                         return new sinon.FakeXMLHttpRequest();
-                    }
+                }
 
                     return new xhr.GlobalActiveXObject(objId);
-                };
+            };
             }
 
             return sinon.FakeXMLHttpRequest;
@@ -3591,18 +3589,18 @@ this.sinon = (function () {
         function create(proto) {
             F.prototype = proto;
             return new F();
-        }
+    }
 
         function responseArray(handler) {
             var response = handler;
 
             if (Object.prototype.toString.call(handler) != "[object Array]") {
                 response = [200, {}, handler];
-            }
+        }
 
             if (typeof response[2] != "string") {
                 throw new TypeError("Fake server response body should be string, but was " + typeof response[2]);
-            }
+        }
 
             return response;
         }
@@ -3625,17 +3623,17 @@ this.sinon = (function () {
 
             if (!/^https?:\/\//.test(requestUrl) || rCurrLoc.test(requestUrl)) {
                 requestUrl = requestUrl.replace(rCurrLoc, "");
-            }
+        }
 
             if (matchOne(response, this.getHTTPMethod(request), requestUrl)) {
                 if (typeof response.response == "function") {
                     var ru = response.url;
                     var args = [request].concat(!ru ? [] : requestUrl.match(ru).slice(1));
                     return response.response.apply(response, args);
-                }
+            }
 
                 return true;
-            }
+        }
 
             return false;
         }
@@ -3693,7 +3691,7 @@ this.sinon = (function () {
                 if (xhr.async) {
                     if (!this.queue) {
                         this.queue = [];
-                    }
+                }
 
                     push.call(this.queue, xhr);
                 } else {
@@ -3752,18 +3750,18 @@ this.sinon = (function () {
                             if (match.call(this, this.responses[i], request)) {
                                 response = this.responses[i].response;
                                 break;
-                            }
                         }
+                    }
                     }
 
                     if (request.readyState != 4) {
                         log(response, request);
 
                         request.respond(response[0], response[1], response[2]);
-                    }
+                }
                 } catch (e) {
                     sinon.logError("Fake server request processing", e);
-                }
+            }
             },
 
             restore: function restore() {
@@ -3830,7 +3828,7 @@ this.sinon = (function () {
 
                         return clockSetInterval.apply(this, arguments);
                     };
-                }
+            }
             }
 
             return sinon.fakeServer.addRequest.call(this, xhr);
@@ -3846,7 +3844,7 @@ this.sinon = (function () {
                 if (this.resetClock) {
                     this.clock.restore();
                     this.resetClock = false;
-                }
+            }
             }
 
             return returnVal;
@@ -3896,7 +3894,7 @@ this.sinon = (function () {
                 config.injectInto[key] = value;
             } else {
                 push.call(sandbox.args, value);
-            }
+        }
         }
 
         function prepareSandboxFromConfig(config) {
@@ -3905,7 +3903,7 @@ this.sinon = (function () {
             if (config.useFakeServer) {
                 if (typeof config.useFakeServer == "object") {
                     sandbox.serverPrototype = config.useFakeServer;
-                }
+            }
 
                 sandbox.useFakeServer();
             }
@@ -3916,7 +3914,7 @@ this.sinon = (function () {
                 } else {
                     sandbox.useFakeTimers();
                 }
-            }
+        }
 
             return sandbox;
         }
@@ -3973,10 +3971,10 @@ this.sinon = (function () {
                     }
                 } else {
                     exposeValue(sandbox, config, "sandbox", value);
-                }
+            }
 
                 return sandbox;
-            }
+        }
         });
 
         sinon.sandbox.useFakeXMLHttpRequest = sinon.sandbox.useFakeServer;
@@ -4043,7 +4041,7 @@ this.sinon = (function () {
                 }
 
                 return result;
-            };
+        };
         }
 
         test.config = {
@@ -4107,7 +4105,7 @@ this.sinon = (function () {
 
                 if (exception) {
                     throw exception;
-                }
+            }
 
                 return result;
             };
@@ -4139,14 +4137,14 @@ this.sinon = (function () {
 
                         if (setUp || tearDown) {
                             method = createTest(property, setUp, tearDown);
-                        }
+                    }
 
                         methods[testName] = sinon.test(method);
                     } else {
                         methods[testName] = tests[testName];
-                    }
                 }
             }
+        }
 
             return methods;
         }
@@ -4198,12 +4196,12 @@ this.sinon = (function () {
 
                 if (typeof method != "function") {
                     assert.fail(method + " is not a function");
-                }
+            }
 
                 if (typeof method.getCall != "function") {
                     assert.fail(method + " is not stubbed");
                 }
-            }
+        }
         }
 
         function failAssertion(object, msg) {
@@ -4236,7 +4234,7 @@ this.sinon = (function () {
                 } else {
                     assert.pass(name);
                 }
-            };
+        };
         }
 
         function exposedName(prefix, prop) {
@@ -4269,12 +4267,12 @@ this.sinon = (function () {
                         while (i) {
                             if (!calls[--i].called) {
                                 calls.splice(i, 1);
-                            }
                         }
+                    }
                         actual = sinon.orderByFirstCall(calls).join(", ");
                     } catch (e) {
                         // If this fails, we'll just fall back to the blank string
-                    }
+                }
 
                     failAssertion(this, "expected " + expected + " to be " +
                         "called in order but were called as " + actual);
@@ -4308,10 +4306,10 @@ this.sinon = (function () {
                     if (method != "export" && (includeFail || !/^(fail)/.test(method))) {
                         target[exposedName(prefix, method)] = this[method];
                     }
-                }
+            }
 
                 return target;
-            }
+        }
         };
 
         mirrorPropAsAssertion("called", "expected %n to have been called at least once but was never called");

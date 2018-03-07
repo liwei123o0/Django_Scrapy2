@@ -5,24 +5,24 @@ module.exports = {
             "type": "graph",
             "layout": "none",
             "data": [
-                {
-                    "id": "0",
-                    "name": "Myriel",
-                    "label": {
-                        "normal": {
-                            "formatter": "Myriel",
-                            "show": false
-                        }
-                    },
-                    "symbolSize": 28.685715,
-                    "x": -266.82776,
-                    "y": 299.6904,
-                    "attributes": {
-                        "modularity_class": 0
-                    },
-                    "value": 28.685715,
-                    "category": 0
-                },
+        {
+            "id": "0",
+            "name": "Myriel",
+            "label": {
+                "normal": {
+                    "formatter": "Myriel",
+                    "show": false
+            }
+            },
+            "symbolSize": 28.685715,
+            "x": -266.82776,
+            "y": 299.6904,
+            "attributes": {
+                "modularity_class": 0
+            },
+            "value": 28.685715,
+            "category": 0
+        },
                 {
                     "id": "1",
                     "name": "Napoleon",
@@ -1390,7 +1390,7 @@ module.exports = {
                     },
                     "value": 20.457146,
                     "category": 8
-                }
+        }
             ],
             "links": [
                 {

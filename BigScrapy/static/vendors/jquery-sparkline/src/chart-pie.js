@@ -21,7 +21,7 @@ $.fn.sparkline.pie = pie = createClass($.fn.sparkline._base, {
             for (i = values.length; i--;) {
                 total += values[i];
             }
-        }
+            }
         this.total = total;
         this.initTarget();
         this.radius = Math.floor(Math.min(this.canvasWidth, this.canvasHeight) / 2);
@@ -71,7 +71,7 @@ $.fn.sparkline.pie = pie = createClass($.fn.sparkline._base, {
             end = next;
             if (total > 0) {  // avoid divide by zero
                 end = next + (circle * (values[i] / total));
-            }
+                }
             if (valuenum === i) {
                 color = options.get('sliceColors')[i % options.get('sliceColors').length];
                 if (highlight) {
@@ -81,7 +81,7 @@ $.fn.sparkline.pie = pie = createClass($.fn.sparkline._base, {
                 return target.drawPieSlice(radius, radius, radius - borderWidth, start, end, undefined, color);
             }
             next = end;
-        }
+            }
     },
 
     render: function () {
@@ -94,7 +94,7 @@ $.fn.sparkline.pie = pie = createClass($.fn.sparkline._base, {
 
         if (!pie._super.render.call(this)) {
             return;
-        }
+            }
         if (borderWidth) {
             target.drawCircle(radius, radius, Math.floor(radius - (borderWidth / 2)),
                 options.get('borderColor'), undefined, borderWidth).append();
@@ -107,6 +107,6 @@ $.fn.sparkline.pie = pie = createClass($.fn.sparkline._base, {
             }
         }
         target.render();
-    }
+        }
 });
 

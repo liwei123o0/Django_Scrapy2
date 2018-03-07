@@ -16,7 +16,6 @@ define(function (require) {
         return round(a[0]) === round(b[0])
             && round(a[1]) === round(b[1]);
     }
-
     /**
      * @inner
      */

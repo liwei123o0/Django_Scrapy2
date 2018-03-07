@@ -19,9 +19,9 @@ createClass = function (/* [baseclass, [mixin, ...]], definition */) {
             args.unshift(Class.prototype);
             $.extend.apply($, args);
         }
-    } else {
+        } else {
         Class.prototype = arguments[0];
-    }
+        }
     Class.prototype.cls = Class;
     return Class;
 };
@@ -53,13 +53,13 @@ $.SPFormatClass = SPFormat = createClass({
             if (match) {
                 prec = match[2];
                 token = match[1];
-            } else {
+                } else {
                 prec = false;
-            }
+                }
             fieldvalue = fields[token];
             if (fieldvalue === undefined) {
                 return '';
-            }
+                }
             if (lookupkey && lookups && lookups[lookupkey]) {
                 lookup = lookups[lookupkey];
                 if (lookup.get) { // RangeMap
@@ -112,7 +112,7 @@ quartile = function (values, q) {
             return vl % 1 ? (values[Math.floor(vl)] + values[Math.floor(vl) - 1]) / 2 : values[vl - 1];
 
         }
-    }
+        }
 };
 
 normalizeValue = function (val) {
@@ -153,7 +153,7 @@ remove = function (vals, filter) {
         if (vals[i] !== filter) {
             result.push(vals[i]);
         }
-    }
+        }
     return result;
 };
 
@@ -183,7 +183,7 @@ all = function (val, arr, ignoreNull) {
         if (arr[i] !== val) {
             return false;
         }
-    }
+        }
     return true;
 };
 
@@ -211,7 +211,7 @@ addCSS = function (css) {
             // IE <= 9 maxes out at 31 stylesheets; inject into page instead.
             iefail = true;
         }
-    }
+        }
     tag = document.createElement('style');
     tag.type = 'text/css';
     document.getElementsByTagName('head')[0].appendChild(tag);

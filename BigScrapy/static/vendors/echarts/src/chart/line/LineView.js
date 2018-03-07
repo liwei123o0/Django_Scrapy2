@@ -45,7 +45,6 @@ define(function (require) {
     function sign(val) {
         return val >= 0 ? 1 : -1;
     }
-
     /**
      * @param {module:echarts/coord/cartesian/Cartesian2D|module:echarts/coord/polar/Polar} coordSys
      * @param {module:echarts/data/List} data

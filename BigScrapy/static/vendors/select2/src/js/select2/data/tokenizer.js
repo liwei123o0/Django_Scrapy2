@@ -76,7 +76,7 @@ define([
         return {
           id: params.term,
           text: params.term
-        };
+      };
       };
 
     while (i < term.length) {

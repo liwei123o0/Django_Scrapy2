@@ -10,7 +10,6 @@ define(function (require) {
 
     var BLOCK_SPLITER = new Array(60).join('-');
     var ITEM_SPLITER = '\t';
-
     /**
      * Group series into two types
      *  1. on category axis, like line, bar
@@ -144,7 +143,6 @@ define(function (require) {
     function trim(str) {
         return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
     }
-
     /**
      * If a block is tsv format
      */
@@ -157,7 +155,6 @@ define(function (require) {
     }
 
     var itemSplitRegex = new RegExp('[' + ITEM_SPLITER + ']+', 'g');
-
     /**
      * @param {string} tsv
      * @return {Array.<Object>}
@@ -353,7 +350,6 @@ define(function (require) {
             container.removeChild(root);
             self._dom = null;
         }
-
         eventTool.addEventListener(closeButton, 'click', close);
 
         eventTool.addEventListener(refreshButton, 'click', function () {

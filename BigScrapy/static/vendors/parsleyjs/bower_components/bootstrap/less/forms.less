@@ -2,6 +2,7 @@
 // Forms
 // --------------------------------------------------
 
+
 // Normalize non-controls
 //
 // Restyle and baseline non-control form elements.
@@ -29,6 +30,7 @@ label {
   margin-bottom: 5px;
   font-weight: bold;
 }
+
 
 // Normalize form controls
 
@@ -89,6 +91,7 @@ output {
   color: @input-color;
   vertical-align: middle;
 }
+
 
 // Common form controls
 //
@@ -182,7 +185,6 @@ output {
     cursor: pointer;
   }
 }
-
 .radio input[type="radio"],
 .radio-inline input[type="radio"],
 .checkbox input[type="checkbox"],
@@ -190,7 +192,6 @@ output {
   float: left;
   margin-left: -20px;
 }
-
 .radio + .radio,
 .checkbox + .checkbox {
   margin-top: -5px; // Move up sibling radios or checkboxes for tighter spacing
@@ -206,7 +207,6 @@ output {
   font-weight: normal;
   cursor: pointer;
 }
-
 .radio-inline + .radio-inline,
 .checkbox-inline + .checkbox-inline {
   margin-top: 0;
@@ -245,12 +245,10 @@ input[type="checkbox"],
 .has-warning {
   .form-control-validation(@state-warning-text; @state-warning-text; @state-warning-bg);
 }
-
 // Error
 .has-error {
   .form-control-validation(@state-danger-text; @state-danger-text; @state-danger-bg);
 }
-
 // Success
 .has-success {
   .form-control-validation(@state-success-text; @state-success-text; @state-success-bg);
@@ -319,7 +317,6 @@ input[type="checkbox"],
       margin-bottom: 0;
       padding-left: 0;
     }
-
     .radio input[type="radio"],
     .checkbox input[type="checkbox"] {
       float: none;

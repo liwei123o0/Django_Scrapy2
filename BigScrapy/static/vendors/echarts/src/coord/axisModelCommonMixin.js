@@ -11,7 +11,6 @@ define(function (require) {
             return obj;
         }
     }
-
     /**
      * Get categories
      */

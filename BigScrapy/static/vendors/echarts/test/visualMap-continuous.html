@@ -56,7 +56,7 @@
                 shadowOffsetX: 0,
                 shadowOffsetY: 0,
                 shadowColor: 'rgba(0, 0, 0, 0.3)'
-            }
+                    }
         };
 
         var last = 60;
@@ -67,7 +67,7 @@
                 i,
                 last += lastDelta
             ]);
-        }
+                }
 
         chart.setOption({
             grid: {
@@ -135,7 +135,7 @@
         var main = document.getElementById('main2');
         if (!main) {
             return;
-        }
+                }
         var chart = echarts.init(main);
 
         var data0 = [];
@@ -151,13 +151,13 @@
                 shadowOffsetX: 0,
                 shadowOffsetY: 0,
                 shadowColor: 'rgba(0, 0, 0, 0.5)'
-            }
+                    }
         };
 
         for (var i = 0; i < 60; i++) {
             data0.push(genDataItem());
             data1.push(genDataItem());
-        }
+                }
 
         function genDataItem() {
             return [
@@ -166,7 +166,7 @@
                 Math.random() * MAX_DIM2,
                 Math.random() * MAX_DIM3
             ];
-        }
+                }
 
         chart.setOption({
             color: ['#555', '#555'],
@@ -259,7 +259,7 @@
         var main = document.getElementById('main3');
         if (!main) {
             return;
-        }
+                }
         var chart = echarts.init(main);
 
         option = {
@@ -269,7 +269,7 @@
                 sublink: 'http://esa.un.org/wpp/Excel-Data/population.htm',
                 left: 'center',
                 top: 'top'
-            },
+                    },
             tooltip: {
                 trigger: 'item',
                 formatter: function (params) {
@@ -490,7 +490,7 @@
                         {name: 'Zimbabwe', value: 13076.978}
                     ]
                 }
-            ]
+                    ]
         };
 
         chart.setOption(option);
@@ -514,7 +514,7 @@
         var main = document.getElementById('main4');
         if (!main) {
             return;
-        }
+                }
         var chart = echarts.init(main);
 
         var xAxisData = [];
@@ -529,7 +529,7 @@
             data2.push(-Math.random().toFixed(2));
             data3.push((Math.random() * 5).toFixed(2));
             data4.push((Math.random() + 0.3).toFixed(2));
-        }
+                }
 
         var itemStyle = {
             normal: {

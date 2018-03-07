@@ -11,7 +11,7 @@ function toArray(obj, offset) {
 
     // This is necessary for IE8
     if (isNumber(offset)) {
-        args.push(offset);
+      args.push(offset);
     }
 
     return args.slice.apply(obj, args);
@@ -22,7 +22,7 @@ function proxy(fn, context) {
     var args = toArray(arguments, 2);
 
     return function () {
-        return fn.apply(context, args.concat(toArray(arguments)));
+      return fn.apply(context, args.concat(toArray(arguments)));
     };
 }
 
@@ -51,14 +51,14 @@ function getImageSize(image, callback) {
 
     // Modern browsers (ignore Safari, #120 & #509)
     if (image.naturalWidth && !IS_SAFARI) {
-        return callback(image.naturalWidth, image.naturalHeight);
+      return callback(image.naturalWidth, image.naturalHeight);
     }
 
     // IE8: Don't use `new Image()` here (#319)
     newImage = document.createElement('img');
 
     newImage.onload = function () {
-        callback(this.width, this.height);
+      callback(this.width, this.height);
     };
 
     newImage.src = image.src;
@@ -72,11 +72,11 @@ function getTransform(options) {
 
     // Scale should come first before rotate (#633)
     if (isNumber(scaleX) && isNumber(scaleY)) {
-        transforms.push('scale(' + scaleX + ',' + scaleY + ')');
+      transforms.push('scale(' + scaleX + ',' + scaleY + ')');
     }
 
     if (isNumber(rotate)) {
-        transforms.push('rotate(' + rotate + 'deg)');
+      transforms.push('rotate(' + rotate + 'deg)');
     }
 
     return transforms.length ? transforms.join(' ') : 'none';
@@ -94,16 +94,16 @@ function getRotatedSizes(data, isReversed) {
     var newHeight;
 
     if (!isReversed) {
-        newWidth = width * cosArc + height * sinArc;
-        newHeight = width * sinArc + height * cosArc;
+      newWidth = width * cosArc + height * sinArc;
+      newHeight = width * sinArc + height * cosArc;
     } else {
-        newWidth = width / (cosArc + sinArc / aspectRatio);
-        newHeight = newWidth / aspectRatio;
+      newWidth = width / (cosArc + sinArc / aspectRatio);
+      newHeight = newWidth / aspectRatio;
     }
 
     return {
-        width: newWidth,
-        height: newHeight
+      width: newWidth,
+      height: newHeight
     };
 }
 
@@ -127,47 +127,47 @@ function getSourceCanvas(image, data) {
     var rotated;
 
     if (scalable) {
-        translateX = canvasWidth / 2;
-        translateY = canvasHeight / 2;
+      translateX = canvasWidth / 2;
+      translateY = canvasHeight / 2;
     }
 
     if (rotatable) {
-        rotated = getRotatedSizes({
-            width: canvasWidth,
-            height: canvasHeight,
-            degree: rotate
-        });
+      rotated = getRotatedSizes({
+        width: canvasWidth,
+        height: canvasHeight,
+        degree: rotate
+      });
 
-        canvasWidth = rotated.width;
-        canvasHeight = rotated.height;
-        translateX = canvasWidth / 2;
-        translateY = canvasHeight / 2;
+      canvasWidth = rotated.width;
+      canvasHeight = rotated.height;
+      translateX = canvasWidth / 2;
+      translateY = canvasHeight / 2;
     }
 
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
 
     if (advanced) {
-        dstX = -dstWidth / 2;
-        dstY = -dstHeight / 2;
+      dstX = -dstWidth / 2;
+      dstY = -dstHeight / 2;
 
-        context.save();
-        context.translate(translateX, translateY);
+      context.save();
+      context.translate(translateX, translateY);
     }
 
     if (rotatable) {
-        context.rotate(rotate * Math.PI / 180);
+      context.rotate(rotate * Math.PI / 180);
     }
 
     // Should call `scale` after rotated
     if (scalable) {
-        context.scale(scaleX, scaleY);
+      context.scale(scaleX, scaleY);
     }
 
     context.drawImage(image, floor(dstX), floor(dstY), floor(dstWidth), floor(dstHeight));
 
     if (advanced) {
-        context.restore();
+      context.restore();
     }
 
     return canvas;
@@ -179,18 +179,18 @@ function getTouchesCenter(touches) {
     var pageY = 0;
 
     if (length) {
-        $.each(touches, function (i, touch) {
-            pageX += touch.pageX;
-            pageY += touch.pageY;
-        });
+      $.each(touches, function (i, touch) {
+        pageX += touch.pageX;
+        pageY += touch.pageY;
+      });
 
-        pageX /= length;
-        pageY /= length;
+      pageX /= length;
+      pageY /= length;
     }
 
     return {
-        pageX: pageX,
-        pageY: pageY
+      pageX: pageX,
+      pageY: pageY
     };
 }
 
@@ -199,7 +199,7 @@ function getStringFromCharCode(dataView, start, length) {
     var i;
 
     for (i = start, length += start; i < length; i++) {
-        str += fromCharCode(dataView.getUint8(i));
+      str += fromCharCode(dataView.getUint8(i));
     }
 
     return str;
@@ -221,60 +221,60 @@ function getOrientation(arrayBuffer) {
 
     // Only handle JPEG image (start by 0xFFD8)
     if (dataView.getUint8(0) === 0xFF && dataView.getUint8(1) === 0xD8) {
-        offset = 2;
+      offset = 2;
 
-        while (offset < length) {
-            if (dataView.getUint8(offset) === 0xFF && dataView.getUint8(offset + 1) === 0xE1) {
-                app1Start = offset;
-                break;
-            }
-
-            offset++;
+      while (offset < length) {
+        if (dataView.getUint8(offset) === 0xFF && dataView.getUint8(offset + 1) === 0xE1) {
+          app1Start = offset;
+          break;
         }
+
+        offset++;
+      }
     }
 
     if (app1Start) {
-        exifIDCode = app1Start + 4;
-        tiffOffset = app1Start + 10;
+      exifIDCode = app1Start + 4;
+      tiffOffset = app1Start + 10;
 
-        if (getStringFromCharCode(dataView, exifIDCode, 4) === 'Exif') {
-            endianness = dataView.getUint16(tiffOffset);
-            littleEndian = endianness === 0x4949;
+      if (getStringFromCharCode(dataView, exifIDCode, 4) === 'Exif') {
+        endianness = dataView.getUint16(tiffOffset);
+        littleEndian = endianness === 0x4949;
 
-            if (littleEndian || endianness === 0x4D4D /* bigEndian */) {
-                if (dataView.getUint16(tiffOffset + 2, littleEndian) === 0x002A) {
-                    firstIFDOffset = dataView.getUint32(tiffOffset + 4, littleEndian);
+        if (littleEndian || endianness === 0x4D4D /* bigEndian */) {
+          if (dataView.getUint16(tiffOffset + 2, littleEndian) === 0x002A) {
+            firstIFDOffset = dataView.getUint32(tiffOffset + 4, littleEndian);
 
-                    if (firstIFDOffset >= 0x00000008) {
-                        ifdStart = tiffOffset + firstIFDOffset;
-                    }
-                }
+            if (firstIFDOffset >= 0x00000008) {
+              ifdStart = tiffOffset + firstIFDOffset;
             }
+          }
         }
+      }
     }
 
     if (ifdStart) {
-        length = dataView.getUint16(ifdStart, littleEndian);
+      length = dataView.getUint16(ifdStart, littleEndian);
 
-        for (i = 0; i < length; i++) {
-            offset = ifdStart + i * 12 + 2;
+      for (i = 0; i < length; i++) {
+        offset = ifdStart + i * 12 + 2;
 
-            if (dataView.getUint16(offset, littleEndian) === 0x0112 /* Orientation */) {
+        if (dataView.getUint16(offset, littleEndian) === 0x0112 /* Orientation */) {
 
-                // 8 is the offset of the current tag's value
-                offset += 8;
+          // 8 is the offset of the current tag's value
+          offset += 8;
 
-                // Get the original orientation value
-                orientation = dataView.getUint16(offset, littleEndian);
+          // Get the original orientation value
+          orientation = dataView.getUint16(offset, littleEndian);
 
-                // Override the orientation with its default value for Safari (#120)
-                if (IS_SAFARI) {
-                    dataView.setUint16(offset, 1, littleEndian);
-                }
+          // Override the orientation with its default value for Safari (#120)
+          if (IS_SAFARI) {
+            dataView.setUint16(offset, 1, littleEndian);
+          }
 
-                break;
-            }
+          break;
         }
+      }
     }
 
     return orientation;
@@ -289,7 +289,7 @@ function dataURLToArrayBuffer(dataURL) {
     var i;
 
     for (i = 0; i < length; i++) {
-        dataView[i] = binary.charCodeAt(i);
+      dataView[i] = binary.charCodeAt(i);
     }
 
     return arrayBuffer;
@@ -303,7 +303,7 @@ function arrayBufferToDataURL(arrayBuffer) {
     var i;
 
     for (i = 0; i < length; i++) {
-        base64 += fromCharCode(dataView[i]);
+      base64 += fromCharCode(dataView[i]);
     }
 
     return 'data:image/jpeg;base64,' + btoa(base64);

@@ -230,7 +230,7 @@
           }
         }
       }
-    }
+        }
 
     // Return the modified object
     return target;
@@ -392,7 +392,7 @@
             }
           }
         }
-      }
+            }
 
       return obj;
     },
@@ -547,7 +547,7 @@
 
     return type === "array" || length === 0 ||
       typeof length === "number" && length > 0 && ( length - 1 ) in obj;
-  }
+    }
 
   var Sizzle =
     /*!
@@ -729,7 +729,7 @@
               target.length = j - 1;
             }
         };
-      }
+            }
 
       function Sizzle(selector, context, results, seed) {
         var match, elem, m, nodeType,
@@ -744,12 +744,12 @@
         results = results || [];
 
         if (!selector || typeof selector !== "string") {
-          return results;
-        }
+                    return results;
+                }
 
         if ((nodeType = context.nodeType) !== 1 && nodeType !== 9) {
           return [];
-        }
+                }
 
         if (documentIsHTML && !seed) {
 
@@ -834,11 +834,11 @@
               }
             }
           }
-        }
+                }
 
         // All others
         return select(selector.replace(rtrim, "$1"), context, results, seed);
-      }
+            }
 
       /**
        * Create key-value caches of limited size
@@ -943,7 +943,7 @@
           var name = elem.nodeName.toLowerCase();
           return name === "input" && elem.type === type;
         };
-      }
+            }
 
       /**
        * Returns a function to use in pseudos for buttons
@@ -985,7 +985,7 @@
        */
       function testContext(context) {
         return context && typeof context.getElementsByTagName !== strundefined && context;
-      }
+            }
 
 // Expose support vars for convenience
       support = Sizzle.support = {};
@@ -1746,7 +1746,7 @@
             // just as Sizzle does
             if (fn[expando]) {
               return fn(argument);
-            }
+                        }
 
             // But maintain support for old signatures
             if (fn.length > 1) {
@@ -1764,10 +1764,10 @@
                 function (elem) {
                   return fn(elem, 0, args);
                 };
-            }
+                        }
 
             return fn;
-          }
+                    }
         },
 
         pseudos: {
@@ -1974,10 +1974,10 @@
 // Add button/input type pseudos
       for (i in {radio: true, checkbox: true, file: true, password: true, image: true}) {
         Expr.pseudos[i] = createInputPseudo(i);
-      }
+            }
       for (i in {submit: true, reset: true}) {
         Expr.pseudos[i] = createButtonPseudo(i);
-      }
+            }
 
 // Easy API for creating new setFilters
       function setFilters() {
@@ -2051,7 +2051,7 @@
             Sizzle.error(selector) :
             // Cache the tokens
             tokenCache(selector, groups).slice(0);
-      }
+            }
 
       function toSelector(tokens) {
         var i = 0,
@@ -2128,7 +2128,7 @@
             return true;
           } :
           matchers[0];
-      }
+            }
 
       function condense(unmatched, map, filter, context, xml) {
         var elem,
@@ -2145,11 +2145,11 @@
                 map.push(i);
               }
             }
-          }
-        }
+                    }
+                }
 
         return newUnmatched;
-      }
+            }
 
       function setMatcher(preFilter, selector, matcher, postFilter, postFinder, postSelector) {
         if (postFilter && !postFilter[expando]) {
@@ -2242,7 +2242,7 @@
             }
           }
         });
-      }
+            }
 
       function matcherFromTokens(tokens) {
         var checkContext, matcher, j,
@@ -2294,10 +2294,10 @@
             }
             matchers.push(matcher);
           }
-        }
+                }
 
         return elementMatcher(matchers);
-      }
+            }
 
       function matcherFromGroupMatchers(elementMatchers, setMatchers) {
         var bySet = setMatchers.length > 0,
@@ -2396,7 +2396,7 @@
         return bySet ?
           markFunction(superMatcher) :
           superMatcher;
-      }
+            }
 
       compile = Sizzle.compile = function (selector, group /* Internal Use Only */) {
         var i,
@@ -2432,7 +2432,7 @@
           Sizzle(selector, contexts[i], results);
         }
         return results;
-      }
+            }
 
       function select(selector, context, results, seed) {
         var i, tokens, token, type, find,
@@ -2484,7 +2484,7 @@
               }
             }
           }
-        }
+                }
 
         // Compile and execute a filtering function
         // Provide `match` to avoid retokenization if we modified the selector above
@@ -2496,7 +2496,7 @@
           rsibling.test(selector) && testContext(context.parentNode) || context
         );
         return results;
-      }
+            }
 
 // One-time assignments
 
@@ -2610,7 +2610,7 @@
     return jQuery.grep(elements, function (elem) {
       return ( indexOf.call(qualifier, elem) >= 0 ) !== not;
     });
-  }
+    }
 
   jQuery.filter = function (expr, elems, not) {
     var elem = elems[0];
@@ -2645,7 +2645,7 @@
 
       for (i = 0; i < len; i++) {
         jQuery.find(selector, self[i], ret);
-      }
+            }
 
       // Needed because $( selector, context ) becomes $( context ).find( selector )
       ret = this.pushStack(len > 1 ? jQuery.unique(ret) : ret);
@@ -2825,7 +2825,7 @@
       }
 
       return matched;
-    }
+        }
   });
 
   jQuery.fn.extend({
@@ -2912,7 +2912,7 @@
     while ((cur = cur[dir]) && cur.nodeType !== 1) {
     }
     return cur;
-  }
+    }
 
   jQuery.each({
     parent: function (elem) {
@@ -2980,6 +2980,7 @@
     };
   });
   var rnotwhite = (/\S+/g);
+
 
 
 // String to Object options format cache
@@ -3053,7 +3054,7 @@
             memory = false; // To prevent further calls using add
             break;
           }
-        }
+                }
         firing = false;
         if (list) {
           if (stack) {
@@ -3065,7 +3066,7 @@
           } else {
             self.disable();
           }
-        }
+                }
       },
     // Actual Callbacks object
       self = {
@@ -3311,7 +3312,7 @@
             --remaining;
           }
         }
-      }
+            }
 
       // if we're not waiting on anything, resolve the master
       if (!remaining) {
@@ -3319,7 +3320,7 @@
       }
 
       return deferred.promise();
-    }
+        }
   });
 
 
@@ -3383,7 +3384,7 @@
     document.removeEventListener("DOMContentLoaded", completed, false);
     window.removeEventListener("load", completed, false);
     jQuery.ready();
-  }
+    }
 
   jQuery.ready.promise = function (obj) {
     if (!readyList) {
@@ -3455,7 +3456,7 @@
           fn(elems[i], key, raw ? value : value.call(elems[i], i, fn(elems[i], key)));
         }
       }
-    }
+        }
 
     return chainable ?
       elems :
@@ -3652,7 +3653,7 @@
       if (owner[this.expando]) {
         delete this.cache[owner[this.expando]];
       }
-    }
+        }
   };
   var data_priv = new Data();
 
@@ -3701,7 +3702,7 @@
       }
     }
     return data;
-  }
+    }
 
   jQuery.extend({
     hasData: function (elem) {
@@ -3753,7 +3754,7 @@
         }
 
         return data;
-      }
+            }
 
       // Sets multiple values
       if (typeof key === "object") {
@@ -3956,7 +3957,7 @@
       }
       resolve();
       return defer.promise(obj);
-    }
+        }
   });
   var pnum = (/[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/).source;
 
@@ -4002,7 +4003,7 @@
 
   function returnTrue() {
     return true;
-  }
+    }
 
   function returnFalse() {
     return false;
@@ -4326,7 +4327,7 @@
             }
           }
         }
-      }
+            }
 
       return event.result;
     },
@@ -4380,7 +4381,7 @@
             }
           }
         }
-      }
+            }
 
       // Call the postDispatch hook for the mapped type
       if (special.postDispatch) {
@@ -4426,12 +4427,12 @@
             }
           }
         }
-      }
+            }
 
       // Add the remaining (directly-bound) handlers
       if (delegateCount < handlers.length) {
         handlerQueue.push({elem: this, handlers: handlers.slice(delegateCount)});
-      }
+            }
 
       return handlerQueue;
     },
@@ -4571,7 +4572,7 @@
           }
         }
       }
-    },
+        },
 
     simulate: function (type, elem, event, bubble) {
       // Piggyback on a donor event to simulate a different one.
@@ -4594,20 +4595,20 @@
       if (e.isDefaultPrevented()) {
         event.preventDefault();
       }
-    }
+        }
   };
 
   jQuery.removeEvent = function (elem, type, handle) {
     if (elem.removeEventListener) {
       elem.removeEventListener(type, handle, false);
-    }
+        }
   };
 
   jQuery.Event = function (src, props) {
     // Allow instantiation without the 'new' keyword
     if (!(this instanceof jQuery.Event)) {
       return new jQuery.Event(src, props);
-    }
+        }
 
     // Event object
     if (src && src.type) {
@@ -4835,7 +4836,7 @@
       if (elem) {
         return jQuery.event.trigger(type, data, elem, true);
       }
-    }
+        }
   });
 
 
@@ -4897,7 +4898,7 @@
     }
 
     return elem;
-  }
+    }
 
 // Mark scripts as having already been evaluated
   function setGlobalEval(elems, refElements) {
@@ -4909,7 +4910,7 @@
         elems[i], "globalEval", !refElements || data_priv.get(refElements[i], "globalEval")
       );
     }
-  }
+    }
 
   function cloneCopyEvent(src, dest) {
     var i, l, type, pdataOld, pdataCur, udataOld, udataCur, events;
@@ -4934,7 +4935,7 @@
           }
         }
       }
-    }
+        }
 
     // 2. Copy user data
     if (data_user.hasData(src)) {
@@ -4943,7 +4944,7 @@
 
       data_user.set(dest, udataCur);
     }
-  }
+    }
 
   function getAll(context, tag) {
     var ret = context.getElementsByTagName ? context.getElementsByTagName(tag || "*") :
@@ -4967,7 +4968,7 @@
     } else if (nodeName === "input" || nodeName === "textarea") {
       dest.defaultValue = src.defaultValue;
     }
-  }
+    }
 
   jQuery.extend({
     clone: function (elem, dataAndEvents, deepDataAndEvents) {
@@ -5094,7 +5095,7 @@
             }
           }
         }
-      }
+            }
 
       return fragment;
     },
@@ -5126,11 +5127,11 @@
               delete data_priv.cache[key];
             }
           }
-        }
+                }
         // Discard any remaining `user` data
         delete data_user.cache[elem[data_user.expando]];
-      }
-    }
+            }
+        }
   });
 
   jQuery.fn.extend({
@@ -5367,11 +5368,11 @@
               }
             }
           }
-        }
-      }
+                }
+            }
 
       return this;
-    }
+        }
   });
 
   jQuery.each({
@@ -5461,7 +5462,7 @@
     }
 
     return display;
-  }
+    }
 
   var rmargin = (/^margin/);
 
@@ -5517,7 +5518,7 @@
       // IE returns zIndex value as an integer.
     ret + "" :
       ret;
-  }
+    }
 
 
   function addGetHookIf(conditionFn, hookFn) {
@@ -5612,7 +5613,7 @@
           return ret;
         }
       });
-    }
+        }
   })();
 
 
@@ -5674,7 +5675,7 @@
     }
 
     return origName;
-  }
+    }
 
   function setPositiveNumber(elem, value, subtract) {
     var matches = rnumsplit.exec(value);
@@ -5718,10 +5719,10 @@
           val += jQuery.css(elem, "border" + cssExpand[i] + "Width", true, styles);
         }
       }
-    }
+        }
 
     return val;
-  }
+    }
 
   function getWidthOrHeight(elem, name, extra) {
 
@@ -5765,7 +5766,7 @@
           styles
         )
       ) + "px";
-  }
+    }
 
   function showHide(elements, show) {
     var display, elem, hidden,
@@ -5804,7 +5805,7 @@
           }
         }
       }
-    }
+        }
 
     // Set the display of most of the elements in a second loop
     // to avoid the constant reflow
@@ -5816,10 +5817,10 @@
       if (!show || elem.style.display === "none" || elem.style.display === "") {
         elem.style.display = show ? values[index] || "" : "none";
       }
-    }
+        }
 
     return elements;
-  }
+    }
 
   jQuery.extend({
     // Add in style property hooks for overriding the default
@@ -5953,7 +5954,7 @@
         return extra === true || jQuery.isNumeric(num) ? num || 0 : val;
       }
       return val;
-    }
+        }
   });
 
   jQuery.each(["height", "width"], function (i, name) {
@@ -6022,7 +6023,7 @@
 
     if (!rmargin.test(prefix)) {
       jQuery.cssHooks[prefix + suffix].set = setPositiveNumber;
-    }
+        }
   });
 
   jQuery.fn.extend({
@@ -6066,13 +6067,13 @@
           jQuery(this).hide();
         }
       });
-    }
+        }
   });
 
 
   function Tween(elem, options, prop, end, easing) {
     return new Tween.prototype.init(elem, options, prop, end, easing);
-  }
+    }
 
   jQuery.Tween = Tween;
 
@@ -6151,7 +6152,7 @@
           tween.elem[tween.prop] = tween.now;
         }
       }
-    }
+        }
   };
 
 // Support: IE9
@@ -6243,7 +6244,7 @@
       fxNow = undefined;
     });
     return ( fxNow = jQuery.now() );
-  }
+    }
 
 // Generate parameters to create a standard animation
   function genFx(type, includeWidth) {
@@ -6264,7 +6265,7 @@
     }
 
     return attrs;
-  }
+    }
 
   function createTween(value, prop, animation) {
     var tween,
@@ -6278,7 +6279,7 @@
         return tween;
       }
     }
-  }
+    }
 
   function defaultPrefilter(elem, props, opts) {
     /* jshint validthis: true */
@@ -6335,7 +6336,7 @@
 
         style.display = "inline-block";
       }
-    }
+        }
 
     if (opts.overflow) {
       style.overflow = "hidden";
@@ -6344,7 +6345,7 @@
         style.overflowX = opts.overflow[1];
         style.overflowY = opts.overflow[2];
       });
-    }
+        }
 
     // show/hide pass
     for (prop in props) {
@@ -6363,7 +6364,7 @@
         }
         orig[prop] = dataShow && dataShow[prop] || jQuery.style(elem, prop);
       }
-    }
+        }
 
     if (!jQuery.isEmptyObject(orig)) {
       if (dataShow) {
@@ -6404,8 +6405,8 @@
           }
         }
       }
+        }
     }
-  }
 
   function propFilter(props, specialEasing) {
     var index, name, easing, value, hooks;
@@ -6441,8 +6442,8 @@
       } else {
         specialEasing[name] = easing;
       }
+        }
     }
-  }
 
   function Animation(elem, properties, options) {
     var result,
@@ -6525,7 +6526,7 @@
       if (result) {
         return result;
       }
-    }
+        }
 
     jQuery.map(props, createTween, animation);
 
@@ -6546,7 +6547,7 @@
       .done(animation.opts.done, animation.opts.complete)
       .fail(animation.opts.fail)
       .always(animation.opts.always);
-  }
+    }
 
   jQuery.Animation = jQuery.extend(Animation, {
 
@@ -6608,7 +6609,7 @@
     };
 
     return opt;
-  };
+    };
 
   jQuery.fn.extend({
     fadeTo: function (speed, to, easing, callback) {
@@ -6690,7 +6691,7 @@
     finish: function (type) {
       if (type !== false) {
         type = type || "fx";
-      }
+            }
       return this.each(function () {
         var index,
           data = data_priv.get(this),
@@ -6727,7 +6728,7 @@
         // turn off finishing flag
         delete data.finish;
       });
-    }
+        }
   });
 
   jQuery.each(["toggle", "show", "hide"], function (i, name) {
@@ -6948,8 +6949,8 @@
             return value;
           }
         }
-      }
-    }
+            }
+        }
   });
 
 // Hooks for boolean attributes
@@ -6963,7 +6964,7 @@
       }
       return name;
     }
-  };
+    };
   jQuery.each(jQuery.expr.match.bool.source.match(/\w+/g), function (i, name) {
     var getter = attrHandle[name] || jQuery.find.attr;
 
@@ -7040,7 +7041,7 @@
             -1;
         }
       }
-    }
+        }
   });
 
 // Support: IE9+
@@ -7114,7 +7115,7 @@
             }
           }
         }
-      }
+            }
 
       return this;
     },
@@ -7129,7 +7130,7 @@
         return this.each(function (j) {
           jQuery(this).removeClass(value.call(this, j, this.className));
         });
-      }
+            }
       if (proceed) {
         classes = ( value || "" ).match(rnotwhite) || [];
 
@@ -7167,13 +7168,13 @@
 
       if (typeof stateVal === "boolean" && type === "string") {
         return stateVal ? this.addClass(value) : this.removeClass(value);
-      }
+            }
 
       if (jQuery.isFunction(value)) {
         return this.each(function (i) {
           jQuery(this).toggleClass(value.call(this, i, this.className, stateVal), stateVal);
         });
-      }
+            }
 
       return this.each(function () {
         if (type === "string") {
@@ -7216,10 +7217,10 @@
         if (this[i].nodeType === 1 && (" " + this[i].className + " ").replace(rclass, " ").indexOf(className) >= 0) {
           return true;
         }
-      }
+            }
 
       return false;
-    }
+        }
   });
 
 
@@ -7285,7 +7286,7 @@
           this.value = val;
         }
       });
-    }
+        }
   });
 
   jQuery.extend({
@@ -7348,7 +7349,7 @@
           return values;
         }
       }
-    }
+        }
   });
 
 // Radios and checkboxes getter/setter
@@ -7366,7 +7367,7 @@
         // "" is returned instead of "on" if a value isn't specified
         return elem.getAttribute("value") === null ? "on" : elem.value;
       };
-    }
+        }
   });
 
 
@@ -7410,6 +7411,7 @@
   var nonce = jQuery.now();
 
   var rquery = (/\?/);
+
 
 
 // Support: Android 2.3
@@ -7543,10 +7545,10 @@
         }
       });
       return selected;
-    }
+        }
 
     return inspect(options.dataTypes[0]) || !inspected["*"] && inspect("*");
-  }
+    }
 
 // A special extend for ajax options
 // that takes "flat" options (not to be deep extended)
@@ -7565,7 +7567,7 @@
     }
 
     return target;
-  }
+    }
 
   /* Handles responses to an ajax request:
    * - finds the right dataType (mediates between content-type and expected dataType)
@@ -7611,7 +7613,7 @@
       }
       // Or just use first one
       finalDataType = finalDataType || firstDataType;
-    }
+        }
 
     // If we found a dataType
     // We add the dataType to the list if needed
@@ -7621,8 +7623,8 @@
         dataTypes.unshift(finalDataType);
       }
       return responses[finalDataType];
+        }
     }
-  }
 
   /* Chain conversions given the request and the original response
    * Also sets the responseXXX fields on the jqXHR instance
@@ -7711,12 +7713,12 @@
               }
             }
           }
+                }
+            }
         }
-      }
-    }
 
     return {state: "success", data: response};
-  }
+    }
 
   jQuery.extend({
 
@@ -7952,12 +7954,12 @@
           ( parts[3] || ( parts[1] === "http:" ? "80" : "443" ) ) !==
           ( ajaxLocParts[3] || ( ajaxLocParts[1] === "http:" ? "80" : "443" ) ) )
         );
-      }
+            }
 
       // Convert data if not already a string
       if (s.data && s.processData && typeof s.data !== "string") {
         s.data = jQuery.param(s.data, s.traditional);
-      }
+            }
 
       // Apply prefilters
       inspectPrefiltersOrTransports(prefilters, s, options, jqXHR);
@@ -8194,7 +8196,7 @@
             jQuery.event.trigger("ajaxStop");
           }
         }
-      }
+            }
 
       return jqXHR;
     },
@@ -8205,7 +8207,7 @@
 
     getScript: function (url, callback) {
       return jQuery.get(url, undefined, callback, "script");
-    }
+        }
   });
 
   jQuery.each(["get", "post"], function (i, method) {
@@ -8244,7 +8246,7 @@
       global: false,
       "throws": true
     });
-  };
+    };
 
 
   jQuery.fn.extend({
@@ -8314,7 +8316,7 @@
           jQuery(this).replaceWith(this.childNodes);
         }
       }).end();
-    }
+        }
   });
 
 
@@ -8356,11 +8358,11 @@
         buildParams(prefix + "[" + name + "]", obj[name], traditional, add);
       }
 
-    } else {
+        } else {
       // Serialize scalar item.
       add(prefix, obj);
+        }
     }
-  }
 
 // Serialize an array of form elements or a set of
 // key/values into a query string
@@ -8551,7 +8553,7 @@
           }
         }
       };
-    }
+        }
   });
 
 
@@ -8610,7 +8612,7 @@
           }
         }
       };
-    }
+        }
   });
 
 
@@ -8692,8 +8694,10 @@
 
       // Delegate to script
       return "script";
-    }
+        }
   });
+
+
 
 
 // data: string of html
@@ -8940,7 +8944,7 @@
 
         return offsetParent || docElem;
       });
-    }
+        }
   });
 
 // Create scrollLeft and scrollTop methods
@@ -9027,7 +9031,7 @@
         }, type, chainable ? margin : undefined, chainable, null);
       };
     });
-  });
+    });
 
 
 // The number of elements contained in the matched element set

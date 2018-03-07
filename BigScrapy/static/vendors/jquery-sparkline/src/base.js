@@ -20,7 +20,7 @@ $.fn.sparkline = function (userValues, userOptions) {
                 values = vals.replace(/(^\s*<!--)|(-->\s*$)|\s+/g, '').split(',');
             } else {
                 values = userValues;
-            }
+                }
 
             width = options.get('width') === 'auto' ? values.length * options.get('defaultPixelsPerValue') : options.get('width');
             if (options.get('height') === 'auto') {
@@ -35,7 +35,7 @@ $.fn.sparkline = function (userValues, userOptions) {
                 }
             } else {
                 height = options.get('height');
-            }
+                }
 
             if (!options.get('disableInteraction')) {
                 mhandler = $.data(this, '_jqs_mhandler');
@@ -47,7 +47,7 @@ $.fn.sparkline = function (userValues, userOptions) {
                 }
             } else {
                 mhandler = false;
-            }
+                }
 
             if (options.get('composite') && !$.data(this, '_jqs_vcanvas')) {
                 if (!$.data(this, '_jqs_errnotify')) {
@@ -55,7 +55,7 @@ $.fn.sparkline = function (userValues, userOptions) {
                     $.data(this, '_jqs_errnotify', true);
                 }
                 return;
-            }
+                }
 
             sp = new $.fn.sparkline[options.get('type')](this, values, options, width, height);
 
@@ -72,13 +72,13 @@ $.fn.sparkline = function (userValues, userOptions) {
                     if (pending[i - 1][0] == this) {
                         pending.splice(i - 1, 1);
                     }
+                    }
                 }
-            }
             pending.push([this, render]);
             $.data(this, '_jqs_pending', true);
         } else {
             render.call(this);
-        }
+            }
     });
 };
 
@@ -102,7 +102,7 @@ $.sparkline_display_visible = function () {
             $.data(pending[i][0], '_jqs_pending', false);
             done.push(i);
         }
-    }
+        }
     for (i = done.length; i; i--) {
         pending.splice(done[i - 1], 1);
     }
@@ -140,7 +140,7 @@ $.fn.sparkline.options = createClass({
         }
         if (this.tagValCache.hasOwnProperty(key)) {
             val = this.tagValCache.key;
-        } else {
+            } else {
             val = this.tag.getAttribute(prefix + key);
             if (val === undefined || val === null) {
                 val = UNSET_OPTION;
@@ -160,7 +160,7 @@ $.fn.sparkline.options = createClass({
                 val = normalizeValue(val);
             }
             this.tagValCache.key = val;
-        }
+            }
         return val;
     },
 
@@ -171,7 +171,7 @@ $.fn.sparkline.options = createClass({
             return tagOption;
         }
         return (result = this.mergedOptions[key]) === undefined ? defaultval : result;
-    }
+        }
 });
 
 
@@ -227,7 +227,7 @@ $.fn.sparkline._base = createClass({
             newRegion;
         if (x > this.canvasWidth || y > this.canvasHeight || x < 0 || y < 0) {
             return null;
-        }
+            }
         newRegion = this.getRegion(el, x, y);
         if (currentRegion !== newRegion) {
             if (currentRegion !== undefined && highlightEnabled) {
@@ -238,7 +238,7 @@ $.fn.sparkline._base = createClass({
                 this.renderHighlight();
             }
             return true;
-        }
+            }
         return false;
     },
 
@@ -277,12 +277,12 @@ $.fn.sparkline._base = createClass({
             formatter, format, fieldlen, j;
         if (this.currentRegion === undefined) {
             return '';
-        }
+            }
         fields = this.getCurrentRegionFields();
         formatter = options.get('tooltipFormatter');
         if (formatter) {
             return formatter(this, options, fields);
-        }
+            }
         if (options.get('tooltipChartTitle')) {
             header += '<div class="jqs jqstitle">' + options.get('tooltipChartTitle') + '</div>\n';
         }
@@ -306,9 +306,9 @@ $.fn.sparkline._base = createClass({
                 if ((j = $.inArray(fv, showFields)) != -1) {
                     newFields[j] = fields[i];
                 }
-            }
+                }
             fields = newFields;
-        }
+            }
         formatlen = formats.length;
         fieldlen = fields.length;
         for (i = 0; i < formatlen; i++) {
@@ -343,7 +343,7 @@ $.fn.sparkline._base = createClass({
             parse, mult, rgbnew, i;
         if (highlightColor) {
             return highlightColor;
-        }
+            }
         if (lighten) {
             // extract RGB values
             parse = /^#([0-9a-f])([0-9a-f])([0-9a-f])$/i.exec(color) || /^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i.exec(color);
@@ -358,7 +358,7 @@ $.fn.sparkline._base = createClass({
 
         }
         return color;
-    }
+        }
 
 });
 
@@ -380,7 +380,7 @@ barHighlightMixin = {
                 target.replaceWithShape(shapeids, newShapes);
                 this.regionShapes[currentRegion] = newShapes.id;
             }
-        }
+            }
     },
 
     render: function () {
@@ -405,13 +405,13 @@ barHighlightMixin = {
                 } else {
                     shapes.append();
                     regionShapes[i] = shapes.id; // store just the shapeid
-                }
-            } else {
+                    }
+                } else {
                 // null value
                 regionShapes[i] = null;
+                }
             }
-        }
         target.render();
-    }
+        }
 };
 

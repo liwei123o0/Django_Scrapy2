@@ -30,7 +30,6 @@
                                     max: 1
                                 }, this.repeaterPart = void 0;
                         }
-
                         function analyseRegex() {
                             var match, m, currentToken = new RegexToken(), opengroups = [];
                             for (opts.regexTokens = []; match = opts.tokenizer.exec(opts.regex);) switch (m = match[0],
@@ -66,7 +65,6 @@
                             }
                             currentToken.matches.length > 0 && opts.regexTokens.push(currentToken);
                         }
-
                         function validateRegexToken(token, fromGroup) {
                             var isvalid = !1;
                             fromGroup && (regexPart += "(", openGroupCount++);
@@ -101,7 +99,6 @@
                             }
                             return fromGroup && (regexPart += ")", openGroupCount--), isvalid;
                         }
-
                         var bufferStr, groupToken, cbuffer = maskset.buffer.slice(), regexPart = "", isValid = !1, openGroupCount = 0;
                         null === opts.regexTokens && analyseRegex(), cbuffer.splice(pos, 0, chrs), bufferStr = cbuffer.join("");
                         for (var i = 0; i < opts.regexTokens.length; i++) {

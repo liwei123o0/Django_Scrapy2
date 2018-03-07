@@ -62,10 +62,10 @@
 				data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()],
 				fill: false,
 				borderDash: [5, 5],
-			}, {
+				}, {
 				label: "My Second dataset",
 				data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()],
-			}, {
+				}, {
 				label: "Dataset with point data",
 				data: [{
 					x: newDateString(0),
@@ -81,8 +81,8 @@
 					y: randomScalingFactor()
 				}],
 				fill: false
-			}]
-		},
+				}]
+			},
 		options: {
 			responsive: true,
 			title: {
@@ -135,10 +135,10 @@
 					dataset.data[j] = randomScalingFactor();
 				}
 			});
-		});
+			});
 
 		window.myLine.update();
-	});
+		});
 
 	$('#addDataset').click(function () {
 		var newDataset = {
@@ -172,15 +172,15 @@
 				} else {
 					config.data.datasets[index].data.push(randomScalingFactor());
 				}
-			}
+				}
 
 			window.myLine.update();
-		}
+			}
 	});
 
 	$('#removeDataset').click(function () {
 		config.data.datasets.splice(0, 1);
-		window.myLine.update();
+			window.myLine.update();
 	});
 
 	$('#removeData').click(function () {
@@ -191,7 +191,7 @@
 		});
 
 		window.myLine.update();
-	});
+		});
 </script>
 </body>
 

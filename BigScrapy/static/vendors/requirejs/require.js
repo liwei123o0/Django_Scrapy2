@@ -1391,7 +1391,6 @@ var requirejs, require, define;
                     }
                     return ret || (value.exports && getGlobal(value.exports));
                 }
-
                 return fn;
             },
 

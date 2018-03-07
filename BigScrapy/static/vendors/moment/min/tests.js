@@ -1,3 +1,4 @@
+
 ;(function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined'
     && typeof require === 'function' ? factory(require('../../moment')) :
@@ -278,11 +279,9 @@
 
     test('parse', function (assert) {
         var tests = 'Januarie Jan_Februarie Feb_Maart Mar_April Apr_Mei Mei_Junie Jun_Julie Jul_Augustus Aug_September Sep_Oktober Okt_November Nov_Desember Des'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -766,11 +765,9 @@
 
     test('parse', function (assert) {
         var tests = 'يناير:يناير_فبراير:فبراير_مارس:مارس_أبريل:أبريل_ماي:ماي_يونيو:يونيو_يوليوز:يوليوز_غشت:غشت_شتنبر:شتنبر_أكتوبر:أكتوبر_نونبر:نونبر_دجنبر:دجنبر'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(':');
             equalTest(tests[i][0], 'MMM', i);
@@ -1254,11 +1251,9 @@
 
     test('parse', function (assert) {
         var tests = 'يناير:يناير_فبراير:فبراير_مارس:مارس_أبريل:أبريل_مايو:مايو_يونيو:يونيو_يوليو:يوليو_أغسطس:أغسطس_سبتمبر:سبتمبر_أكتوبر:أكتوبر_نوفمبر:نوفمبر_ديسمبر:ديسمبر'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1) + ' instead is month ' + moment(input, mmm).month());
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(':');
             equalTest(tests[i][0], 'MMM', i);
@@ -1754,7 +1749,6 @@
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(':');
             equalTest(tests[i][0], 'MMM', i);
@@ -2327,11 +2321,9 @@
 
     test('parse', function (assert) {
         var tests = months, i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1) + ' instead is month ' + moment(input, mmm).month());
         }
-
         for (i = 0; i < 12; i++) {
             equalTest(tests[i], 'MMM', i);
             equalTest(tests[i], 'MMM', i);
@@ -2833,11 +2825,9 @@
 
     test('parse', function (assert) {
         var tests = 'yanvar yan_fevral fev_mart mar_Aprel apr_may may_iyun iyn_iyul iyl_Avqust avq_sentyabr sen_oktyabr okt_noyabr noy_dekabr dek'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -3331,11 +3321,9 @@
 
     test('parse', function (assert) {
         var tests = 'студзень студ_люты лют_сакавік сак_красавік крас_травень трав_чэрвень чэрв_ліпень ліп_жнівень жнів_верасень вер_кастрычнік каст_лістапад ліст_снежань снеж'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -3529,7 +3517,6 @@
 
     test('calendar next week', function (assert) {
         var i, m;
-
         function makeFormat(d) {
             return '[У] dddd [ў] LT';
         }
@@ -3875,11 +3862,9 @@
 
     test('parse', function (assert) {
         var tests = 'януари янр_февруари фев_март мар_април апр_май май_юни юни_юли юли_август авг_септември сеп_октомври окт_ноември ное_декември дек'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -4378,11 +4363,9 @@
 
     test('parse', function (assert) {
         var tests = 'জানুয়ারী জানু_ফেবুয়ারী ফেব_মার্চ মার্চ_এপ্রিল এপর_মে মে_জুন জুন_জুলাই জুল_অগাস্ট অগ_সেপ্টেম্বর সেপ্ট_অক্টোবর অক্টো_নভেম্বর নভ_ডিসেম্বর ডিসেম্'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -4881,11 +4864,9 @@
 
     test('parse', function (assert) {
         var tests = 'ཟླ་བ་དང་པོ ཟླ་བ་དང་པོ._ཟླ་བ་གཉིས་པ ཟླ་བ་གཉིས་པ_ཟླ་བ་གསུམ་པ ཟླ་བ་གསུམ་པ_ཟླ་བ་བཞི་པ ཟླ་བ་བཞི་པ_ཟླ་བ་ལྔ་པ ཟླ་བ་ལྔ་པ_ཟླ་བ་དྲུག་པ ཟླ་བ་དྲུག་པ_ཟླ་བ་བདུན་པ ཟླ་བ་བདུན་པ_ཟླ་བ་བརྒྱད་པ ཟླ་བ་བརྒྱད་པ_ཟླ་བ་དགུ་པ ཟླ་བ་དགུ་པ_ཟླ་བ་བཅུ་པ ཟླ་བ་བཅུ་པ_ཟླ་བ་བཅུ་གཅིག་པ ཟླ་བ་བཅུ་གཅིག་པ_ཟླ་བ་བཅུ་གཉིས་པ ཟླ་བ་བཅུ་གཉིས་པ'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -5385,11 +5366,9 @@
 
     test('parse', function (assert) {
         var tests = 'Genver Gen_C\'hwevrer C\'hwe_Meurzh Meu_Ebrel Ebr_Mae Mae_Mezheven Eve_Gouere Gou_Eost Eos_Gwengolo Gwe_Here Her_Du Du_Kerzu Ker'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -5890,11 +5869,9 @@
 
     test('parse', function (assert) {
         var tests = 'januar jan._februar feb._mart mar._april apr._maj maj._juni jun._juli jul._august aug._septembar sep._oktobar okt._novembar nov._decembar dec.'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1) + ' inp ' + mmm);
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -6410,11 +6387,9 @@
 
     test('parse', function (assert) {
         var tests = 'gener gen._febrer febr._març mar._abril abr._maig mai._juny jun._juliol jul._agost ag._setembre set._octubre oct._novembre nov._desembre des.'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -6898,15 +6873,12 @@
 
     test('parse', function (assert) {
         var tests = 'leden led_únor úno_březen bře_duben dub_květen kvě_červen čvn_červenec čvc_srpen srp_září zář_říjen říj_listopad lis_prosinec pro'.split('_'), i;
-
         function equalTest(input, mmm, monthIndex) {
             assert.equal(moment(input, mmm).month(), monthIndex, input + ' ' + mmm + ' should be month ' + (monthIndex + 1));
         }
-
         function equalTestStrict(input, mmm, monthIndex) {
             assert.equal(moment(input, mmm, true).month(), monthIndex, input + ' ' + mmm + ' should be strict month ' + (monthIndex + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -7484,11 +7456,9 @@
 
     test('parse', function (assert) {
         var tests = 'кӑрлач кӑр_нарӑс нар_пуш пуш_ака ака_май май_ҫӗртме ҫӗр_утӑ утӑ_ҫурла ҫур_авӑн авн_юпа юпа_чӳк чӳк_раштав раш'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -7978,11 +7948,9 @@
     test('parse', function (assert) {
         var tests = 'Ionawr Ion_Chwefror Chwe_Mawrth Maw_Ebrill Ebr_Mai Mai_Mehefin Meh_Gorffennaf Gor_Awst Aws_Medi Med_Hydref Hyd_Tachwedd Tach_Rhagfyr Rhag'.split('_'),
             i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -8463,11 +8431,9 @@
 
     test('parse', function (assert) {
         var tests = 'januar jan_februar feb_marts mar_april apr_maj maj_juni jun_juli jul_august aug_september sep_oktober okt_november nov_december dec'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -9435,11 +9401,9 @@
 
     test('parse', function (assert) {
         var tests = 'Januar Jan._Februar Febr._März Mrz._April Apr._Mai Mai_Juni Jun._Juli Jul._August Aug._September Sept._Oktober Okt._November Nov._Dezember Dez.'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -10935,11 +10899,9 @@
 
     test('parse', function (assert) {
         var tests = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sep_October Oct_November Nov_December Dec'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -11918,11 +11880,9 @@
 
     test('parse', function (assert) {
         var tests = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sep_October Oct_November Nov_December Dec'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -12406,11 +12366,9 @@
 
     test('parse', function (assert) {
         var tests = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sep_October Oct_November Nov_December Dec'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -12894,11 +12852,9 @@
 
     test('parse', function (assert) {
         var tests = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sep_October Oct_November Nov_December Dec'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -13893,11 +13849,9 @@
 
     test('parse', function (assert) {
         var tests = 'januaro jan_februaro feb_marto mar_aprilo apr_majo maj_junio jun_julio jul_aŭgusto aŭg_septembro sep_oktobro okt_novembro nov_decembro dec'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -14382,11 +14336,9 @@
 
     test('parse', function (assert) {
         var tests = 'enero ene._febrero feb._marzo mar._abril abr._mayo may._junio jun._julio jul._agosto ago._septiembre sep._octubre oct._noviembre nov._diciembre dic.'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -14873,11 +14825,9 @@
 
     test('parse', function (assert) {
         var tests = 'jaanuar jaan_veebruar veebr_märts märts_aprill apr_mai mai_juuni juuni_juuli juuli_august aug_september sept_oktoober okt_november nov_detsember dets'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' peaks olema kuu ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -15384,11 +15334,9 @@
 
     test('parse', function (assert) {
         var tests = 'urtarrila urt._otsaila ots._martxoa mar._apirila api._maiatza mai._ekaina eka._uztaila uzt._abuztua abu._iraila ira._urria urr._azaroa aza._abendua abe.'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -15871,11 +15819,9 @@
 
     test('parse', function (assert) {
         var tests = 'ژانویه_فوریه_مارس_آوریل_مه_ژوئن_ژوئیه_اوت_سپتامبر_اکتبر_نوامبر_دسامبر'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1) + ' instead is month ' + moment(input, mmm).month());
         }
-
         for (i = 0; i < 12; i++) {
             equalTest(tests[i], 'MMM', i);
             equalTest(tests[i], 'MMMM', i);
@@ -16351,11 +16297,9 @@
 
     test('parse', function (assert) {
         var tests = 'tammikuu tammi_helmikuu helmi_maaliskuu maalis_huhtikuu huhti_toukokuu touko_kesäkuu kesä_heinäkuu heinä_elokuu elo_syyskuu syys_lokakuu loka_marraskuu marras_joulukuu joulu'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -16839,11 +16783,9 @@
 
     test('parse', function (assert) {
         var tests = 'januar jan_februar feb_mars mar_apríl apr_mai mai_juni jun_juli jul_august aug_september sep_oktober okt_november nov_desember des'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -18313,11 +18255,9 @@
     test('parse', function (assert) {
         var tests = 'janvier janv._février févr._mars mars_avril avr._mai mai_juin juin_juillet juil._août août_septembre sept._octobre oct._novembre nov._décembre déc.'.split('_'),
             i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -18798,11 +18738,9 @@
 
     test('parse', function (assert) {
         var tests = 'jannewaris jan._febrewaris feb._maart mrt._april apr._maaie mai._juny jun._july jul._augustus aug._septimber sep._oktober okt._novimber nov._desimber des.'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -19788,11 +19726,9 @@
 
     test('parse', function (assert) {
         var tests = 'Xaneiro Xan._Febreiro Feb._Marzo Mar._Abril Abr._Maio Mai._Xuño Xuñ._Xullo Xul._Agosto Ago._Setembro Set._Outubro Out._Novembro Nov._Decembro Dec.'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -20284,11 +20220,9 @@
 
     test('parse', function (assert) {
         var tests = 'ינואר ינו׳_פברואר פבר׳_מרץ מרץ_אפריל אפר׳_מאי מאי_יוני יוני_יולי יולי_אוגוסט אוג׳_ספטמבר ספט׳_אוקטובר אוק׳_נובמבר נוב׳_דצמבר דצמ׳'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -20736,11 +20670,9 @@
 
     test('parse', function (assert) {
         var tests = 'जनवरी जन._फ़रवरी फ़र._मार्च मार्च_अप्रैल अप्रै._मई मई_जून जून_जुलाई जुल._अगस्त अग._सितम्बर सित._अक्टूबर अक्टू._नवम्बर नव._दिसम्बर दिस.'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -21239,11 +21171,9 @@
 
     test('parse', function (assert) {
         var tests = 'siječanj sij._veljača velj._ožujak ožu._travanj tra._svibanj svi._lipanj lip._srpanj srp._kolovoz kol._rujan ruj._listopad lis._studeni stu._prosinac pro.'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -21760,11 +21690,9 @@
     test('parse', function (assert) {
         var tests = 'január jan_február feb_március márc_április ápr_május máj_június jún_július júl_augusztus aug_szeptember szept_október okt_november nov_december dec'.split('_'),
             i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -22260,11 +22188,9 @@
 
     test('parse', function (assert) {
         var tests = 'հունվար հնվ_փետրվար փտր_մարտ մրտ_ապրիլ ապր_մայիս մյս_հունիս հնս_հուլիս հլս_օգոստոս օգս_սեպտեմբեր սպտ_հոկտեմբեր հկտ_նոյեմբեր նմբ_դեկտեմբեր դկտ'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -22482,7 +22408,6 @@
 
     test('calendar next week', function (assert) {
         var i, m;
-
         function makeFormat(d) {
             return 'dddd [օրը ժամը] LT';
         }
@@ -22818,11 +22743,9 @@
 
     test('parse', function (assert) {
         var tests = 'Januari Jan_Februari Feb_Maret Mar_April Apr_Mei Mei_Juni Jun_Juli Jul_Agustus Ags_September Sep_Oktober Okt_November Nov_Desember Des'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -23268,11 +23191,9 @@
 
     test('parse', function (assert) {
         var tests = 'janúar jan_febrúar feb_mars mar_apríl apr_maí maí_júní jún_júlí júl_ágúst ágú_september sep_október okt_nóvember nóv_desember des'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -23762,11 +23683,9 @@
 
     test('parse', function (assert) {
         var tests = 'gennaio gen_febbraio feb_marzo mar_aprile apr_maggio mag_giugno giu_luglio lug_agosto ago_settembre set_ottobre ott_novembre nov_dicembre dic'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -24248,11 +24167,9 @@
 
     test('parse', function (assert) {
         var tests = '1月 1月_2月 2月_3月 3月_4月 4月_5月 5月_6月 6月_7月 7月_8月 8月_9月 9月_10月 10月_11月 11月_12月 12月'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -24698,11 +24615,9 @@
 
     test('parse', function (assert) {
         var tests = 'Januari Jan_Februari Feb_Maret Mar_April Apr_Mei Mei_Juni Jun_Juli Jul_Agustus Ags_September Sep_Oktober Okt_Nopember Nop_Desember Des'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -25649,11 +25564,9 @@
 
     test('parse', function (assert) {
         var tests = 'қаңтар қаң_ақпан ақп_наурыз нау_сәуір сәу_мамыр мам_маусым мау_шілде шіл_тамыз там_қыркүйек қыр_қазан қаз_қараша қар_желтоқсан жел'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -26142,7 +26055,6 @@
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -26644,11 +26556,9 @@
 
     test('parse', function (assert) {
         var tests = '1월 1월_2월 2월_3월 3월_4월 4월_5월 5월_6월 6월_7월 7월_8월 8월_9월 9월_10월 10월_11월 11월_12월 12월'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -27166,11 +27076,9 @@
 
     test('parse', function (assert) {
         var tests = 'январь янв_февраль фев_март март_апрель апр_май май_июнь июнь_июль июль_август авг_сентябрь сен_октябрь окт_ноябрь ноя_декабрь дек'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -28117,11 +28025,9 @@
 
     test('parse', function (assert) {
         var tests = 'ມັງກອນ ມັງກອນ_ກຸມພາ ກຸມພາ_ມີນາ ມີນາ_ເມສາ ເມສາ_ພຶດສະພາ ພຶດສະພາ_ມິຖຸນາ ມິຖຸນາ_ກໍລະກົດ ກໍລະກົດ_ສິງຫາ ສິງຫາ_ກັນຍາ ກັນຍາ_ຕຸລາ ຕຸລາ_ພະຈິກ ພະຈິກ_ທັນວາ ທັນວາ'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -28605,11 +28511,9 @@
 
     test('parse', function (assert) {
         var tests = 'sausis sau_vasaris vas_kovas kov_balandis bal_gegužė geg_birželis bir_liepa lie_rugpjūtis rgp_rugsėjis rgs_spalis spa_lapkritis lap_gruodis grd'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -29109,11 +29013,9 @@
 
     test('parse', function (assert) {
         var tests = 'janvāris jan_februāris feb_marts mar_aprīlis apr_maijs mai_jūnijs jūn_jūlijs jūl_augusts aug_septembris sep_oktobris okt_novembris nov_decembris dec'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -29618,11 +29520,9 @@
     test('parse', function (assert) {
         var tests = 'januar jan._februar feb._mart mar._april apr._maj maj_jun jun_jul jul_avgust avg._septembar sep._oktobar okt._novembar nov._decembar dec.'.split('_'),
             i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -30142,11 +30042,9 @@
 
     test('parse', function (assert) {
         var tests = 'јануари јан_февруари фев_март мар_април апр_мај мај_јуни јун_јули јул_август авг_септември сеп_октомври окт_ноември ное_декември дек'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -30644,11 +30542,9 @@
 
     test('parse', function (assert) {
         var tests = 'ജനുവരി ജനു._ഫെബ്രുവരി ഫെബ്രു._മാർച്ച് മാർ._ഏപ്രിൽ ഏപ്രി._മേയ് മേയ്_ജൂൺ ജൂൺ_ജൂലൈ ജൂലൈ._ഓഗസ്റ്റ് ഓഗ._സെപ്റ്റംബർ സെപ്റ്റ._ഒക്ടോബർ ഒക്ടോ._നവംബർ നവം._ഡിസംബർ ഡിസം.'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -31147,11 +31043,9 @@
 
     test('parse', function (assert) {
         var tests = 'जानेवारी जाने._फेब्रुवारी फेब्रु._मार्च मार्च._एप्रिल एप्रि._मे मे._जून जून._जुलै जुलै._ऑगस्ट ऑग._सप्टेंबर सप्टें._ऑक्टोबर ऑक्टो._नोव्हेंबर नोव्हें._डिसेंबर डिसें.'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -32643,7 +32537,6 @@
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -33203,11 +33096,9 @@
     test('parse', function (assert) {
         var tests = 'januar jan._februar feb._mars mars_april april_mai mai_juni juni_juli juli_august aug._september sep._oktober okt._november nov._desember des.'.split('_'),
             i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -33690,11 +33581,9 @@
 
     test('parse', function (assert) {
         var tests = 'जनवरी जन._फेब्रुवरी फेब्रु._मार्च मार्च_अप्रिल अप्रि._मई मई_जुन जुन_जुलाई जुलाई._अगष्ट अग._सेप्टेम्बर सेप्ट._अक्टोबर अक्टो._नोभेम्बर नोभे._डिसेम्बर डिसे.'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -34192,11 +34081,9 @@
 
     test('parse', function (assert) {
         var tests = 'januari jan._februari feb._maart mrt._april apr._mei mei._juni jun._juli jul._augustus aug._september sep._oktober okt._november nov._december dec.'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -34684,11 +34571,9 @@
 
     test('parse', function (assert) {
         var tests = 'januar jan_februar feb_mars mar_april apr_mai mai_juni jun_juli jul_august aug_september sep_oktober okt_november nov_desember des'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -35171,11 +35056,9 @@
 
     test('parse', function (assert) {
         var tests = 'ਜਨਵਰੀ ਜਨਵਰੀ_ਫ਼ਰਵਰੀ ਫ਼ਰਵਰੀ_ਮਾਰਚ ਮਾਰਚ_ਅਪ੍ਰੈਲ ਅਪ੍ਰੈਲ_ਮਈ ਮਈ_ਜੂਨ ਜੂਨ_ਜੁਲਾਈ ਜੁਲਾਈ_ਅਗਸਤ ਅਗਸਤ_ਸਤੰਬਰ ਸਤੰਬਰ_ਅਕਤੂਬਰ ਅਕਤੂਬਰ_ਨਵੰਬਰ ਨਵੰਬਰ_ਦਸੰਬਰ ਦਸੰਬਰ'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -35771,11 +35654,9 @@
 
     test('parse', function (assert) {
         var tests = 'styczeń stycznia sty_luty lutego lut_marzec marca mar_kwiecień kwietnia kwi_maj maja maj_czerwiec czerwca cze_lipiec lipca lip_sierpień sierpnia sie_wrzesień września wrz_październik października paź_listopad listopada lis_grudzień grudnia gru'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -35795,11 +35676,9 @@
 
     test('parse strict', function (assert) {
         var tests = 'styczeń stycznia sty_luty lutego lut_marzec marca mar_kwiecień kwietnia kwi_maj maja maj_czerwiec czerwca cze_lipiec lipca lip_sierpień sierpnia sie_wrzesień września wrz_październik października paź_listopad listopada lis_grudzień grudnia gru'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm, true).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMMM', i);
@@ -36787,11 +36666,9 @@
 
     test('parse', function (assert) {
         var tests = 'Janeiro Jan_Fevereiro Fev_Março Mar_Abril Abr_Maio Mai_Junho Jun_Julho Jul_Agosto Ago_Setembro Set_Outubro Out_Novembro Nov_Dezembro Dez'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -37270,11 +37147,9 @@
 
     test('parse', function (assert) {
         var tests = 'ianuarie ian._februarie febr._martie mart._aprilie apr._mai mai_iunie iun._iulie iul._august aug._septembrie sept._octombrie oct._noiembrie nov._decembrie dec.'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -37765,15 +37640,12 @@
 
     test('parse', function (assert) {
         var tests = 'январь янв._февраль февр._март март_апрель апр._май май_июнь июнь_июль июль_август авг._сентябрь сент._октябрь окт._ноябрь нояб._декабрь дек.'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         function equalTestStrict(input, mmm, monthIndex) {
             assert.equal(moment(input, mmm, true).month(), monthIndex, input + ' ' + mmm + ' should be strict month ' + (monthIndex + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -38896,11 +38768,9 @@
     /*jshint -W100*/
     test('parse', function (assert) {
         var tests = 'ජනවාරි ජන_පෙබරවාරි පෙබ_මාර්තු මාර්_අප්‍රේල් අප්_මැයි මැයි_ජූනි ජූනි_ජූලි ජූලි_අගෝස්තු අගෝ_සැප්තැම්බර් සැප්_ඔක්තෝබර් ඔක්_නොවැම්බර් නොවැ_දෙසැම්බර් දෙසැ'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -39377,11 +39247,9 @@
 
     test('parse', function (assert) {
         var tests = 'január jan._február feb._marec mar._apríl apr._máj máj_jún jún._júl júl._august aug._september sep._október okt._november nov._december dec.'.split('_'), i;
-
         function equalTest(input, mmm, monthIndex) {
             assert.equal(moment(input, mmm).month(), monthIndex, input + ' should be month ' + (monthIndex + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -39952,11 +39820,9 @@
 
     test('parse', function (assert) {
         var tests = 'januar jan._februar feb._marec mar._april apr._maj maj_junij jun._julij jul._avgust avg._september sep._oktober okt._november nov._december dec.'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -41065,11 +40931,9 @@
     test('parse', function (assert) {
         var tests = 'јануар јан._фебруар феб._март мар._април апр._мај мај_јун јун_јул јул_август авг._септембар сеп._октобар окт._новембар нов._децембар дец.'.split('_'),
             i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -41587,11 +41451,9 @@
     test('parse', function (assert) {
         var tests = 'januar jan._februar feb._mart mar._april apr._maj maj_jun jun_jul jul_avgust avg._septembar sep._oktobar okt._novembar nov._decembar dec.'.split('_'),
             i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -42108,11 +41970,9 @@
 
     test('parse', function (assert) {
         var tests = "Bhimbidvwane Bhi_Indlovana Ina_Indlov'lenkhulu Inu_Mabasa Mab_Inkhwekhweti Ink_Inhlaba Inh_Kholwane Kho_Ingci Igc_Inyoni Iny_Imphala Imp_Lweti lwe_Ingongoni Igo".split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -42628,11 +42488,9 @@
 
     test('parse', function (assert) {
         var tests = 'januari jan_februari feb_mars mar_april apr_maj maj_juni jun_juli jul_augusti aug_september sep_oktober okt_november nov_december dec'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -43115,11 +42973,9 @@
 
     test('parse', function (assert) {
         var tests = 'Januari Jan_Februari Feb_Machi Mac_Aprili Apr_Mei Mei_Juni Jun_Julai Jul_Agosti Ago_Septemba Sep_Oktoba Okt_Novemba Nov_Desemba Des'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -43602,11 +43458,9 @@
 
     test('parse', function (assert) {
         var tests = 'ஜனவரி ஜனவரி_பிப்ரவரி பிப்ரவரி_மார்ச் மார்ச்_ஏப்ரல் ஏப்ரல்_மே மே_ஜூன் ஜூன்_ஜூலை ஜூலை_ஆகஸ்ட் ஆகஸ்ட்_செப்டெம்பர் செப்டெம்பர்_அக்டோபர் அக்டோபர்_நவம்பர் நவம்பர்_டிசம்பர் டிசம்பர்'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -44092,11 +43946,9 @@
 
     test('parse', function (assert) {
         var tests = 'జనవరి జన._ఫిబ్రవరి ఫిబ్ర._మార్చి మార్చి_ఏప్రిల్ ఏప్రి._మే మే_జూన్ జూన్_జూలై జూలై_ఆగస్టు ఆగ._సెప్టెంబర్ సెప్._అక్టోబర్ అక్టో._నవంబర్ నవ._డిసెంబర్ డిసె.'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -44595,11 +44447,9 @@
 
     test('parse', function (assert) {
         var tests = 'มกราคม มกรา_กุมภาพันธ์ กุมภา_มีนาคม มีนา_เมษายน เมษา_พฤษภาคม พฤษภา_มิถุนายน มิถุนา_กรกฎาคม กรกฎา_สิงหาคม สิงหา_กันยายน กันยา_ตุลาคม ตุลา_พฤศจิกายน พฤศจิกา_ธันวาคม ธันวา'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -45046,11 +44896,9 @@
     test('parse', function (assert) {
         var tests = 'Enero Ene_Pebrero Peb_Marso Mar_Abril Abr_Mayo May_Hunyo Hun_Hulyo Hul_Agosto Ago_Setyembre Set_Oktubre Okt_Nobyembre Nob_Disyembre Dis'.split('_'),
             i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -46032,11 +45880,9 @@
 
     test('parse', function (assert) {
         var tests = 'Ocak Oca_Şubat Şub_Mart Mar_Nisan Nis_Mayıs May_Haziran Haz_Temmuz Tem_Ağustos Ağu_Eylül Eyl_Ekim Eki_Kasım Kas_Aralık Ara'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -46530,11 +46376,9 @@
 
     test('parse', function (assert) {
         var tests = 'Januar Jan_Fevraglh Fev_Març Mar_Avrïu Avr_Mai Mai_Gün Gün_Julia Jul_Guscht Gus_Setemvar Set_Listopäts Lis_Noemvar Noe_Zecemvar Zec'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -47021,11 +46865,9 @@
 
     test('parse', function (assert) {
         var tests = 'innayr innayr_brˤayrˤ brˤayrˤ_marˤsˤ marˤsˤ_ibrir ibrir_mayyw mayyw_ywnyw ywnyw_ywlywz ywlywz_ɣwšt ɣwšt_šwtanbir šwtanbir_ktˤwbrˤ ktˤwbrˤ_nwwanbir nwwanbir_dwjnbir dwjnbir'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -47508,11 +47350,9 @@
 
     test('parse', function (assert) {
         var tests = 'ⵉⵏⵏⴰⵢⵔ ⵉⵏⵏⴰⵢⵔ_ⴱⵕⴰⵢⵕ ⴱⵕⴰⵢⵕ_ⵎⴰⵕⵚ ⵎⴰⵕⵚ_ⵉⴱⵔⵉⵔ ⵉⴱⵔⵉⵔ_ⵎⴰⵢⵢⵓ ⵎⴰⵢⵢⵓ_ⵢⵓⵏⵢⵓ ⵢⵓⵏⵢⵓ_ⵢⵓⵍⵢⵓⵣ ⵢⵓⵍⵢⵓⵣ_ⵖⵓⵛⵜ ⵖⵓⵛⵜ_ⵛⵓⵜⴰⵏⴱⵉⵔ ⵛⵓⵜⴰⵏⴱⵉⵔ_ⴽⵟⵓⴱⵕ ⴽⵟⵓⴱⵕ_ⵏⵓⵡⴰⵏⴱⵉⵔ ⵏⵓⵡⴰⵏⴱⵉⵔ_ⴷⵓⵊⵏⴱⵉⵔ ⴷⵓⵊⵏⴱⵉⵔ'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -47995,11 +47835,9 @@
 
     test('parse', function (assert) {
         var tests = 'січень січ_лютий лют_березень бер_квітень квіт_травень трав_червень черв_липень лип_серпень серп_вересень вер_жовтень жовт_листопад лист_грудень груд'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -48515,11 +48353,9 @@
 
     test('parse', function (assert) {
         var tests = 'январ янв_феврал фев_март мар_апрел апр_май май_июн июн_июл июл_август авг_сентябр сен_октябр окт_ноябр ноя_декабр дек'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -49499,11 +49335,9 @@
 
     test('parse', function (assert) {
         var tests = 'J~áñúá~rý J~áñ_F~ébrú~árý ~Féb_~Márc~h ~Már_Áp~ríl ~Ápr_~Máý ~Máý_~Júñé~ ~Júñ_Júl~ý ~Júl_Áú~gúst~ ~Áúg_Sép~témb~ér ~Sép_Ó~ctób~ér ~Óct_Ñ~óvém~bér ~Ñóv_~Décé~mbér ~Déc'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -50467,11 +50301,9 @@
 
     test('parse', function (assert) {
         var tests = '一月 1月_二月 2月_三月 3月_四月 4月_五月 5月_六月 6月_七月 7月_八月 8月_九月 9月_十月 10月_十一月 11月_十二月 12月'.split('_'), i;
-
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
-
         for (i = 0; i < 12; i++) {
             tests[i] = tests[i].split(' ');
             equalTest(tests[i][0], 'MMM', i);
@@ -54423,7 +54255,6 @@
         function isNegative(n) {
             return (1 / n) < 0;
         }
-
         assert.ok(!isNegative(moment([2012, 0, 1]).diff(moment([2012, 0, 1]), 'months')), 'month diff on same date is zero, not -0');
         assert.ok(!isNegative(moment([2012, 0, 1]).diff(moment([2012, 0, 1]), 'years')), 'year diff on same date is zero, not -0');
         assert.ok(!isNegative(moment([2012, 0, 1]).diff(moment([2012, 0, 1]), 'quarters')), 'quarter diff on same date is zero, not -0');

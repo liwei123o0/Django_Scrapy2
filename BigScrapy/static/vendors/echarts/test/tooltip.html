@@ -45,7 +45,7 @@
             data2.push(-Math.random().toFixed(2));
             data3.push((Math.random() + 0.5).toFixed(2));
             data4.push((Math.random() + 0.3).toFixed(2));
-        }
+                }
 
         chart.setOption({
             tooltip: {         // Option config. Can be overwrited by series or data
@@ -87,7 +87,7 @@
                     return 'loading';
                 }
                 //formatter: "Template formatter: <br/>{b}<br/>{a}:{c}<br/>{a1}:{c1}"
-            },
+                    },
             toolbox: {
                 show: true,
                 feature: {
@@ -106,19 +106,19 @@
                 type: 'value'
             },
             series: [
-                {
-                    name: '坐标轴触发1',
-                    type: 'bar',
-                    data: [
-                        {value: 320, extra: 'Hello~'},
-                        332, 301, 334, 390, 330, 320
-                    ]
-                },
-                {
-                    name: '坐标轴触发2',
-                    type: 'bar',
-                    data: [862, 1018, 964, 1026, 1679, 1600, 157]
-                },
+                        {
+                            name: '坐标轴触发1',
+                            type: 'bar',
+                            data: [
+                                {value: 320, extra: 'Hello~'},
+                                332, 301, 334, 390, 330, 320
+                            ]
+                        },
+                        {
+                            name: '坐标轴触发2',
+                            type: 'bar',
+                            data: [862, 1018, 964, 1026, 1679, 1600, 157]
+                        },
                 {
                     name: '数据项触发1',
                     type: 'bar',
@@ -157,7 +157,7 @@
                     stack: '数据项',
                     data: [150, 232, 201, 154, 190, 330, 410]
                 }
-            ]
+                    ]
         });
     });
 </script>

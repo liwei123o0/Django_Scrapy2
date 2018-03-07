@@ -75,12 +75,12 @@
             categoryData: categoryData,
             values: values
         };
-    }
+            }
 
     function parseDate(timestamp) {
         var date = new Date(timestamp);
         return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-    }
+            }
 
     function update() {
 
@@ -88,12 +88,12 @@
             legend: {
                 data: ['上证指数', '开盘']
             },
-            tooltip: {
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'line'
-                }
-            },
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'line'
+                        }
+                    },
             grid: {
                 left: '10%',
                 right: '10%',
@@ -161,13 +161,13 @@
                                 '日最高：' + param.data[3] + '<br/>'
                             ].join('')
                         }
-                    },
+                            },
                     markPoint: {
                         data: [
                             {
                                 name: '某个坐标',
                                 coord: ['2013/5/21', 2300]
-                            },
+                                    },
                             {
                                 name: '某个屏幕坐标',
                                 x: 100,
@@ -200,14 +200,14 @@
                                 name: 'average value (dim:close)',
                                 type: 'average',
                                 valueDim: 'close'
-                            }
+                                    }
                         ],
                         tooltip: {
                             formatter: function (param) {
                                 return param.name + '<br>' + (param.data.coord || '');
                             }
-                        }
-                    },
+                                }
+                            },
                     markLine: {
                         data: [
                             [
@@ -232,8 +232,8 @@
                                 valueDim: 'open'
                             }
                         ]
-                    }
-                }
+                            }
+                        }
             ]
         });
 

@@ -9,7 +9,6 @@
         body {
             margin: 0;
         }
-
         html, body, #option-view-chart {
             height: 100%;
         }
@@ -56,10 +55,10 @@
                 target.children.push(child);
                 convert(source[key], child, path);
             }
-        }
+            }
 
         target.value = source.$count || 1;
-    }
+        }
 
     function initEcharts(rawData) {
         chart.hideLoading();
@@ -72,7 +71,7 @@
             title: {
                 text: '配置项查询分布',
                 left: 'center'
-            },
+                },
             tooltip: {},
             series: [{
                 name: 'option',
@@ -132,7 +131,7 @@
                                 ]
                             }
                         ]
-                    }
+                        }
                 ],
                 leafDepth: 1,
                 nodeClick: 'link',
@@ -141,7 +140,7 @@
                     //     gapWidth: 1,
                     //     borderWidth: 1
                     // }
-                },
+                    },
                 levels: [
                     {
                         itemStyle: {
@@ -150,8 +149,8 @@
                                 borderWidth: 4,
                                 gapWidth: 2
                             }
-                        }
-                    },
+                            }
+                        },
                     {
                         itemStyle: {
                             normal: {

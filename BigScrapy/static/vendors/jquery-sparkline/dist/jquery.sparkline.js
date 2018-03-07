@@ -208,7 +208,7 @@
             define(['jquery'], factory);
         } else if (jQuery && !jQuery.fn.sparkline) {
             factory(jQuery);
-        }
+    }
     }
     (function ($) {
         'use strict';
@@ -352,7 +352,7 @@
                         }
                     }
                 }
-            };
+        };
         };
 
         // You can have tooltips use a css class other than jqstooltip by specifying tooltipClassname
@@ -393,9 +393,9 @@
                 if (arguments[0]) {
                     Class.prototype = $.extend(new arguments[0](), arguments[arguments.length - 1]);
                     Class._super = arguments[0].prototype;
-                } else {
+            } else {
                     Class.prototype = arguments[arguments.length - 1];
-                }
+            }
                 if (arguments.length > 2) {
                     args = Array.prototype.slice.call(arguments, 1, -1);
                     args.unshift(Class.prototype);
@@ -446,9 +446,9 @@
                         lookup = lookups[lookupkey];
                         if (lookup.get) { // RangeMap
                             return lookups[lookupkey].get(fieldvalue) || fieldvalue;
-                        } else {
+                    } else {
                             return lookups[lookupkey][fieldvalue] || fieldvalue;
-                        }
+                    }
                     }
                     if (isNumber(fieldvalue)) {
                         if (options.get('numberFormatter')) {
@@ -458,7 +458,7 @@
                                 options.get('numberDigitGroupCount'),
                                 options.get('numberDigitGroupSep'),
                                 options.get('numberDecimalMark'));
-                        }
+                    }
                     }
                     return fieldvalue;
                 });
@@ -493,7 +493,7 @@
                     vl = (values.length * q + 2) / 4;
                     return vl % 1 ? (values[Math.floor(vl)] + values[Math.floor(vl) - 1]) / 2 : values[vl - 1];
 
-                }
+            }
             }
         };
 
@@ -534,7 +534,7 @@
             for (i = 0, vl = vals.length; i < vl; i++) {
                 if (vals[i] !== filter) {
                     result.push(vals[i]);
-                }
+            }
             }
             return result;
         };
@@ -564,7 +564,7 @@
                 if (ignoreNull && arr[i] === null) continue;
                 if (arr[i] !== val) {
                     return false;
-                }
+            }
             }
             return true;
         };
@@ -592,7 +592,7 @@
                 } catch (e) {
                     // IE <= 9 maxes out at 31 stylesheets; inject into page instead.
                     iefail = true;
-                }
+            }
             }
             tag = document.createElement('style');
             tag.type = 'text/css';
@@ -629,11 +629,11 @@
                     $.fn.sparkline.canvas = function (width, height, target, interact) {
                         return new VCanvas_vml(width, height, target);
                     };
-                } else {
+            } else {
                     // Neither Canvas nor VML are available
                     $.fn.sparkline.canvas = false;
                     return false;
-                }
+            }
             }
 
             if (width === undefined) {
@@ -669,8 +669,8 @@
                         range[1] = range[1].length === 0 ? Infinity : parseFloat(range[1]);
                         range[2] = map[key];
                         rangelist.push(range);
-                    }
                 }
+            }
                 this.map = map;
                 this.rangelist = rangelist || false;
             },
@@ -680,7 +680,7 @@
                     i, range, result;
                 if ((result = this.map[value]) !== undefined) {
                     return result;
-                }
+            }
                 if (rangelist) {
                     for (i = rangelist.length; i--;) {
                         range = rangelist[i];
@@ -688,7 +688,7 @@
                             return range[2];
                         }
                     }
-                }
+            }
                 return undefined;
             }
         });
@@ -717,7 +717,7 @@
                 this.splist.push(sp);
                 if (this.over) {
                     this.updateDisplay();
-                }
+            }
             },
 
             registerCanvas: function (canvas) {
@@ -734,7 +734,7 @@
                 if (this.tooltip && removeTooltip) {
                     this.tooltip.remove();
                     this.tooltip = undefined;
-                }
+            }
             },
 
             mouseclick: function (e) {
@@ -754,7 +754,7 @@
                 if (!this.tooltip && this.displayTooltips) {
                     this.tooltip = new Tooltip(this.options);
                     this.tooltip.updatePosition(e.pageX, e.pageY);
-                }
+            }
                 this.updateDisplay();
             },
 
@@ -769,14 +769,14 @@
 
                 if (this.tooltip) {
                     this.tooltip.remove();
-                    this.tooltip = null;
+                this.tooltip = null;
                 }
 
                 for (i = 0; i < spcount; i++) {
                     sp = splist[i];
                     if (sp.clearRegionHighlight()) {
                         needsRefresh = true;
-                    }
+                }
                 }
 
                 if (needsRefresh) {
@@ -810,24 +810,24 @@
                     result = sp.setRegionHighlight(this.currentEl, localX, localY);
                     if (result) {
                         needsRefresh = true;
-                    }
+                }
                 }
                 if (needsRefresh) {
                     changeEvent = $.Event('sparklineRegionChange');
                     changeEvent.sparklines = this.splist;
                     this.$el.trigger(changeEvent);
-                    if (this.tooltip) {
-                        tooltiphtml = '';
-                        for (i = 0; i < spcount; i++) {
-                            sp = splist[i];
-                            tooltiphtml += sp.getCurrentRegionTooltip();
-                        }
-                        this.tooltip.setContent(tooltiphtml);
+                if (this.tooltip) {
+                    tooltiphtml = '';
+                    for (i = 0; i < spcount; i++) {
+                        sp = splist[i];
+                        tooltiphtml += sp.getCurrentRegionTooltip();
                     }
-                    if (!this.disableHighlight) {
-                        this.canvas.render();
-                    }
+                    this.tooltip.setContent(tooltiphtml);
                 }
+                    if (!this.disableHighlight) {
+                    this.canvas.render();
+                }
+            }
                 if (result === null) {
                     this.mouseleave();
                 }
@@ -906,8 +906,8 @@
             updatePosition: function (x, y) {
                 if (x === undefined) {
                     if (this.mousex === undefined) {
-                        return;
-                    }
+                    return;
+                }
                     x = this.mousex - this.offsetLeft;
                     y = this.mousey - this.offsetTop;
 
@@ -924,7 +924,7 @@
 
                 if (y < this.scrollTop) {
                     y = this.scrollTop;
-                }
+            }
                 if (x < this.scrollLeft) {
                     x = this.scrollLeft;
                 } else if (x + this.width > this.scrollRight) {
@@ -963,7 +963,7 @@
                         vals = this.getAttribute(options.get('tagValuesAttribute'));
                         if (vals === undefined || vals === null) {
                             vals = $this.html();
-                        }
+                    }
                         values = vals.replace(/(^\s*<!--)|(-->\s*$)|\s+/g, '').split(',');
                     } else {
                         values = userValues;
@@ -979,7 +979,7 @@
                             height = $(tmp).innerHeight() || $(tmp).height();
                             $(tmp).remove();
                             tmp = null;
-                        }
+                    }
                     } else {
                         height = options.get('height');
                     }
@@ -991,7 +991,7 @@
                             $.data(this, '_jqs_mhandler', mhandler);
                         } else if (!options.get('composite')) {
                             mhandler.reset();
-                        }
+                    }
                     } else {
                         mhandler = false;
                     }
@@ -1000,7 +1000,7 @@
                         if (!$.data(this, '_jqs_errnotify')) {
                             alert('Attempted to attach a composite sparkline to an element with no existing sparkline');
                             $.data(this, '_jqs_errnotify', true);
-                        }
+                    }
                         return;
                     }
 
@@ -1018,9 +1018,9 @@
                         for (i = pending.length; i; i--) {
                             if (pending[i - 1][0] == this) {
                                 pending.splice(i - 1, 1);
-                            }
                         }
                     }
+                }
                     pending.push([this, render]);
                     $.data(this, '_jqs_pending', true);
                 } else {
@@ -1048,7 +1048,7 @@
                     // removing from the dom causes the data to be removed.
                     $.data(pending[i][0], '_jqs_pending', false);
                     done.push(i);
-                }
+            }
             }
             for (i = done.length; i; i--) {
                 pending.splice(done[i - 1], 1);
@@ -1095,7 +1095,7 @@
                         val = val.substr(1, val.length - 2).split(',');
                         for (i = val.length; i--;) {
                             val[i] = normalizeValue(val[i].replace(/(^\s*)|(\s*$)/g, ''));
-                        }
+                    }
                     } else if (val.substr(0, 1) === '{') {
                         pairs = val.substr(1, val.length - 2).split(',');
                         val = {};
@@ -1105,7 +1105,7 @@
                         }
                     } else {
                         val = normalizeValue(val);
-                    }
+                }
                     this.tagValCache.key = val;
                 }
                 return val;
@@ -1116,7 +1116,7 @@
                     result;
                 if (tagOption !== UNSET_OPTION) {
                     return tagOption;
-                }
+            }
                 return (result = this.mergedOptions[key]) === undefined ? defaultval : result;
             }
         });
@@ -1179,11 +1179,11 @@
                 if (currentRegion !== newRegion) {
                     if (currentRegion !== undefined && highlightEnabled) {
                         this.removeHighlight();
-                    }
+                }
                     this.currentRegion = newRegion;
                     if (newRegion !== undefined && highlightEnabled) {
                         this.renderHighlight();
-                    }
+                }
                     return true;
                 }
                 return false;
@@ -1253,7 +1253,7 @@
                         if ((j = $.inArray(fv, showFields)) != -1) {
                             newFields[j] = fields[i];
                         }
-                    }
+                }
                     fields = newFields;
                 }
                 formatlen = formats.length;
@@ -1262,7 +1262,7 @@
                     format = formats[i];
                     if (typeof format === 'string') {
                         format = new SPFormat(format);
-                    }
+                }
                     fclass = format.fclass || 'jqsfield';
                     for (j = 0; j < fieldlen; j++) {
                         if (!fields[j].isNull || !options.get('tooltipSkipNull')) {
@@ -1272,8 +1272,8 @@
                             });
                             text = format.render(fields[j], options.get('tooltipValueLookups'), options);
                             entries.push('<div class="' + fclass + '">' + text + '</div>');
-                        }
                     }
+                }
                 }
                 if (entries.length) {
                     return header + entries.join('\n');
@@ -1299,11 +1299,11 @@
                         mult = color.length === 4 ? 16 : 1;
                         for (i = 0; i < 3; i++) {
                             rgbnew[i] = clipval(Math.round(parseInt(parse[i + 1], 16) * mult * lighten), 0, 255);
-                        }
-                        return 'rgb(' + rgbnew.join(',') + ')';
                     }
-
+                        return 'rgb(' + rgbnew.join(',') + ')';
                 }
+
+            }
                 return color;
             }
 
@@ -1326,7 +1326,7 @@
                     } else {
                         target.replaceWithShape(shapeids, newShapes);
                         this.regionShapes[currentRegion] = newShapes.id;
-                    }
+                }
                 }
             },
 
@@ -1347,17 +1347,17 @@
                             for (j = shapes.length; j--;) {
                                 shapes[j].append();
                                 ids.push(shapes[j].id);
-                            }
+                        }
                             regionShapes[i] = ids;
-                        } else {
+                    } else {
                             shapes.append();
                             regionShapes[i] = shapes.id; // store just the shapeid
-                        }
+                    }
                     } else {
                         // null value
                         regionShapes[i] = null;
-                    }
                 }
+            }
                 target.render();
             }
         };
@@ -1386,7 +1386,7 @@
                 for (i = regionMap.length; i--;) {
                     if (regionMap[i] !== null && x >= regionMap[i][0] && x <= regionMap[i][1]) {
                         return regionMap[i][2];
-                    }
+                }
                 }
                 return undefined;
             },
@@ -1466,11 +1466,11 @@
                         xvalues.push(i);
                         if (values[i] === null || values[i] === 'null') {
                             yvalues.push(null);
-                        } else {
+                    } else {
                             yvalues.push(Number(val));
                             yminmax.push(Number(val));
-                        }
                     }
+                }
                 }
                 if (this.options.get('xvalues')) {
                     xvalues = this.options.get('xvalues');
@@ -1496,10 +1496,10 @@
                 if (normalRangeMin !== undefined) {
                     if (normalRangeMin < this.miny) {
                         this.miny = normalRangeMin;
-                    }
+                }
                     if (normalRangeMax > this.maxy) {
                         this.maxy = normalRangeMax;
-                    }
+                }
                 }
                 if (options.get('chartRangeMin') !== undefined && (options.get('chartRangeClip') || options.get('chartRangeMin') < this.miny)) {
                     this.miny = options.get('chartRangeMin');
@@ -1567,7 +1567,7 @@
                     hlSpotsEnabled = options.get('highlightSpotColor') && !options.get('disableInteraction');
                     if (hlSpotsEnabled || options.get('minSpotColor') || (options.get('spotColor') && yvalues[yvallast] === this.miny)) {
                         canvasHeight -= Math.ceil(spotRadius);
-                    }
+                }
                     if (hlSpotsEnabled || options.get('maxSpotColor') || (options.get('spotColor') && yvalues[yvallast] === this.maxy)) {
                         canvasHeight -= Math.ceil(spotRadius);
                         canvasTop += Math.ceil(spotRadius);
@@ -1581,7 +1581,7 @@
                         (options.get('minSpotColor') || options.get('maxSpotColor') &&
                         (yvalues[yvallast] === this.miny || yvalues[yvallast] === this.maxy))) {
                         canvasWidth -= Math.ceil(spotRadius);
-                    }
+                }
                 }
 
 
@@ -1609,9 +1609,9 @@
                             if (yvalues[i - 1] !== null) {
                                 path = [];
                                 paths.push(path);
-                            }
-                            vertices.push(null);
                         }
+                            vertices.push(null);
+                    }
                     } else {
                         if (y < this.miny) {
                             y = this.miny;
@@ -1626,7 +1626,7 @@
                         vertex = [xpos, canvasTop + Math.round(canvasHeight - (canvasHeight * ((y - this.miny) / rangey)))];
                         path.push(vertex);
                         vertices.push(vertex);
-                    }
+                }
                 }
 
                 lineShapes = [];
@@ -1639,7 +1639,7 @@
                             path.push([path[path.length - 1][0], (canvasTop + canvasHeight)]);
                             fillShapes.push(path.slice(0));
                             path.pop();
-                        }
+                    }
                         // if there's only a single point in this path, then we want to display it
                         // as a vertical line which means we keep path[0]  as is
                         if (path.length > 2) {
@@ -1647,7 +1647,7 @@
                             path[0] = [path[0][0], path[1][1]];
                         }
                         lineShapes.push(path);
-                    }
+                }
                 }
 
                 // draw the fill first, then optionally the normal range, then the line on top of that
@@ -1671,18 +1671,18 @@
                     valueSpots = options.get('valueSpots');
                     if (valueSpots.get === undefined) {
                         valueSpots = new RangeMap(valueSpots);
-                    }
+                }
                     for (i = 0; i < yvalcount; i++) {
                         color = valueSpots.get(yvalues[i]);
                         if (color) {
                             target.drawCircle(canvasLeft + Math.round((xvalues[i] - this.minx) * (canvasWidth / rangex)),
                                 canvasTop + Math.round(canvasHeight - (canvasHeight * ((yvalues[i] - this.miny) / rangey))),
-                                spotRadius, undefined,
+                            spotRadius, undefined,
                                 color).append();
-                        }
                     }
-
                 }
+
+            }
                 if (spotRadius && options.get('spotColor') && yvalues[yvallast] !== null) {
                     target.drawCircle(canvasLeft + Math.round((xvalues[xvalues.length - 1] - this.minx) * (canvasWidth / rangex)),
                         canvasTop + Math.round(canvasHeight - (canvasHeight * ((yvalues[yvallast] - this.miny) / rangey))),
@@ -1739,7 +1739,7 @@
                         stacked = true;
                         if (isStackString) {
                             val = values[i] = normalizeValues(val.split(':'));
-                        }
+                    }
                         val = remove(val, null); // min/max will treat null as zero
                         groupMin = Math.min.apply(Math, val);
                         groupMax = Math.max.apply(Math, val);
@@ -1749,7 +1749,7 @@
                         if (groupMax > stackMax) {
                             stackMax = groupMax;
                         }
-                    }
+                }
                 }
 
                 this.stacked = stacked;
@@ -1785,22 +1785,22 @@
                                 if (stackMin < 0 && stackMax > 0) {
                                     if (val < 0) {
                                         stackRangesNeg[i] += Math.abs(val);
-                                    } else {
+                                } else {
                                         stackRanges[i] += val;
-                                    }
+                                }
                                 } else {
                                     stackRanges[i] += Math.abs(val - (val < 0 ? stackMax : stackMin));
-                                }
-                                numValues.push(val);
                             }
+                            numValues.push(val);
                         }
+                    }
                     } else {
                         val = chartRangeClip ? clipval(values[i], clipMin, clipMax) : values[i];
                         val = values[i] = normalizeValue(val);
                         if (val !== null) {
                             numValues.push(val);
                         }
-                    }
+                }
                 }
                 this.max = max = Math.max.apply(Math, numValues);
                 this.min = min = Math.min.apply(Math, numValues);
@@ -1838,7 +1838,7 @@
                     if (yoffset !== Math.ceil(yoffset)) {
                         this.canvasHeightEf -= 2;
                         yoffset = Math.ceil(yoffset);
-                    }
+                }
                 } else {
                     yoffset = this.canvasHeight;
                 }
@@ -1852,7 +1852,7 @@
                     this.colorMapByValue = options.get('colorMap');
                     if (this.colorMapByValue && this.colorMapByValue.get === undefined) {
                         this.colorMapByValue = new RangeMap(this.colorMapByValue);
-                    }
+                }
                 }
 
                 this.range = range;
@@ -1930,7 +1930,7 @@
                         return target.drawRect(x, y, this.barWidth - 1, 0, color, color);
                     } else {
                         return undefined;
-                    }
+                }
                 }
                 yoffsetNeg = yoffset;
                 for (i = 0; i < valcount; i++) {
@@ -1939,7 +1939,7 @@
                     if (stacked && val === xaxisOffset) {
                         if (!allMin || minPlotted) {
                             continue;
-                        }
+                    }
                         minPlotted = true;
                     }
 
@@ -1947,20 +1947,20 @@
                         height = Math.floor(canvasHeightEf * ((Math.abs(val - xaxisOffset) / range))) + 1;
                     } else {
                         height = 1;
-                    }
+                }
                     if (val < xaxisOffset || (val === xaxisOffset && yoffset === 0)) {
                         y = yoffsetNeg;
                         yoffsetNeg += height;
                     } else {
                         y = yoffset - height;
                         yoffset -= height;
-                    }
+                }
                     color = this.calcColor(i, val, valuenum);
                     if (highlight) {
                         color = this.calcHighlightColor(color, options);
                     }
                     result.push(target.drawRect(x, y, this.barWidth - 1, height - 1, color, color));
-                }
+            }
                 if (result.length === 1) {
                     return result[0];
                 }
@@ -1994,7 +1994,7 @@
                     this.colorMapByValue = options.get('colorMap');
                     if (this.colorMapByValue && this.colorMapByValue.get === undefined) {
                         this.colorMapByValue = new RangeMap(this.colorMapByValue);
-                    }
+                }
                 }
                 this.initTarget();
             },
@@ -2054,7 +2054,7 @@
                 } else {
                     y = halfHeight - 1;
                     height = 2;
-                }
+            }
                 color = this.calcColor(values[valuenum], valuenum);
                 if (color === null) {
                     return;
@@ -2127,7 +2127,7 @@
                 color = (options.get('thresholdColor') && val < options.get('thresholdValue')) ? options.get('thresholdColor') : options.get('lineColor');
                 if (highlight) {
                     color = this.calcHighlightColor(color, options);
-                }
+            }
                 return target.drawLine(x, ytop, x, ytop + lineHeight, color);
             }
         });
@@ -2243,7 +2243,7 @@
                     i, shape;
                 if (!bullet._super.render.call(this)) {
                     return;
-                }
+            }
                 for (i = 2; i < vlen; i++) {
                     shape = this.renderRange(i).append();
                     this.shapes[shape.id] = 'r' + i;
@@ -2285,7 +2285,7 @@
                 if (values.length > 0) {
                     for (i = values.length; i--;) {
                         total += values[i];
-                    }
+                }
                 }
                 this.total = total;
                 this.initTarget();
@@ -2341,10 +2341,10 @@
                         color = options.get('sliceColors')[i % options.get('sliceColors').length];
                         if (highlight) {
                             color = this.calcHighlightColor(color, options);
-                        }
+                    }
 
                         return target.drawPieSlice(radius, radius, radius - borderWidth, start, end, undefined, color);
-                    }
+                }
                     next = end;
                 }
             },
@@ -2369,8 +2369,8 @@
                         shape = this.renderSlice(i).append();
                         this.valueShapes[i] = shape.id; // store just the shapeid
                         this.shapes[shape.id] = i;
-                    }
                 }
+            }
                 target.render();
             }
         });
@@ -2391,12 +2391,12 @@
                 }
             },
 
-            /**
-             * Simulate a single region
-             */
-            getRegion: function () {
-                return 1;
-            },
+        /**
+         * Simulate a single region
+         */
+        getRegion: function () {
+            return 1;
+        },
 
             getCurrentRegionFields: function () {
                 var result = [
@@ -2445,7 +2445,7 @@
                         q3 = values[4];
                         rwhisker = values[5];
                         routlier = values[6];
-                    } else {
+                } else {
                         lwhisker = values[0];
                         q1 = values[1];
                         q2 = values[2];
@@ -2465,17 +2465,17 @@
                         for (i = 0; i < vlen; i++) {
                             if (lwhisker === undefined && values[i] > q1 - (iqr * options.get('outlierIQR'))) {
                                 lwhisker = values[i];
-                            }
+                        }
                             if (values[i] < q3 + (iqr * options.get('outlierIQR'))) {
                                 rwhisker = values[i];
                             }
-                        }
+                    }
                         loutlier = values[0];
                         routlier = values[vlen - 1];
                     } else {
                         lwhisker = values[0];
                         rwhisker = values[vlen - 1];
-                    }
+                }
                 }
                 this.quartiles = [q1, q2, q3];
                 this.lwhisker = lwhisker;
@@ -2487,14 +2487,14 @@
                 if (options.get('showOutliers')) {
                     canvasLeft = Math.ceil(options.get('spotRadius'));
                     canvasWidth -= 2 * Math.ceil(options.get('spotRadius'));
-                    unitSize = canvasWidth / (maxValue - minValue + 1);
+                unitSize = canvasWidth / (maxValue - minValue + 1);
                     if (loutlier < lwhisker) {
                         target.drawCircle((loutlier - minValue) * unitSize + canvasLeft,
                             canvasHeight / 2,
                             options.get('spotRadius'),
                             options.get('outlierLineColor'),
                             options.get('outlierFillColor')).append();
-                    }
+                }
                     if (routlier > rwhisker) {
                         target.drawCircle((routlier - minValue) * unitSize + canvasLeft,
                             canvasHeight / 2,
@@ -2546,19 +2546,19 @@
                     options.get('medianColor')).append();
                 if (options.get('target')) {
                     size = Math.ceil(options.get('spotRadius'));
-                    target.drawLine(
-                        Math.round((options.get('target') - minValue) * unitSize + canvasLeft),
-                        Math.round((canvasHeight / 2) - size),
-                        Math.round((options.get('target') - minValue) * unitSize + canvasLeft),
-                        Math.round((canvasHeight / 2) + size),
-                        options.get('targetColor')).append();
-                    target.drawLine(
-                        Math.round((options.get('target') - minValue) * unitSize + canvasLeft - size),
-                        Math.round(canvasHeight / 2),
-                        Math.round((options.get('target') - minValue) * unitSize + canvasLeft + size),
-                        Math.round(canvasHeight / 2),
-                        options.get('targetColor')).append();
-                }
+                target.drawLine(
+                    Math.round((options.get('target') - minValue) * unitSize + canvasLeft),
+                    Math.round((canvasHeight / 2) - size),
+                    Math.round((options.get('target') - minValue) * unitSize + canvasLeft),
+                    Math.round((canvasHeight / 2) + size),
+                    options.get('targetColor')).append();
+                target.drawLine(
+                    Math.round((options.get('target') - minValue) * unitSize + canvasLeft - size),
+                    Math.round(canvasHeight / 2),
+                    Math.round((options.get('target') - minValue) * unitSize + canvasLeft + size),
+                    Math.round(canvasHeight / 2),
+                    options.get('targetColor')).append();
+            }
                 target.render();
             }
         });
@@ -2585,7 +2585,7 @@
             init: function (width, height, target) {
                 if (!width) {
                     return;
-                }
+            }
                 this.width = width;
                 this.height = height;
                 this.target = target;
@@ -2734,7 +2734,7 @@
                 var context = this.canvas.getContext('2d');
                 if (lineColor !== undefined) {
                     context.strokeStyle = lineColor;
-                }
+            }
                 context.lineWidth = lineWidth === undefined ? 1 : lineWidth;
                 if (fillColor !== undefined) {
                     context.fillStyle = fillColor;
@@ -2823,7 +2823,7 @@
                 for (i = shapeseq.length; i--;) {
                     if (shapeseq[i] == shapeid) {
                         shapeseq[i] = shape.id;
-                    }
+                }
                 }
                 delete this.shapes[shapeid];
             },
@@ -2842,7 +2842,7 @@
                         shapeseq.splice(i, 1);
                         delete this.shapes[sid];
                         first = i;
-                    }
+                }
                 }
                 for (i = shapes.length; i--;) {
                     shapeseq.splice(first, 0, shapes[i].id);
@@ -2859,7 +2859,7 @@
                         shapeseq.splice(i + 1, 0, shape.id);
                         this.shapes[shape.id] = shape;
                         return;
-                    }
+                }
                 }
             },
 
@@ -2870,7 +2870,7 @@
                     if (shapeseq[i] === shapeid) {
                         shapeseq.splice(i, 1);
                         break;
-                    }
+                }
                 }
                 delete this.shapes[shapeid];
             },
@@ -2893,7 +2893,7 @@
                     shapeid = shapeseq[i];
                     shape = shapes[shapeid];
                     this['_draw' + shape.type].apply(this, shape.args);
-                }
+            }
                 if (!this.interact) {
                     // not interactive so no need to keep the shapes array
                     this.shapes = {};
@@ -2988,8 +2988,8 @@
                 if (startx === endx && starty === endy) {
                     if ((endAngle - startAngle) < Math.PI) {
                         // Prevent very small slices from being mistaken as a whole pie
-                        return '';
-                    }
+                    return '';
+                }
                     // essentially going to be the entire circle, so ignore startAngle
                     startx = endx = x + radius;
                     starty = endy = y;
@@ -3073,7 +3073,7 @@
                     // batch the intial render into a single repaint
                     this.group.innerHTML = this.prerender;
                     this.rendered = true;
-                }
+            }
             }
         });
 

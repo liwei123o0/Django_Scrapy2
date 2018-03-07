@@ -77,7 +77,7 @@ MouseHandler = createClass({
             if (sp.clearRegionHighlight()) {
                 needsRefresh = true;
             }
-        }
+            }
 
         if (needsRefresh) {
             this.canvas.render();
@@ -104,14 +104,14 @@ MouseHandler = createClass({
             tooltiphtml, sp, i, result, changeEvent;
         if (!this.over) {
             return;
-        }
+            }
         for (i = 0; i < spcount; i++) {
             sp = splist[i];
             result = sp.setRegionHighlight(this.currentEl, localX, localY);
             if (result) {
                 needsRefresh = true;
+                }
             }
-        }
         if (needsRefresh) {
             changeEvent = $.Event('sparklineRegionChange');
             changeEvent.sparklines = this.splist;
@@ -127,11 +127,11 @@ MouseHandler = createClass({
             if (!this.disableHighlight) {
                 this.canvas.render();
             }
-        }
+            }
         if (result === null) {
             this.mouseleave();
         }
-    }
+        }
 });
 
 
@@ -155,7 +155,7 @@ Tooltip = createClass({
             id: 'jqssizetip',
             style: sizetipStyle,
             'class': tooltipClassname
-        });
+            });
         this.tooltip = $('<div/>', {
             id: 'jqstooltip',
             'class': tooltipClassname
@@ -174,7 +174,7 @@ Tooltip = createClass({
         this.scrollTop = $(window).scrollTop();
         this.scrollLeft = $(window).scrollLeft();
         this.scrollRight = this.scrollLeft + $(window).width();
-        this.updatePosition();
+            this.updatePosition();
     },
 
     getSize: function (content) {
@@ -188,8 +188,8 @@ Tooltip = createClass({
         if (!content) {
             this.tooltip.css('visibility', 'hidden');
             this.hidden = true;
-            return;
-        }
+                return;
+            }
         this.getSize(content);
         this.tooltip.html(content)
             .css({

@@ -71,6 +71,7 @@ describe('modelAndOptionMapping', function () {
     }
 
 
+
     describe('idNoNameNo', function () {
 
         testCase.createChart()('sameTypeNotMerge', function () {

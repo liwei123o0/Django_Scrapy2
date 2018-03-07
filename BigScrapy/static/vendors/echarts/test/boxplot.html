@@ -101,13 +101,13 @@
                 ],
                 legend: {
                     data: ['line', 'line2', 'line3']
-                },
-                tooltip: {
-                    trigger: 'item',
-                    axisPointer: {
-                        type: 'shadow'
-                    }
-                },
+                        },
+                        tooltip: {
+                            trigger: 'item',
+                            axisPointer: {
+                                type: 'shadow'
+                            }
+                        },
                 grid: {
                     left: '10%',
                     right: '10%',
@@ -131,14 +131,14 @@
                                     'lower: ' + param.data[4]
                                 ].join('<br/>')
                             }
-                        },
+                                },
 
                         markPoint: {
                             data: [
                                 {
                                     name: '某个坐标',
                                     coord: [2, 300]
-                                },
+                                        },
                                 {
                                     name: '某个屏幕坐标',
                                     x: 100,
@@ -172,9 +172,9 @@
                                     name: 'average value (dim:Q1)',
                                     type: 'average',
                                     valueDim: 'Q1'
-                                }
+                                        }
                             ]
-                        },
+                                },
 
                         markLine: {
                             data: [
@@ -200,7 +200,7 @@
                                     valueDim: 'Q3'
                                 }
                             ]
-                        }
+                                }
 
                     },
                     {
@@ -223,7 +223,7 @@
                         sum += value;
                     }
                 }
-            }
+                    }
             return sum / count;
         };
 

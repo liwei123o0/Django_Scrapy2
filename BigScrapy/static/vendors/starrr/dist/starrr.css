@@ -1,5 +1,5 @@
 .starrr {
-    display: inline-block;
+  display: inline-block;
 }
 
 .starrr a {
@@ -7,5 +7,5 @@
     padding: 0 1px;
     cursor: pointer;
     color: #FFD119;
-    text-decoration: none;
+  text-decoration: none;
 }

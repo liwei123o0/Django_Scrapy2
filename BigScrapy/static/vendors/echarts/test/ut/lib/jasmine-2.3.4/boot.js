@@ -121,7 +121,7 @@
     window.onload = function () {
         if (currentWindowOnload) {
             currentWindowOnload();
-        }
+    }
         htmlReporter.initialize();
         env.execute();
     };

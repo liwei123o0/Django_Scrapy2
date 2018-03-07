@@ -45,12 +45,12 @@
             data1.push(Math.random() * 2);
             data2.push(Math.random() * 2);
             data3.push(Math.random() * 2);
-        }
+                }
 
         chart.setOption({
             tooltip: {
                 trigger: 'axis',
-            },
+                    },
             legend: {
                 data: ['降水量', '流量']
             },
@@ -70,7 +70,7 @@
                     axisLabel: {show: true},
                     axisLine: {show: true},
                     data: data.category
-                }
+                        }
             ],
             yAxis: [
                 {
@@ -100,7 +100,7 @@
                             color: '#666'
                         }
                     }
-                }
+                        }
             ],
             series: [
                 {
@@ -148,7 +148,7 @@
                     orient: 'vertical',
                     filterMode: 'empty',
                     yAxisIndex: [1]
-                }
+                        }
             ]
         });
     })

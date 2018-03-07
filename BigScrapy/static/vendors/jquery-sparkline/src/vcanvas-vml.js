@@ -91,8 +91,8 @@ VCanvas_vml = createClass(VCanvas_base, {
         }
 
         if (startx === endx && starty === endy && (endAngle - startAngle) < Math.PI) {
-            return '';
-        }
+                return '';
+            }
 
         vpath = [x - radius, y - radius, x + radius, y + radius, startx, starty, endx, endy];
         stroke = lineColor === undefined ? ' stroked="false" ' : ' strokeWeight="1px" strokeColor="' + lineColor + '" ';
@@ -169,6 +169,6 @@ VCanvas_vml = createClass(VCanvas_base, {
             this.group.innerHTML = this.prerender;
             this.rendered = true;
         }
-    }
+        }
 });
 

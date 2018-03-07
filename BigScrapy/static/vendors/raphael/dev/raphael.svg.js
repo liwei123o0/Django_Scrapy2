@@ -47,8 +47,8 @@ define(["./raphael.core"], function (R) {
                         el.setAttributeNS(xlink, key.substring(6), Str(attr[key]));
                     } else {
                         el.setAttribute(key, Str(attr[key]));
-                    }
                 }
+            }
             } else {
                 el = R._g.doc.createElementNS("http://www.w3.org/2000/svg", el);
                 el.style && (el.style.webkitTapHighlightColor = "rgba(0,0,0,0)");
@@ -74,7 +74,7 @@ define(["./raphael.core"], function (R) {
                         (fy = math.sqrt(.25 - pow(fx - .5, 2)) * dir + .5) &&
                         fy != .5 &&
                         (fy = fy.toFixed(5) - 1e-5 * dir);
-                    }
+                }
                     return E;
                 });
                 gradient = gradient.split(/\s*\-\s*/);
@@ -82,8 +82,8 @@ define(["./raphael.core"], function (R) {
                     var angle = gradient.shift();
                     angle = -toFloat(angle);
                     if (isNaN(angle)) {
-                        return null;
-                    }
+                    return null;
+                }
                     var vector = [0, 0, math.cos(R.rad(angle)), math.sin(R.rad(angle))],
                         max = 1 / (mmax(abs(vector[2]), abs(vector[3])) || 1);
                     vector[2] *= max;
@@ -91,7 +91,7 @@ define(["./raphael.core"], function (R) {
                     if (vector[2] < 0) {
                         vector[0] = -vector[2];
                         vector[2] = 0;
-                    }
+                }
                     if (vector[3] < 0) {
                         vector[1] = -vector[3];
                         vector[3] = 0;
@@ -128,8 +128,8 @@ define(["./raphael.core"], function (R) {
                             "stop-color": dots[i].color || "#fff",
                             "stop-opacity": isFinite(dots[i].opacity) ? dots[i].opacity : 1
                         }));
-                    }
                 }
+            }
             }
             $(o, {
                 fill: fillurl(id),
@@ -203,7 +203,7 @@ define(["./raphael.core"], function (R) {
                             w = 2;
                             break;
                     }
-                }
+            }
                 if (type == "open") {
                     w += 2;
                     h += 2;
@@ -228,7 +228,7 @@ define(["./raphael.core"], function (R) {
                     } else {
                         o._.arrows.startPath && markerCounter[o._.arrows.startPath]--;
                         o._.arrows.startMarker && markerCounter[o._.arrows.startMarker]--;
-                    }
+                }
                 } else {
                     o._.arrows = {};
                 }
@@ -242,9 +242,9 @@ define(["./raphael.core"], function (R) {
                             id: pathId
                         }));
                         markerCounter[pathId] = 1;
-                    } else {
+                } else {
                         markerCounter[pathId]++;
-                    }
+                }
                     var marker = R._g.doc.getElementById(markerId),
                         use;
                     if (!marker) {
@@ -264,24 +264,24 @@ define(["./raphael.core"], function (R) {
                         marker.appendChild(use);
                         p.defs.appendChild(marker);
                         markerCounter[markerId] = 1;
-                    } else {
+                } else {
                         markerCounter[markerId]++;
                         use = marker.getElementsByTagName("use")[0];
-                    }
+                }
                     $(use, attr);
                     var delta = dx * (type != "diamond" && type != "oval");
                     if (isEnd) {
                         from = o._.arrows.startdx * stroke || 0;
                         to = R.getTotalLength(attrs.path) - delta * stroke;
-                    } else {
+                } else {
                         from = delta * stroke;
                         to = R.getTotalLength(attrs.path) - (o._.arrows.enddx * stroke || 0);
-                    }
+                }
                     attr = {};
                     attr["marker-" + se] = "url(#" + markerId + ")";
                     if (to || from) {
                         attr.d = R.getSubpath(attrs.path, from, to);
-                    }
+                }
                     $(node, attr);
                     o._.arrows[se + "Path"] = pathId;
                     o._.arrows[se + "Marker"] = markerId;
@@ -295,18 +295,18 @@ define(["./raphael.core"], function (R) {
                     } else {
                         from = 0;
                         to = R.getTotalLength(attrs.path) - (o._.arrows.enddx * stroke || 0);
-                    }
+                }
                     o._.arrows[se + "Path"] && $(node, {d: R.getSubpath(attrs.path, from, to)});
                     delete o._.arrows[se + "Path"];
                     delete o._.arrows[se + "Marker"];
                     delete o._.arrows[se + "dx"];
                     delete o._.arrows[se + "Type"];
                     delete o._.arrows[se + "String"];
-                }
+            }
                 for (attr in markerCounter) if (markerCounter[has](attr) && !markerCounter[attr]) {
                     var item = R._g.doc.getElementById(attr);
                     item && item.parentNode.removeChild(item);
-                }
+            }
             }
         },
         dasharray = {
@@ -422,17 +422,17 @@ define(["./raphael.core"], function (R) {
                                     clip && clip.parentNode.removeChild(clip);
                                     $(node, {"clip-path": E});
                                     delete o.clip;
-                                }
+                            }
                             }
                             break;
                         case "path":
                             if (o.type == "path") {
                                 $(node, {d: value ? attrs.path = R._pathToAbsolute(value) : "M0,0"});
-                                o._.dirty = 1;
-                                if (o._.arrows) {
-                                    "startString" in o._.arrows && addArrow(o, o._.arrows.startString);
-                                    "endString" in o._.arrows && addArrow(o, o._.arrows.endString, 1);
-                                }
+                            o._.dirty = 1;
+                            if (o._.arrows) {
+                                "startString" in o._.arrows && addArrow(o, o._.arrows.startString);
+                                "endString" in o._.arrows && addArrow(o, o._.arrows.endString, 1);
+                            }
                             }
                             break;
                         case "width":
@@ -442,7 +442,7 @@ define(["./raphael.core"], function (R) {
                                 att = "x";
                                 value = attrs.x;
                             } else {
-                                break;
+                            break;
                             }
                         case "x":
                             if (attrs.fx) {
@@ -450,7 +450,7 @@ define(["./raphael.core"], function (R) {
                             }
                         case "rx":
                             if (att == "rx" && o.type == "rect") {
-                                break;
+                            break;
                             }
                         case "cx":
                             node.setAttribute(att, value);
@@ -548,11 +548,11 @@ define(["./raphael.core"], function (R) {
                                     if (gradient) {
                                         var stops = gradient.getElementsByTagName("stop");
                                         $(stops[stops.length - 1], {"stop-opacity": ("opacity" in attrs ? attrs.opacity : 1) * ("fill-opacity" in attrs ? attrs["fill-opacity"] : 1)});
-                                    }
                                 }
+                            }
                                 attrs.gradient = value;
                                 attrs.fill = "none";
-                                break;
+                            break;
                             }
                             clr[has]("opacity") && $(node, {"fill-opacity": clr.opacity > 1 ? clr.opacity / 100 : clr.opacity});
                         case "stroke":
@@ -578,8 +578,8 @@ define(["./raphael.core"], function (R) {
                                 if (gradient) {
                                     stops = gradient.getElementsByTagName("stop");
                                     $(stops[stops.length - 1], {"stop-opacity": value});
-                                }
-                                break;
+                            }
+                            break;
                             }
                         default:
                             att == "font-size" && (value = toInt(value, 10) + "px");
@@ -590,8 +590,8 @@ define(["./raphael.core"], function (R) {
                             o._.dirty = 1;
                             node.setAttribute(att, value);
                             break;
-                    }
                 }
+            }
             }
 
             tuneText(o, params);
@@ -610,7 +610,7 @@ define(["./raphael.core"], function (R) {
                 a.text = params.text;
                 while (node.firstChild) {
                     node.removeChild(node.firstChild);
-                }
+            }
                 var texts = Str(params.text).split("\n"),
                     tspans = [],
                     tspan;
@@ -625,9 +625,9 @@ define(["./raphael.core"], function (R) {
                 tspans = node.getElementsByTagName("tspan");
                 for (i = 0, ii = tspans.length; i < ii; i++) if (i) {
                     $(tspans[i], {dy: fontSize * leading, x: a.x});
-                } else {
+            } else {
                     $(tspans[0], {dy: 0});
-                }
+            }
             }
             $(node, {x: a.x, y: a.y});
             el._.dirty = 1;

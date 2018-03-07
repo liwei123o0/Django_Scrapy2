@@ -102,6 +102,5 @@ define(function (require) {
             }
         };
     }
-
     return nest;
 });

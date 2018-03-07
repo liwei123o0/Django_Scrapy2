@@ -63,7 +63,7 @@
 					y: randomScalingFactor()
 				}],
 				fill: false
-			}, {
+				}, {
 				label: "Dataset with date object point data",
 				data: [{
 					x: newDate(0),
@@ -80,7 +80,7 @@
 				}],
 				fill: false
 			}]
-		},
+			},
 		options: {
 			responsive: true,
 			title: {
@@ -90,21 +90,21 @@
 			scales: {
 				xAxes: [{
 					type: "time",
-					display: true,
+						display: true,
 					scaleLabel: {
 						display: true,
 						labelString: 'Date'
 					}
 				}],
 				yAxes: [{
-					display: true,
+						display: true,
 					scaleLabel: {
 						display: true,
 						labelString: 'value'
 					}
 				}]
 			}
-		}
+			}
 	};
 
 	$.each(config.data.datasets, function (i, dataset) {
@@ -126,10 +126,10 @@
 			$.each(dataset.data, function (j, dataObj) {
 				dataObj.y = randomScalingFactor();
 			});
-		});
+			});
 
 		window.myLine.update();
-	});
+		});
 
 	$('#addData').click(function () {
 		if (config.data.datasets.length > 0) {
@@ -147,7 +147,7 @@
 			}
 
 			window.myLine.update();
-		}
+			}
 	});
 
 	$('#removeData').click(function () {
@@ -156,7 +156,7 @@
 		});
 
 		window.myLine.update();
-	});
+		});
 </script>
 </body>
 

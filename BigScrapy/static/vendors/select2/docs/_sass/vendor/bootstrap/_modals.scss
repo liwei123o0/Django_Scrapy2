@@ -37,7 +37,6 @@
     @include translate(0, 0)
   }
 }
-
 .modal-open .modal {
   overflow-x: hidden;
   overflow-y: auto;
@@ -88,7 +87,6 @@
   border-bottom: 1px solid $modal-header-border-color;
   @include clearfix;
 }
-
 // Close icon
 .modal-header .close {
   margin-top: -2px;

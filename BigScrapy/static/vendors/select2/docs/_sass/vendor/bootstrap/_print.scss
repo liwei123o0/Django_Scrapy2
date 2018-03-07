@@ -71,7 +71,7 @@
   // Bootstrap components
   .navbar {
     display: none;
-  }
+    }
   .btn,
   .dropup > .btn {
     > .caret {
@@ -89,13 +89,13 @@
     th {
       background-color: #fff !important;
     }
-  }
+    }
   .table-bordered {
     th,
     td {
       border: 1px solid #ddd !important;
     }
-  }
+    }
 
   // Bootstrap specific changes end
 }

@@ -256,7 +256,7 @@ jasmineRequire.HtmlReporter = function (j$) {
                         if (domParent.getAttribute('class') != 'specs') {
                             specListNode = createDom('ul', {className: 'specs'});
                             domParent.appendChild(specListNode);
-                        }
+            }
                         var specDescription = resultNode.result.description;
                         if (noExpectations(resultNode.result)) {
                             specDescription = 'SPEC HAS NO EXPECTATIONS ' + specDescription;
@@ -288,7 +288,7 @@ jasmineRequire.HtmlReporter = function (j$) {
 
                 find('.failures-menu').onclick = function () {
                     setMenuModeTo('failure-list');
-                };
+        };
                 find('.spec-list-menu').onclick = function () {
                     setMenuModeTo('spec-list');
                 };
@@ -298,7 +298,7 @@ jasmineRequire.HtmlReporter = function (j$) {
                 var failureNode = find('.failures');
                 for (var i = 0; i < failures.length; i++) {
                     failureNode.appendChild(failures[i]);
-                }
+        }
             }
         };
 
@@ -329,7 +329,7 @@ jasmineRequire.HtmlReporter = function (j$) {
                     if (child) {
                         el.appendChild(child);
                     }
-                }
+        }
             }
 
             for (var attr in attrs) {
@@ -337,7 +337,7 @@ jasmineRequire.HtmlReporter = function (j$) {
                     el[attr] = attrs[attr];
                 } else {
                     el.setAttribute(attr, attrs[attr]);
-                }
+        }
             }
 
             return el;
@@ -351,7 +351,7 @@ jasmineRequire.HtmlReporter = function (j$) {
 
         function specHref(result) {
             return addToExistingQueryString('spec', result.fullName);
-        }
+    }
 
         function defaultQueryString(key, value) {
             return '?' + key + '=' + value;
@@ -364,7 +364,7 @@ jasmineRequire.HtmlReporter = function (j$) {
         function noExpectations(result) {
             return (result.failedExpectations.length + result.passedExpectations.length) === 0 &&
                 result.status === 'passed';
-        }
+    }
     }
 
     return HtmlReporter;
@@ -444,11 +444,11 @@ jasmineRequire.QueryString = function () {
                         value = JSON.parse(value);
                     }
                     paramMap[decodeURIComponent(p[0])] = value;
-                }
+        }
             }
 
             return paramMap;
-        }
+    }
 
     }
 

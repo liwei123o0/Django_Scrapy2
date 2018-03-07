@@ -9,7 +9,6 @@ define(function (require) {
             modelUtil.LABEL_OPTIONS
         );
     }
-
     var MarkPointModel = require('../../echarts').extendComponentModel({
 
         type: 'markPoint',

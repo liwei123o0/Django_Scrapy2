@@ -259,7 +259,6 @@ define(function (require) {
                 action[mainType + 'Id'] = mapOrGeoModel.id;
                 return action;
             }
-
             controller.off('pan')
                 .on('pan', function (dx, dy) {
                     api.dispatchAction(zrUtil.extend(makeActionBase(), {

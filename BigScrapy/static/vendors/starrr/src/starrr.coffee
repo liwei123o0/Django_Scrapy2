@@ -1,4 +1,5 @@
 (($, window) ->
+
   window.Starrr = class Starrr
     defaults:
       rating: undefined

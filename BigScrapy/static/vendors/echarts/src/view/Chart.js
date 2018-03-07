@@ -104,7 +104,6 @@ define(function (require) {
             }
         }
     }
-
     /**
      * @param  {module:echarts/data/List} data
      * @param  {Object} payload

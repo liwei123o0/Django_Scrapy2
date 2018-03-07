@@ -146,7 +146,7 @@ define(["./raphael.core"], function (R) {
                     case "short":
                         w = values[i];
                         break;
-                }
+            }
             }
             var stroke = o.node.getElementsByTagName("stroke")[0];
             stroke[se + "arrow"] = type;
@@ -184,7 +184,7 @@ define(["./raphael.core"], function (R) {
                     o._.fillpos = [a.x, a.y];
                     o._.fillsize = [a.width, a.height];
                     setCoords(o, 1, 1, 0, 0, 0);
-                }
+            }
             }
             "transform" in params && o.transform(params.transform);
             if (isOval) {
@@ -212,11 +212,11 @@ define(["./raphael.core"], function (R) {
                         node.parentNode.insertBefore(div, node);
                         div.appendChild(node);
                         node.clipRect = div;
-                    }
                 }
+            }
                 if (!params["clip-rect"]) {
                     node.clipRect && (node.clipRect.style.clip = "auto");
-                }
+            }
             }
             if (o.textpath) {
                 var textpathStyle = o.textpath.style;
@@ -250,11 +250,11 @@ define(["./raphael.core"], function (R) {
                 !fill && (newfill = fill = createNode(fillString));
                 if (o.type == "image" && params.src) {
                     fill.src = params.src;
-                }
+            }
                 params.fill && (fill.on = true);
                 if (fill.on == null || params.fill == "none" || params.fill === null) {
                     fill.on = false;
-                }
+            }
                 if (fill.on && params.fill) {
                     var isURL = Str(params.fill).match(R._ISURL);
                     if (isURL) {
@@ -280,17 +280,17 @@ define(["./raphael.core"], function (R) {
                             a.fill = "none";
                             a.gradient = params.fill;
                             fill.rotate = false;
-                        }
                     }
+                }
                 }
                 if ("fill-opacity" in params || "opacity" in params) {
                     var opacity = ((+a["fill-opacity"] + 1 || 2) - 1) * ((+a.opacity + 1 || 2) - 1) * ((+R.getRGB(params.fill).o + 1 || 2) - 1);
-                    opacity = mmin(mmax(opacity, 0), 1);
+                opacity = mmin(mmax(opacity, 0), 1);
                     fill.opacity = opacity;
                     if (fill.src) {
                         fill.color = "none";
-                    }
                 }
+            }
                 node.appendChild(fill);
                 var stroke = (node.getElementsByTagName("stroke") && node.getElementsByTagName("stroke")[0]),
                     newstroke = false;
@@ -360,7 +360,7 @@ define(["./raphael.core"], function (R) {
                 for (var d = 0, dd = dirtyattrs.length; d < dd; d++) if (dirtyattrs[d] in params) {
                     res._.dirty = 1;
                     break;
-                }
+            }
 
                 // text-anchor emulation
                 switch (a["text-anchor"]) {
@@ -376,7 +376,7 @@ define(["./raphael.core"], function (R) {
                         res.textpath.style["v-text-align"] = "center";
                         res.bbx = 0;
                         break;
-                }
+            }
                 res.textpath.style["v-text-kern"] = true;
             }
             // res.paper.canvas.style.display = E;
@@ -405,8 +405,8 @@ define(["./raphael.core"], function (R) {
                 var angle = gradient.shift();
                 angle = -toFloat(angle);
                 if (isNaN(angle)) {
-                    return null;
-                }
+                return null;
+            }
             }
             var dots = R._parseDots(gradient);
             if (!dots) {
@@ -422,7 +422,7 @@ define(["./raphael.core"], function (R) {
                 var clrs = [];
                 for (var i = 0, ii = dots.length; i < ii; i++) {
                     dots[i].offset && clrs.push(dots[i].offset + S + dots[i].color);
-                }
+            }
                 fill.colors = clrs.length ? clrs.join() : "0% " + fill.color;
                 if (type == "radial") {
                     fill.type = "gradientTitle";
@@ -458,7 +458,7 @@ define(["./raphael.core"], function (R) {
                 deg: 0,
                 dirty: 1,
                 dirtyT: 1
-            };
+        };
             !vml.bottom && (vml.bottom = this);
             this.prev = vml.top;
             vml.top && (vml.top.next = this);

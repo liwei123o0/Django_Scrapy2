@@ -9,7 +9,7 @@ $.RangeMapClass = RangeMap = createClass({
                 range[2] = map[key];
                 rangelist.push(range);
             }
-        }
+            }
         this.map = map;
         this.rangelist = rangelist || false;
     },
@@ -26,10 +26,10 @@ $.RangeMapClass = RangeMap = createClass({
                 if (range[0] <= value && range[1] >= value) {
                     return range[2];
                 }
+                }
             }
-        }
         return undefined;
-    }
+        }
 });
 
 // Convenience function

@@ -18,7 +18,6 @@ define(function (require) {
     function TransformDummy() {
         Transformable.call(this);
     }
-
     zrUtil.mixin(TransformDummy, Transformable);
 
     function View(name) {

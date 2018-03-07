@@ -6,7 +6,6 @@ define(function (require) {
         }
         return a;
     }
-
     return function (ecModel) {
         ecModel.eachSeriesByType('graph', function (seriesModel) {
             var edgeData = seriesModel.getEdgeData();

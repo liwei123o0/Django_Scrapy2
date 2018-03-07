@@ -53,7 +53,7 @@
                 data.push(prepareBoxplotData(seriesData, {
                     layout: layout
                 }));
-            }
+                    }
 
             var categoryAxis = {
                 type: 'category',
@@ -141,7 +141,7 @@
                     }
                 ]
             });
-        }
+                }
 
         function formatter(param) {
             return [
@@ -152,7 +152,7 @@
                 'Q3: ' + param.data[3],
                 'lower: ' + param.data[4]
             ].join('<br/>')
-        }
+                }
 
 
         // var gui = new dat.GUI();

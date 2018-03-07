@@ -9,7 +9,6 @@ jQuery(function ($) {
             .removeClass()
             .text("");
     }
-
     /**
      * show a successful message.
      * @param {String} text the text to show.
@@ -20,7 +19,6 @@ jQuery(function ($) {
             .addClass("alert alert-success")
             .text(text);
     }
-
     /**
      * show an error message.
      * @param {String} text the text to show.

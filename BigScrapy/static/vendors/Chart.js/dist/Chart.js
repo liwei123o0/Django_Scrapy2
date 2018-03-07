@@ -605,8 +605,8 @@
 							target[prop] = value;
 						} else {
 							console.error('unexpected color value:', value);
-						}
-					}
+				}
+			}
 				}
 
 				return result;
@@ -1891,10 +1891,10 @@
 						title: function (tooltipItems, data) {
 							// Title doesn't make sense for scatter since we format the data as a point
 							return '';
-						},
+				},
 						label: function (tooltipItem, data) {
 							return '(' + tooltipItem.xLabel + ', ' + tooltipItem.yLabel + ')';
-						}
+				}
 					}
 				}
 			};
@@ -1934,7 +1934,7 @@
 						// grid line settings
 						gridLines: {
 							offsetGridLines: true
-						}
+				}
 					}],
 					yAxes: [{
 						type: "linear"
@@ -2024,8 +2024,8 @@
 								var negDSMeta = chart.getDatasetMeta(i);
 								if (negDSMeta.bar && negDSMeta.yAxisID === yScale.id && chart.isDatasetVisible(i)) {
 									base += negDS.data[index] < 0 ? negDS.data[index] : 0;
-								}
-							}
+						}
+					}
 						} else {
 							for (var j = 0; j < datasetIndex; j++) {
 								var posDS = datasets[j];
@@ -2136,10 +2136,10 @@
 							if (dsMeta.bar && dsMeta.yAxisID === yScale.id && this.chart.isDatasetVisible(i)) {
 								if (ds.data[index] < 0) {
 									sumNeg += ds.data[index] || 0;
-								} else {
+						} else {
 									sumPos += ds.data[index] || 0;
-								}
-							}
+						}
+					}
 						}
 
 						if (value < 0) {
@@ -2230,15 +2230,15 @@
 									title = tooltipItems[0].yLabel;
 								} else if (data.labels.length > 0 && tooltipItems[0].index < data.labels.length) {
 									title = data.labels[tooltipItems[0].index];
-								}
-							}
+						}
+					}
 
 							return title;
 						},
 						label: function (tooltipItem, data) {
 							var datasetLabel = data.datasets[tooltipItem.datasetIndex].label || '';
 							return datasetLabel + ': ' + tooltipItem.xLabel;
-						}
+				}
 					}
 				}
 			};
@@ -2343,7 +2343,7 @@
 									inRange = (mouseY >= vm.y - vm.height / 2 && mouseY <= vm.y + vm.height / 2) && (mouseX >= vm.x && mouseX <= vm.base);
 								} else {
 									inRange = (mouseY >= vm.y - vm.height / 2 && mouseY <= vm.y + vm.height / 2) && (mouseX >= vm.base && mouseX <= vm.x);
-								}
+						}
 							}
 
 							return inRange;
@@ -2369,7 +2369,7 @@
 								if (negDSMeta.bar && negDSMeta.xAxisID === xScale.id && this.chart.isDatasetVisible(i)) {
 									base += negDS.data[index] < 0 ? negDS.data[index] : 0;
 								}
-							}
+					}
 						} else {
 							for (var j = 0; j < datasetIndex; j++) {
 								var posDS = this.chart.data.datasets[j];
@@ -2443,17 +2443,17 @@
 							if (dsMeta.bar && dsMeta.xAxisID === xScale.id && this.chart.isDatasetVisible(i)) {
 								if (ds.data[index] < 0) {
 									sumNeg += ds.data[index] || 0;
-								} else {
+						} else {
 									sumPos += ds.data[index] || 0;
-								}
-							}
+						}
+					}
 						}
 
 						if (value < 0) {
 							return xScale.getPixelForValue(sumNeg + value);
 						} else {
 							return xScale.getPixelForValue(sumPos + value);
-						}
+				}
 					}
 
 					return xScale.getPixelForValue(value);
@@ -2512,7 +2512,7 @@
 						title: function (tooltipItems, data) {
 							// Title doesn't make sense for scatter since we format the data as a point
 							return '';
-						},
+				},
 						label: function (tooltipItem, data) {
 							var datasetLabel = data.datasets[tooltipItem.datasetIndex].label || '';
 							var dataPoint = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
@@ -2565,8 +2565,8 @@
 
 							// Tooltip
 							hitRadius: custom.hitRadius ? custom.hitRadius : helpers.getValueAtIndexOrDefault(dataset.hitRadius, index, pointElementOptions.hitRadius)
-						}
-					});
+				}
+			});
 
 					var model = point._model;
 					model.skip = custom.skip ? custom.skip : (isNaN(model.x) || isNaN(model.y));
@@ -2638,7 +2638,7 @@
 							text.push('<li><span style="background-color:' + datasets[0].backgroundColor[i] + '"></span>');
 							if (labels[i]) {
 								text.push(labels[i]);
-							}
+					}
 							text.push('</li>');
 						}
 					}
@@ -2675,8 +2675,8 @@
 								});
 							} else {
 								return [];
-							}
-						}
+					}
+				}
 					},
 
 					onClick: function (e, legendItem) {
@@ -2707,7 +2707,7 @@
 					callbacks: {
 						title: function () {
 							return '';
-						},
+				},
 						label: function (tooltipItem, data) {
 							return data.labels[tooltipItem.index] + ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
 						}
@@ -2831,8 +2831,8 @@
 							outerRadius: outerRadius,
 							innerRadius: innerRadius,
 							label: valueAtIndexOrDefault(dataset.label, index, chart.data.labels[index])
-						}
-					});
+				}
+			});
 
 					var model = arc._model;
 					model.backgroundColor = custom.backgroundColor ? custom.backgroundColor : valueAtIndexOrDefault(dataset.backgroundColor, index, arcOpts.backgroundColor);
@@ -2868,7 +2868,7 @@
 						value = dataset.data[index];
 						if (!isNaN(value) && !element.hidden) {
 							total += Math.abs(value);
-						}
+				}
 					});
 
 					return total;
@@ -3098,7 +3098,7 @@
 								} else {
 									sumPos += ds.data[index] || 0;
 								}
-							}
+					}
 						}
 
 						if (value < 0) {
@@ -3227,9 +3227,9 @@
 							text.push('<li><span style="background-color:' + datasets[0].backgroundColor[i] + '">');
 							if (labels[i]) {
 								text.push(labels[i]);
-							}
+					}
 							text.push('</span></li>');
-						}
+				}
 					}
 
 					text.push('</ul>');
@@ -3287,7 +3287,7 @@
 					callbacks: {
 						title: function () {
 							return '';
-						},
+				},
 						label: function (tooltipItem, data) {
 							return data.labels[tooltipItem.index] + ': ' + tooltipItem.yLabel;
 						}
@@ -3389,8 +3389,8 @@
 							borderColor: custom.borderColor ? custom.borderColor : getValueAtIndexOrDefault(dataset.borderColor, index, arcOpts.borderColor),
 
 							label: getValueAtIndexOrDefault(labels, index, labels[index])
-						}
-					});
+				}
+			});
 
 					arc.pivot();
 				},
@@ -3407,7 +3407,7 @@
 					helpers.each(meta.data, function (element, index) {
 						if (!isNaN(dataset.data[index]) && !element.hidden) {
 							count++;
-						}
+				}
 					});
 
 					return count;
@@ -3573,7 +3573,7 @@
 					// Transition Point Locations
 					helpers.each(meta.data, function (point, index) {
 						point.transition(easingDecimal);
-					});
+			});
 
 					// Transition and Draw the line
 					meta.dataset.transition(easingDecimal).draw();
@@ -3719,7 +3719,7 @@
 						if (this.animations[i].animationObject.currentStep === this.animations[i].animationObject.numSteps) {
 							if (this.animations[i].animationObject.onAnimationComplete && this.animations[i].animationObject.onAnimationComplete.call) {
 								this.animations[i].animationObject.onAnimationComplete.call(this.animations[i].chartInstance, this.animations[i]);
-							}
+					}
 
 							// executed the last frame. Remove the animation.
 							this.animations[i].chartInstance.animating = false;
@@ -3727,7 +3727,7 @@
 							this.animations.splice(i, 1);
 						} else {
 							++i;
-						}
+				}
 					}
 
 					var endTime = Date.now();
@@ -3964,7 +3964,7 @@
 							if (types[i] !== types[i - 1]) {
 								this.isCombo = true;
 								break;
-							}
+					}
 						}
 					}
 
@@ -4094,7 +4094,7 @@
 								if (element.inRange(eventPosition.x, eventPosition.y)) {
 									elementsArray.push(element);
 									return elementsArray;
-								}
+						}
 							});
 						}
 					}, this);
@@ -4114,10 +4114,10 @@
 									for (var j = 0; j < meta.data.length; j++) {
 										if (meta.data[j].inRange(eventPosition.x, eventPosition.y)) {
 											return meta.data[j];
-										}
-									}
 								}
 							}
+						}
+					}
 						}
 					}).call(this);
 
@@ -4332,12 +4332,12 @@
 
 							if (tooltipsOptions.enabled || tooltipsOptions.custom) {
 								tooltip.update(true);
-							}
+					}
 
 							// We only need to render at this point. Updating will cause scales to be
 							// recomputed generating flicker & using more memory than necessary.
 							me.render(hoverOptions.animationDuration, true);
-						}
+				}
 					}
 
 					// Remember Last Actives
@@ -4629,11 +4629,11 @@
 					if (reverse) {
 						for (i = len - 1; i >= 0; i--) {
 							callback.call(self, loopable[i], i);
-						}
+				}
 					} else {
 						for (i = 0; i < len; i++) {
 							callback.call(self, loopable[i], i);
-						}
+				}
 					}
 				} else if (typeof loopable === 'object') {
 					var keys = Object.keys(loopable);
@@ -4696,10 +4696,10 @@
 										// Just overwrite in this case since there is nothing to merge
 										baseArray[index] = valueObj;
 									}
-								} else {
+						} else {
 									baseArray.push(valueObj); // nothing to merge
-								}
-							});
+						}
+					});
 
 						} else if (base.hasOwnProperty(key) && typeof base[key] === "object" && base[key] !== null && typeof value === "object") {
 							// If we are overwriting an object with an object, do a merge of the properties.
@@ -4708,7 +4708,7 @@
 						} else {
 							// can just overwrite the value in this case
 							base[key] = value;
-						}
+				}
 					});
 				});
 
@@ -4723,11 +4723,11 @@
 							helpers.each(obj, function (value, key) {
 								if (dst[key] && dst[key].constructor && dst[key].constructor === Object) {
 									_extendDeep(dst[key], value);
-								} else {
+						} else {
 									dst[key] = value;
-								}
-							});
 						}
+							});
+				}
 					});
 					return dst;
 				}
@@ -4750,15 +4750,15 @@
 								} else {
 									// Type is the same
 									base[key][index] = helpers.configMerge(base[key][index], valueObj);
-								}
-							});
-						} else {
+						}
+					});
+				} else {
 							base[key] = [];
 							helpers.each(value, function (valueObj) {
 								var axisType = helpers.getValueOrDefault(valueObj.type, key === 'xAxes' ? 'category' : 'linear');
 								base[key].push(helpers.configMerge(Chart.scaleService.getScaleDefaults(axisType), valueObj));
 							});
-						}
+				}
 					} else if (base.hasOwnProperty(key) && typeof base[key] === "object" && base[key] !== null && typeof value === "object") {
 						// If we are overwriting an object with an object, do a merge of the properties.
 						base[key] = helpers.configMerge(base[key], value);
@@ -4805,7 +4805,7 @@
 					helpers.each(collection, function (item) {
 						if (filterCallback(item)) {
 							filtered.push(item);
-						}
+				}
 					});
 
 					return filtered;
@@ -4822,7 +4822,7 @@
 						if (callback.call(thisArg, arrayToSearch[i], i, arrayToSearch)) {
 							index = i;
 							break;
-						}
+				}
 					}
 				}
 
@@ -5242,7 +5242,7 @@
 					window.msRequestAnimationFrame ||
 					function (callback) {
 						return window.setTimeout(callback, 1000 / 60);
-					};
+			};
 			})();
 			helpers.cancelAnimFrame = (function () {
 				return window.cancelAnimationFrame ||
@@ -5252,7 +5252,7 @@
 					window.msCancelAnimationFrame ||
 					function (callback) {
 						return window.clearTimeout(callback, 1000 / 60);
-					};
+			};
 			})();
 			//-- DOM methods
 			helpers.getRelativePosition = function (evt, chart) {
@@ -5337,7 +5337,7 @@
 					if (styleValue.indexOf('%') != -1) {
 						// percentage * size in dimension
 						valueInPixels = valueInPixels / 100 * node.parentNode[parentProperty];
-					}
+			}
 				} else {
 					valueInPixels = styleValue;
 				}
@@ -5451,11 +5451,11 @@
 						if (!textWidth) {
 							textWidth = data[string] = ctx.measureText(string).width;
 							gc.push(string);
-						}
+				}
 
 						if (textWidth > longest) {
 							longest = textWidth;
-						}
+				}
 					}
 				});
 
@@ -5527,7 +5527,7 @@
 					if (callback) {
 						callback();
 					}
-				};
+		};
 			};
 			helpers.removeResizeListener = function (node) {
 				var hiddenIframe = node.querySelector('.chartjs-hidden-iframe');
@@ -5558,7 +5558,7 @@
 					if (v0 instanceof Array && v1 instanceof Array) {
 						if (!helpers.arrayEquals(v0, v1)) {
 							return false;
-						}
+				}
 					} else if (v0 != v1) {
 						// NOTE: two different object instances will never be equal: {x:20} != {x:20}
 						return false;
@@ -5867,19 +5867,19 @@
 
 						if (minBoxSize) {
 							if (box.isHorizontal()) {
-								var scaleMargin = {
-									left: totalLeftBoxesWidth,
-									right: totalRightBoxesWidth,
-									top: 0,
-									bottom: 0
-								};
+						var scaleMargin = {
+							left: totalLeftBoxesWidth,
+							right: totalRightBoxesWidth,
+							top: 0,
+							bottom: 0
+						};
 
 								// Don't use min size here because of label rotation. When the labels are rotated, their rotation highly depends
 								// on the margin. Sometimes they need to increase in size slightly
 								box.update(box.options.fullWidth ? chartWidth : maxChartAreaWidth, chartHeight / 2, scaleMargin);
 							} else {
 								box.update(minBoxSize.minSize.width, maxChartAreaHeight);
-							}
+					}
 						}
 					}
 
@@ -5998,7 +5998,7 @@
 
 							// Move to next point
 							left = box.right;
-						}
+				}
 					}
 
 					// Step 8
@@ -6007,7 +6007,7 @@
 						top: totalTopBoxesHeight,
 						right: totalLeftBoxesWidth + maxChartAreaWidth,
 						bottom: totalTopBoxesHeight + maxChartAreaHeight
-					};
+			};
 
 					// Step 9
 					helpers.each(chartAreaBoxes, function (box) {
@@ -6337,7 +6337,7 @@
 									ctx.moveTo(boxWidth + (fontSize / 2) + x, y + (fontSize / 2));
 									ctx.lineTo(boxWidth + (fontSize / 2) + x + textWidth, y + (fontSize / 2));
 									ctx.stroke();
-								}
+						}
 
 								cursor.x += width + (labelOpts.padding);
 							}, this);
@@ -6364,10 +6364,10 @@
 								// Touching an element
 								if (opts.onClick) {
 									opts.onClick.call(this, e, this.legendItems[i]);
-								}
-								break;
-							}
 						}
+								break;
+					}
+				}
 					}
 				}
 			});
@@ -6405,7 +6405,7 @@
 					helpers.each(Chart.plugins, function (plugin) {
 						if (plugin[method] && typeof plugin[method] === 'function') {
 							plugin[method].apply(scope, args);
-						}
+				}
 					}, scope);
 				}
 			};
@@ -6608,7 +6608,7 @@
 								return this.options.ticks.userCallback(numericalTick, index, ticks);
 							}
 							return this.options.ticks.callback(numericalTick, index, ticks);
-						},
+				},
 						this);
 				},
 				afterTickToLabelConversion: function () {
@@ -6676,11 +6676,11 @@
 									// go back one step
 									this.labelRotation--;
 									break;
-								}
+						}
 
 								this.labelRotation++;
 								labelWidth = cosRotation * originalLabelWidth;
-							}
+					}
 						}
 					}
 
@@ -6786,7 +6786,7 @@
 							} else {
 								// If mirrored text is on the inside so don't expand
 								largestTextWidth = 0;
-							}
+					}
 
 							if (largestTextWidth < maxLabelWidth) {
 								// We don't need all the room
@@ -6794,7 +6794,7 @@
 							} else {
 								// Expand to max size
 								minSize.width = this.maxWidth;
-							}
+					}
 
 							this.paddingTop = tickFontSize / 2;
 							this.paddingBottom = tickFontSize / 2;
@@ -6837,7 +6837,7 @@
 					// If it is in fact an object, dive in one more level
 					if (typeof(rawValue) === "object") {
 						if ((rawValue instanceof Date) || (rawValue.isValid)) {
-							return rawValue;
+					return rawValue;
 						} else {
 							return getRightValue(this.isHorizontal() ? rawValue.x : rawValue.y);
 						}
@@ -6974,7 +6974,7 @@
 							while (!skipRatio || this.ticks.length / (skipRatio || 1) > maxTicks) {
 								if (!skipRatio) {
 									skipRatio = 1;
-								}
+						}
 								skipRatio += 1;
 							}
 						}
@@ -7110,7 +7110,7 @@
 									} else {
 										xLabelValue = this.right - optionTicks.padding;
 										context.textAlign = "right";
-									}
+							}
 								} else {
 									// right side
 									if (optionTicks.mirror) {
@@ -7120,7 +7120,7 @@
 										xLabelValue = this.left + optionTicks.padding;
 										context.textAlign = "left";
 									}
-								}
+						}
 
 								context.translate(xLabelValue, yLabelValue + optionTicks.labelOffset);
 								context.rotate(labelRotationRadians * -1);
@@ -7128,7 +7128,7 @@
 								context.textBaseline = "middle";
 								context.fillText(label, 0, 0);
 								context.restore();
-							}
+					}
 						}, this);
 
 						if (scaleLabel.display) {
@@ -7167,7 +7167,7 @@
 							x1 = x2 = options.position === 'left' ? this.right : this.left;
 							x1 += aliasPixel;
 							x2 += aliasPixel;
-						}
+				}
 
 						context.beginPath();
 						context.moveTo(x1, y1);
@@ -7387,7 +7387,7 @@
 							titleX = opts.position === 'left' ? left + (fontSize / 2) : right - (fontSize / 2);
 							titleY = top + ((bottom - top) / 2);
 							rotation = Math.PI * (opts.position === 'left' ? -0.5 : 0.5);
-						}
+				}
 
 						ctx.save();
 						ctx.translate(titleX, titleY);
@@ -7479,7 +7479,7 @@
 						base = base.concat(toPush);
 					} else {
 						base.push(toPush);
-					}
+			}
 				}
 
 				return base;
@@ -7649,14 +7649,14 @@
 								var meta = this._chartInstance.getDatasetMeta(datasetIndex);
 								var currentElement = meta.data[element._index];
 								if (currentElement) {
-									var yScale = element._yScale || element._scale; // handle radar || polarArea charts
+							var yScale = element._yScale || element._scale; // handle radar || polarArea charts
 
-									tooltipItems.push({
-										xLabel: currentElement._xScale ? currentElement._xScale.getLabelForIndex(currentElement._index, currentElement._datasetIndex) : '',
-										yLabel: yScale ? yScale.getLabelForIndex(currentElement._index, currentElement._datasetIndex) : '',
-										index: element._index,
-										datasetIndex: datasetIndex
-									});
+							tooltipItems.push({
+								xLabel: currentElement._xScale ? currentElement._xScale.getLabelForIndex(currentElement._index, currentElement._datasetIndex) : '',
+								yLabel: yScale ? yScale.getLabelForIndex(currentElement._index, currentElement._datasetIndex) : '',
+								index: element._index,
+								datasetIndex: datasetIndex
+							});
 								}
 							}, this);
 
@@ -7666,7 +7666,7 @@
 										borderColor: active._view.borderColor,
 										backgroundColor: active._view.backgroundColor
 									});
-								}
+						}
 							}, null);
 
 							tooltipPosition = this.getAveragePosition(this._active);
@@ -7909,7 +7909,7 @@
 
 							if (i + 1 === vm.title.length) {
 								pt.y += vm.titleMarginBottom - vm.titleSpacing; // If Last, add margin, remove spacing
-							}
+					}
 						});
 					}
 				},
@@ -8197,11 +8197,11 @@
 
 							// First point moves to it's starting position no matter what
 							if (index === 0) {
-								if (this._loop) {
-									ctx.moveTo(vm.scaleZero.x, vm.scaleZero.y);
-								} else {
-									ctx.moveTo(point._view.x, vm.scaleZero);
-								}
+						if (this._loop) {
+							ctx.moveTo(vm.scaleZero.x, vm.scaleZero.y);
+						} else {
+							ctx.moveTo(point._view.x, vm.scaleZero);
+						}
 
 								if (point._view.skip) {
 									if (!this._loop) {
@@ -8223,7 +8223,7 @@
 									// If we skipped the last point, draw a line to ourselves so that the fill is nice
 									ctx.lineTo(point._view.x, point._view.y);
 								});
-							}
+					}
 						}, this);
 
 						// For radial scales, loop back around to the first point
@@ -8268,7 +8268,7 @@
 								// If we skipped the last point, move up to our point preventing a line from being drawn
 								ctx.moveTo(point._view.x, point._view.y);
 							});
-						}
+				}
 					}, this);
 
 					if (this._loop && this._children.length > 0) {
@@ -8336,7 +8336,7 @@
 						if (type === '[object HTMLImageElement]' || type === '[object HTMLCanvasElement]') {
 							ctx.drawImage(pointStyle, x - pointStyle.width / 2, y - pointStyle.height / 2);
 							return;
-						}
+				}
 					}
 
 					if (isNaN(radius) || radius <= 0) {
@@ -8519,7 +8519,7 @@
 					return {
 						x: vm.x,
 						y: vm.y
-					};
+			};
 				}
 			});
 
@@ -8589,7 +8589,7 @@
 
 						if (this.options.gridLines.offsetGridLines && includeOffset) {
 							heightOffset += (valueHeight / 2);
-						}
+				}
 
 						return this.top + Math.round(heightOffset);
 					}
@@ -8642,8 +8642,8 @@
 							if (tickValue !== Math.floor(tickValue)) {
 								// not an integer
 								delta = tickValue - Math.floor(tickValue);
-							}
-						}
+					}
+				}
 
 						var logDelta = helpers.log10(Math.abs(delta));
 						var tickString = '';
@@ -8702,7 +8702,7 @@
 									var value = +_this.getRightValue(rawValue);
 									if (isNaN(value) || meta.data[index].hidden) {
 										return;
-									}
+							}
 
 									positiveValues[index] = positiveValues[index] || 0;
 									negativeValues[index] = negativeValues[index] || 0;
@@ -8718,7 +8718,7 @@
 											positiveValues[index] += value;
 										}
 									}
-								});
+						});
 							}
 						});
 
@@ -8744,15 +8744,15 @@
 										_this.min = value;
 									} else if (value < _this.min) {
 										_this.min = value;
-									}
+							}
 
 									if (_this.max === null) {
 										_this.max = value;
 									} else if (value > _this.max) {
 										_this.max = value;
 									}
-								});
-							}
+						});
+					}
 						});
 					}
 
@@ -8938,7 +8938,7 @@
 							return value.toExponential();
 						} else {
 							return '';
-						}
+				}
 					}
 				}
 			};
@@ -8986,8 +8986,8 @@
 									} else {
 										// Don't need to split positive and negative since the log scale can't handle a 0 crossing
 										values[index] += value;
-									}
-								});
+							}
+						});
 							}
 						});
 
@@ -9018,9 +9018,9 @@
 										_this.max = value;
 									} else if (value > _this.max) {
 										_this.max = value;
-									}
-								});
 							}
+						});
+					}
 						});
 					}
 
@@ -9244,8 +9244,8 @@
 									this.max = value;
 								} else if (value > this.max) {
 									this.max = value;
-								}
-							}, this);
+						}
+					}, this);
 						}
 					}, this);
 
@@ -9406,7 +9406,7 @@
 							if (pointPosition.x + halfTextWidth > furthestRight) {
 								furthestRight = pointPosition.x + halfTextWidth;
 								furthestRightIndex = i;
-							}
+					}
 							if (pointPosition.x - halfTextWidth < furthestLeft) {
 								furthestLeft = pointPosition.x - halfTextWidth;
 								furthestLeftIndex = i;
@@ -9521,10 +9521,10 @@
 											var pointPosition = this.getPointPosition(i, this.getDistanceFromCenterForValue(this.ticks[index]));
 											if (i === 0) {
 												ctx.moveTo(pointPosition.x, pointPosition.y);
-											} else {
+									} else {
 												ctx.lineTo(pointPosition.x, pointPosition.y);
-											}
-										}
+									}
+								}
 										ctx.closePath();
 										ctx.stroke();
 									}
@@ -9547,7 +9547,7 @@
 											labelWidth + this.options.ticks.backdropPaddingX * 2,
 											tickFontSize + this.options.ticks.backdropPaddingY * 2
 										);
-									}
+							}
 
 									ctx.textAlign = 'center';
 									ctx.textBaseline = "middle";
@@ -9604,11 +9604,11 @@
 									ctx.textBaseline = 'bottom';
 								} else {
 									ctx.textBaseline = 'top';
-								}
+						}
 
 								ctx.fillText(this.pointLabels[i] ? this.pointLabels[i] : '', pointLabelPosition.x, pointLabelPosition.y);
-							}
-						}
+					}
+				}
 					}
 				}
 			});
@@ -9718,7 +9718,7 @@
 									labelMoment.startOf(this.options.time.round);
 								}
 								scaleLabelMoments.push(labelMoment);
-							}
+					}
 						}, this);
 
 						this.firstTick = moment.min.call(this, scaleLabelMoments);
@@ -9748,7 +9748,7 @@
 										this.lastTick = this.lastTick !== null ? moment.max(this.lastTick, labelMoment) : labelMoment;
 									}
 								}
-							}, this);
+					}, this);
 						} else {
 							// We have no labels. Use the ones from the scale
 							momentsForDataset = scaleLabelMoments;
@@ -9819,16 +9819,16 @@
 								for (var idx = 0; idx < unitDefinition.steps.length; ++idx) {
 									if (unitDefinition.steps[idx] >= Math.ceil(this.scaleSizeInUnits / labelCapacity)) {
 										this.unitScale = helpers.getValueOrDefault(this.options.time.unitStepSize, unitDefinition.steps[idx]);
-										break;
-									}
-								}
+								break;
+							}
+						}
 
 								break;
 							} else if ((unitDefinition.maxStep === false) || (Math.ceil(this.scaleSizeInUnits / labelCapacity) < unitDefinition.maxStep)) {
 								// We have a max step. Scale this unit
 								this.unitScale = helpers.getValueOrDefault(this.options.time.unitStepSize, Math.ceil(this.scaleSizeInUnits / labelCapacity));
 								break;
-							} else {
+					} else {
 								// Move to the next unit up
 								++unitDefinitionIndex;
 								unitDefinition = time.units[unitDefinitionIndex];
@@ -9838,7 +9838,7 @@
 								var trailingUnitBuffer = this.getMomentStartOf(this.lastTick.clone().add(1, this.tickUnit)).diff(this.lastTick, this.tickUnit, true);
 								this.scaleSizeInUnits = this.lastTick.diff(this.firstTick, this.tickUnit, true) + leadingUnitBuffer + trailingUnitBuffer;
 								this.displayFormat = this.options.time.displayFormats[unitDefinition.name];
-							}
+					}
 						}
 					}
 
@@ -9958,7 +9958,7 @@
 							var heightOffset = (innerHeight * decimal) + this.paddingTop;
 
 							return this.top + Math.round(heightOffset);
-						}
+				}
 					}
 				},
 				getPixelForTick: function (index, includeOffset) {

@@ -23,7 +23,7 @@ $.fn.sparkline.line = line = createClass($.fn.sparkline._base, {
             if (regionMap[i] !== null && x >= regionMap[i][0] && x <= regionMap[i][1]) {
                 return regionMap[i][2];
             }
-        }
+            }
         return undefined;
     },
 
@@ -98,7 +98,7 @@ $.fn.sparkline.line = line = createClass($.fn.sparkline._base, {
                 xvalues.push(val[0]);
                 yvalues.push(val[1]);
                 yminmax.push(val[1]);
-            } else {
+                } else {
                 xvalues.push(i);
                 if (values[i] === null || values[i] === 'null') {
                     yvalues.push(null);
@@ -106,8 +106,8 @@ $.fn.sparkline.line = line = createClass($.fn.sparkline._base, {
                     yvalues.push(Number(val));
                     yminmax.push(Number(val));
                 }
+                }
             }
-        }
         if (this.options.get('xvalues')) {
             xvalues = this.options.get('xvalues');
         }
@@ -136,10 +136,10 @@ $.fn.sparkline.line = line = createClass($.fn.sparkline._base, {
             if (normalRangeMax > this.maxy) {
                 this.maxy = normalRangeMax;
             }
-        }
+            }
         if (options.get('chartRangeMin') !== undefined && (options.get('chartRangeClip') || options.get('chartRangeMin') < this.miny)) {
             this.miny = options.get('chartRangeMin');
-        }
+            }
         if (options.get('chartRangeMax') !== undefined && (options.get('chartRangeClip') || options.get('chartRangeMax') > this.maxy)) {
             this.maxy = options.get('chartRangeMax');
         }
@@ -197,7 +197,7 @@ $.fn.sparkline.line = line = createClass($.fn.sparkline._base, {
 
         if (spotRadius && (canvasWidth < (spotRadius * 4) || canvasHeight < (spotRadius * 4))) {
             spotRadius = 0;
-        }
+            }
         if (spotRadius) {
             // adjust the canvas size as required so that spots will fit
             hlSpotsEnabled = options.get('highlightSpotColor') && !options.get('disableInteraction');
@@ -218,7 +218,7 @@ $.fn.sparkline.line = line = createClass($.fn.sparkline._base, {
                 (yvalues[yvallast] === this.miny || yvalues[yvallast] === this.maxy))) {
                 canvasWidth -= Math.ceil(spotRadius);
             }
-        }
+            }
 
 
         canvasHeight--;
@@ -247,7 +247,7 @@ $.fn.sparkline.line = line = createClass($.fn.sparkline._base, {
                         paths.push(path);
                     }
                     vertices.push(null);
-                }
+                    }
             } else {
                 if (y < this.miny) {
                     y = this.miny;
@@ -262,8 +262,8 @@ $.fn.sparkline.line = line = createClass($.fn.sparkline._base, {
                 vertex = [xpos, canvasTop + Math.round(canvasHeight - (canvasHeight * ((y - this.miny) / rangey)))];
                 path.push(vertex);
                 vertices.push(vertex);
+                }
             }
-        }
 
         lineShapes = [];
         fillShapes = [];
@@ -283,8 +283,8 @@ $.fn.sparkline.line = line = createClass($.fn.sparkline._base, {
                     path[0] = [path[0][0], path[1][1]];
                 }
                 lineShapes.push(path);
+                }
             }
-        }
 
         // draw the fill first, then optionally the normal range, then the line on top of that
         plen = fillShapes.length;
@@ -301,13 +301,13 @@ $.fn.sparkline.line = line = createClass($.fn.sparkline._base, {
         for (i = 0; i < plen; i++) {
             target.drawShape(lineShapes[i], options.get('lineColor'), undefined,
                 options.get('lineWidth')).append();
-        }
+            }
 
         if (spotRadius && options.get('valueSpots')) {
             valueSpots = options.get('valueSpots');
             if (valueSpots.get === undefined) {
                 valueSpots = new RangeMap(valueSpots);
-            }
+                }
             for (i = 0; i < yvalcount; i++) {
                 color = valueSpots.get(yvalues[i]);
                 if (color) {
@@ -318,13 +318,13 @@ $.fn.sparkline.line = line = createClass($.fn.sparkline._base, {
                 }
             }
 
-        }
+            }
         if (spotRadius && options.get('spotColor') && yvalues[yvallast] !== null) {
             target.drawCircle(canvasLeft + Math.round((xvalues[xvalues.length - 1] - this.minx) * (canvasWidth / rangex)),
                 canvasTop + Math.round(canvasHeight - (canvasHeight * ((yvalues[yvallast] - this.miny) / rangey))),
-                spotRadius, undefined,
+                    spotRadius, undefined,
                 options.get('spotColor')).append();
-        }
+            }
         if (this.maxy !== this.minyorg) {
             if (spotRadius && options.get('minSpotColor')) {
                 x = xvalues[$.inArray(this.minyorg, yvalues)];

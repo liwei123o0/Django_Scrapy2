@@ -272,7 +272,6 @@ define(function (require) {
                     return firstRect.intersect(nextRect);
                 }
             }
-
             if (axis.type !== 'category') {
                 // If min or max are user set, we need to check
                 // If the tick on min(max) are overlap on their neighbour tick

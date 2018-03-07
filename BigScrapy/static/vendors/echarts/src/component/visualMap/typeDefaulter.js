@@ -11,8 +11,8 @@ define(function (require) {
                         : option.splitNumber > 0
                 )
                 || option.calculable
+                )
             )
-        )
             ? 'continuous' : 'piecewise';
     });
 

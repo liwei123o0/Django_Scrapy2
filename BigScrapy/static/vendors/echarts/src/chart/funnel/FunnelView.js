@@ -26,12 +26,10 @@ define(function (require) {
             labelLine.ignore = labelLine.hoverIgnore;
             text.ignore = text.hoverIgnore;
         }
-
         function onNormal() {
             labelLine.ignore = labelLine.normalIgnore;
             text.ignore = text.normalIgnore;
         }
-
         this.on('emphasis', onEmphasis)
             .on('normal', onNormal)
             .on('mouseover', onEmphasis)

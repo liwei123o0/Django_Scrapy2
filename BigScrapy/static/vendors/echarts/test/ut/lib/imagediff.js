@@ -40,7 +40,7 @@
                 e.message + '\n' +
                 'Please see https://github.com/HumbleSoftware/js-imagediff#cannot-find-module-canvas\n'
             );
-        }
+    }
         if (width) canvas.width = width;
         if (height) canvas.height = height;
         return canvas;
@@ -104,7 +104,7 @@
 
         for (i = imageData.data.length; i--;) {
             newData[i] = data[i];
-        }
+    }
 
         return newImageData;
     }
@@ -215,7 +215,7 @@
             cData[i + 1] = Math.abs(aData[i + 1] - bData[i + 1]);
             cData[i + 2] = Math.abs(aData[i + 2] - bData[i + 2]);
             cData[i + 3] = Math.abs(255 - Math.abs(aData[i + 3] - bData[i + 3]));
-        }
+    }
 
         return c;
     }
@@ -238,7 +238,7 @@
 
         for (i = cData.length - 1; i > 0; i = i - 4) {
             cData[i] = 255;
-        }
+    }
 
         // Add First Image
         offsets(a);
@@ -251,7 +251,7 @@
                 cData[i + 2] = aData[j + 2]; // b
                 // cData[i+3] = aData[j+3]; // a
             }
-        }
+    }
 
         // Subtract Second Image
         offsets(b);
@@ -263,7 +263,7 @@
                 cData[i + 1] = Math.abs(cData[i + 1] - bData[j + 1]); // g
                 cData[i + 2] = Math.abs(cData[i + 2] - bData[j + 2]); // b
             }
-        }
+    }
 
         // Helpers
         function offsets(imageData) {
@@ -274,7 +274,7 @@
                 rowOffset = Math.floor((height - imageData.height) / 2);
                 columnOffset = Math.floor((width - imageData.width) / 2);
             }
-        }
+    }
 
         return c;
     }
@@ -290,7 +290,7 @@
                     message: 'Submitted object was not an image.'
                 };
             }
-        }
+    }
     }
 
 
@@ -299,7 +299,7 @@
         element = document.createElement(element);
         if (element && content) {
             element.innerHTML = content;
-        }
+    }
         return element;
     }
 
@@ -408,7 +408,7 @@
         noConflict: function () {
             root[name] = previous;
             return imagediff;
-        }
+    }
     };
 
     if (typeof module !== 'undefined') {

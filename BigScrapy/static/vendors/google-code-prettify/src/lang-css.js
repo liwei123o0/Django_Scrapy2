@@ -13,6 +13,7 @@
 // limitations under the License.
 
 
+
 /**
  * @fileoverview
  * Registers a language handler for CSS.
@@ -98,6 +99,7 @@
 // types.
 
 // All other patterns are fall-through patterns.
+
 
 
 // The comments inline below refer to productions in the CSS specification's

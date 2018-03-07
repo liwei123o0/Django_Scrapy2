@@ -45,7 +45,7 @@
 
         for (n = 0; n < len; n++) {
             func(arr[n], n);
-        }
+    }
     }
 
     function round(val, decimalPoints) {
@@ -65,7 +65,7 @@
             else {
                 ret.push(arr[n]);
             }
-        }
+    }
 
         return ret;
     }
@@ -106,49 +106,49 @@
 
     // Canteen methods
     Canteen.prototype = {
-        /**
-         * get a stack of operations
-         * @method stack
-         * @param {Object} config
-         * @param {String} [config.loose=false] - strict mode returns method calls with arguments and property names
-         *  with values.  loose mode only returns method calls and property names
-         * @param {Number} [config.decimalPoints=3] - number of decimal points to round numeric values to.  The default is
-         *  3, i.e. 1.23456 will round to 1.234
-         * @returns {Array}
-         * @public
-         */
-        stack: function (config) {
-            var config = config || {},
-                loose = config.loose,
-                decimalPoints = config.decimalPoints === undefined ? 3 : config.decimalPoints,
-                ret = [];
+    /**
+     * get a stack of operations
+     * @method stack
+     * @param {Object} config
+     * @param {String} [config.loose=false] - strict mode returns method calls with arguments and property names
+     *  with values.  loose mode only returns method calls and property names
+     * @param {Number} [config.decimalPoints=3] - number of decimal points to round numeric values to.  The default is
+     *  3, i.e. 1.23456 will round to 1.234
+     * @returns {Array}
+     * @public
+     */
+    stack: function (config) {
+        var config = config || {},
+            loose = config.loose,
+            decimalPoints = config.decimalPoints === undefined ? 3 : config.decimalPoints,
+            ret = [];
 
-            if (loose) {
-                each(this._stack, function (el, n) {
-                    ret.push(el.method || el.attr);
-                });
-            }
-            else {
-                each(this._stack, function (el, n) {
-                    // if method instruction
-                    if (el.method) {
-                        ret.push({
-                            method: el.method,
-                            arguments: roundArr(el.arguments, decimalPoints)
-                        });
-                    }
-                    // if attr
-                    else if (el.attr) {
-                        ret.push({
-                            attr: el.attr,
-                            val: isNumber(el.val) ? round(el.val, decimalPoints) : el.val
-                        });
-                    }
-                });
-            }
+        if (loose) {
+            each(this._stack, function (el, n) {
+                ret.push(el.method || el.attr);
+            });
+        }
+        else {
+            each(this._stack, function (el, n) {
+                // if method instruction
+                if (el.method) {
+                    ret.push({
+                        method: el.method,
+                        arguments: roundArr(el.arguments, decimalPoints)
+            });
+                }
+                // if attr
+                else if (el.attr) {
+                    ret.push({
+                        attr: el.attr,
+                        val: isNumber(el.val) ? round(el.val, decimalPoints) : el.val
+                    });
+                }
+        });
+        }
 
-            return ret;
-        },
+        return ret;
+    },
         /**
          * serialize a stack into a string
          * @method json
@@ -338,19 +338,15 @@
     function md5_cmn(q, a, b, x, s, t) {
         return safe_add(bit_rol(safe_add(safe_add(a, q), safe_add(x, t)), s), b);
     }
-
     function md5_ff(a, b, c, d, x, s, t) {
         return md5_cmn((b & c) | ((~b) & d), a, b, x, s, t);
     }
-
     function md5_gg(a, b, c, d, x, s, t) {
         return md5_cmn((b & d) | (c & (~d)), a, b, x, s, t);
     }
-
     function md5_hh(a, b, c, d, x, s, t) {
         return md5_cmn(b ^ c ^ d, a, b, x, s, t);
     }
-
     function md5_ii(a, b, c, d, x, s, t) {
         return md5_cmn(c ^ (b | (~d)), a, b, x, s, t);
     }
@@ -537,15 +533,12 @@
     function raw_md5(s) {
         return rstr_md5(str2rstr_utf8(s));
     }
-
     function hex_md5(s) {
         return rstr2hex(raw_md5(s));
     }
-
     function raw_hmac_md5(k, d) {
         return rstr_hmac_md5(str2rstr_utf8(k), str2rstr_utf8(d));
     }
-
     function hex_hmac_md5(k, d) {
         return rstr2hex(raw_hmac_md5(k, d));
     }

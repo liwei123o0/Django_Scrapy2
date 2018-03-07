@@ -52,15 +52,15 @@
             data1.push(Math.random() * 2);
             data2.push(Math.random() * 2);
             data3.push(Math.random() * 2);
-        }
+                }
 
         chart.setOption({
             tooltip: {
                 trigger: 'axis',
-            },
+                    },
             legend: {
                 data: ['降水量', '流量']
-            },
+                    },
             grid: [
                 {
                     show: true,
@@ -73,7 +73,7 @@
                     borderWidth: 0,
                     right: '15%',
                     top: '53%'
-                }
+                        }
             ],
             xAxis: [
                 {
@@ -103,7 +103,7 @@
                     },
                     data: data.category,
                     gridIndex: 1
-                }
+                        }
             ],
             yAxis: [
                 {
@@ -131,7 +131,7 @@
                         }
                     },
                     gridIndex: 1
-                }
+                        }
             ],
             series: [
                 {
@@ -157,7 +157,7 @@
                     },
                     xAxisIndex: 1,
                     yAxisIndex: 1
-                }
+                        }
             ],
             dataZoom: [
                 {
@@ -165,7 +165,7 @@
                     xAxisIndex: [0, 1],
                     start: 30,
                     end: 40
-                }
+                        }
             ]
         });
 

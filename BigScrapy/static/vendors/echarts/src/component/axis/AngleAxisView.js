@@ -18,7 +18,6 @@ define(function (require) {
             y2: end[1]
         };
     }
-
     require('../../echarts').extendComponentView({
 
         type: 'angleAxis',

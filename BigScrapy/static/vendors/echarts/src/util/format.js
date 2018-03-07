@@ -64,7 +64,6 @@ define(function (require) {
     function wrapVar(varName, seriesIdx) {
         return '{' + varName + (seriesIdx == null ? '' : seriesIdx) + '}';
     }
-
     /**
      * Template formatter
      * @param  {string} tpl

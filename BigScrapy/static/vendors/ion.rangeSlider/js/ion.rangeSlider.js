@@ -114,6 +114,7 @@
     }
 
 
+
     // =================================================================================================================
     // Template
 
@@ -139,6 +140,7 @@
 
     var disable_html =
         '<span class="irs-disable-mask"></span>';
+
 
 
     // =================================================================================================================
@@ -256,6 +258,7 @@
         };
 
 
+
         /**
          * get and validate config
          */
@@ -324,6 +327,7 @@
         };
 
 
+
         // config from data-attributes extends js config
         config_from_data = {
             type: $inp.data("type"),
@@ -387,6 +391,7 @@
         }
 
 
+
         // input value extends default config
         if (val) {
             val = val.split(config_from_data.input_values_separator || options.input_values_separator || ";");
@@ -408,6 +413,7 @@
         }
 
 
+
         // js config extends default config
         $.extend(config, options);
 
@@ -417,8 +423,10 @@
         this.options = config;
 
 
+
         // validate config, to be sure that all data types are correct
         this.validate();
+
 
 
         // default result object, returned to callbacks
@@ -437,6 +445,7 @@
             to_percent: 0,
             to_value: null
         };
+
 
 
         this.init();

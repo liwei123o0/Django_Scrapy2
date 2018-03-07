@@ -763,7 +763,6 @@ module.exports = function (Chart) {
 
 		return 'none';
 	}
-
 	// returns Number or undefined if no constraint
 	helpers.getConstraintWidth = function (domNode) {
 		return getConstraintDimension(domNode, 'max-width', 'clientWidth');

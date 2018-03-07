@@ -7,23 +7,23 @@ $.fn.cropper = function (option) {
     var result;
 
     this.each(function () {
-        var $this = $(this);
-        var data = $this.data(NAMESPACE);
-        var options;
-        var fn;
+      var $this = $(this);
+      var data = $this.data(NAMESPACE);
+      var options;
+      var fn;
 
-        if (!data) {
-            if (/destroy/.test(option)) {
-                return;
-            }
-
-            options = $.extend({}, $this.data(), $.isPlainObject(option) && option);
-            $this.data(NAMESPACE, (data = new Cropper(this, options)));
+      if (!data) {
+        if (/destroy/.test(option)) {
+          return;
         }
 
-        if (typeof option === 'string' && $.isFunction(fn = data[option])) {
-            result = fn.apply(data, args);
-        }
+        options = $.extend({}, $this.data(), $.isPlainObject(option) && option);
+        $this.data(NAMESPACE, (data = new Cropper(this, options)));
+      }
+
+      if (typeof option === 'string' && $.isFunction(fn = data[option])) {
+        result = fn.apply(data, args);
+      }
     });
 
     return isUndefined(result) ? this : result;

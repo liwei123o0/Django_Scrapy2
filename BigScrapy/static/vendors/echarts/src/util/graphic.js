@@ -392,7 +392,6 @@ define(function (require) {
             ? el.animateTo(props, duration, animationDelay || 0, animationEasing, cb)
             : (el.attr(props), cb && cb());
     }
-
     /**
      * Update graphic element properties with or without animation according to the configuration in series
      * @param {module:zrender/Element} el

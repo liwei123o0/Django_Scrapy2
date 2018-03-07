@@ -12,31 +12,31 @@
     <script type="text/javascript" src="../dist/maps/jquery.vmap.europe.js" charset="utf-8"></script>
 
     <script type="text/javascript">
-        function touch_detect() {
-            return 'ontouchstart' in window || 'onmsgesturechange' in window || navigator.msMaxTouchPoints > 0;
-        }
+      function touch_detect() {
+        return 'ontouchstart' in window || 'onmsgesturechange' in window || navigator.msMaxTouchPoints > 0;
+      }
 
-        jQuery(document).ready(function () {
-            jQuery('#vmap').vectorMap({
-                map: 'europe_en',
-                enableZoom: false,
-                showTooltip: false,
-                onRegionClick: function (element, code, region) {
-                    if (!touch_detect()) {
-                        // we're not on a mobile device, handle the click
-                        var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
-                        alert(message);
-                    }
-                },
-                onRegionOver: function (element, code, region) {
-                    if (touch_detect()) {
-                        /// we're not on a mobile device, handle the click
-                        var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
-                        alert(message);
-                    }
-                }
-            });
+      jQuery(document).ready(function () {
+        jQuery('#vmap').vectorMap({
+          map: 'europe_en',
+          enableZoom: false,
+          showTooltip: false,
+          onRegionClick: function (element, code, region) {
+            if (!touch_detect()) {
+              // we're not on a mobile device, handle the click
+              var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
+              alert(message);
+            }
+          },
+          onRegionOver: function (element, code, region) {
+            if (touch_detect()) {
+              /// we're not on a mobile device, handle the click
+              var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
+              alert(message);
+            }
+          }
         });
+      });
     </script>
 </head>
 

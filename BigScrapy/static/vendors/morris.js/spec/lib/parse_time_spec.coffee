@@ -1,4 +1,5 @@
 describe '#parseTime', ->
+
   it 'should parse years', ->
     Morris.parseDate('2012').should.equal(new Date(2012, 0, 1).getTime())
 

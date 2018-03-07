@@ -73,59 +73,59 @@
                         magicType: {
                             show: true,
                             type: ['pie', 'funnel']
-                        },
+                    },
                         restore: {show: true},
                         saveAsImage: {show: true}
                     }
-                },
+            },
                 calculable: true,
                 series: [
-                    {
-                        name: '半径模式',
-                        type: 'pie',
-                        roseType: 'radius',
-                        label: {
-                            normal: {
-                                show: false
-                            },
-                            emphasis: {
-                                show: true
-                            }
+                {
+                    name: '半径模式',
+                    type: 'pie',
+                    roseType: 'radius',
+                    label: {
+                        normal: {
+                            show: false
                         },
-                        lableLine: {
-                            normal: {
-                                show: false
-                            },
-                            emphasis: {
-                                show: true
-                            }
-                        },
-                        data: [
-                            {value: 10, name: 'rose1'},
-                            {value: 5, name: 'rose2'},
-                            {value: 15, name: 'rose3'},
-                            {value: 25, name: 'rose4'},
-                            {value: 20, name: 'rose5'},
-                            {value: 35, name: 'rose6'},
-                            {value: 30, name: 'rose7'},
-                            {value: 40, name: 'rose8'}
-                        ]
+                        emphasis: {
+                            show: true
+                        }
                     },
-                    {
-                        name: '面积模式',
-                        type: 'pie',
-                        roseType: 'area',
-                        data: [
-                            {value: 10, name: 'rose1'},
-                            {value: 5, name: 'rose2'},
-                            {value: 15, name: 'rose3'},
-                            {value: 25, name: 'rose4'},
-                            {value: 20, name: 'rose5'},
-                            {value: 35, name: 'rose6'},
-                            {value: 30, name: 'rose7'},
-                            {value: 40, name: 'rose8'}
-                        ]
-                    }
+                    lableLine: {
+                        normal: {
+                            show: false
+                        },
+                        emphasis: {
+                            show: true
+                        }
+                    },
+                    data: [
+                        {value: 10, name: 'rose1'},
+                        {value: 5, name: 'rose2'},
+                        {value: 15, name: 'rose3'},
+                        {value: 25, name: 'rose4'},
+                        {value: 20, name: 'rose5'},
+                        {value: 35, name: 'rose6'},
+                        {value: 30, name: 'rose7'},
+                        {value: 40, name: 'rose8'}
+                    ]
+                },
+                {
+                    name: '面积模式',
+                    type: 'pie',
+                    roseType: 'area',
+                    data: [
+                        {value: 10, name: 'rose1'},
+                        {value: 5, name: 'rose2'},
+                        {value: 15, name: 'rose3'},
+                        {value: 25, name: 'rose4'},
+                        {value: 20, name: 'rose5'},
+                        {value: 35, name: 'rose6'},
+                        {value: 30, name: 'rose7'},
+                        {value: 40, name: 'rose8'}
+                    ]
+                }
                 ]
             },
             media: [
@@ -135,12 +135,12 @@
                             right: 'center',
                             bottom: 0,
                             orient: 'horizontal'
-                        },
+                    },
                         series: [
                             {
                                 radius: [20, 110],
                                 center: ['25%', 200]
-                            },
+                        },
                             {
                                 radius: [30, 110],
                                 center: ['75%', 200]
@@ -151,18 +151,18 @@
                 {
                     query: {
                         minAspectRatio: 1
-                    },
+                },
                     option: {
                         legend: {
                             right: 'center',
                             bottom: 0,
                             orient: 'horizontal'
-                        },
+                    },
                         series: [
                             {
                                 radius: [20, 110],
                                 center: ['25%', 200]
-                            },
+                        },
                             {
                                 radius: [30, 110],
                                 center: ['75%', 200]
@@ -173,24 +173,24 @@
                 {
                     query: {
                         maxAspectRatio: 1
-                    },
+                },
                     option: {
                         legend: {
                             right: 'center',
                             bottom: 0,
                             orient: 'horizontal'
-                        },
+                    },
                         series: [
                             {
                                 radius: [20, 110],
                                 center: [200, '30%']
-                            },
+                        },
                             {
                                 radius: [30, 110],
                                 center: [200, '70%']
                             }
                         ]
-                    }
+                }
                 },
                 {
                     query: {

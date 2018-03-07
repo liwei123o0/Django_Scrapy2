@@ -44,14 +44,14 @@
                 categories[i] = {
                     name: '类目' + i
                 };
-            }
+                    }
             graph.nodes.forEach(function (node) {
                 delete node.itemStyle;
                 node.value = node.symbolSize;
                 node.label = {
-                    normal: {
-                        show: node.symbolSize > 30
-                    }
+                            normal: {
+                                show: node.symbolSize > 30
+                            }
                 };
                 node.category = node.attributes['modularity_class'];
             });
@@ -100,7 +100,7 @@
                                 curveness: 0.3
                             }
                         }
-                    }
+                            }
                 ]
             };
 
@@ -112,7 +112,7 @@
 
             chart.on('click', function (params) {
                 console.log(params, params.data);
-            });
+                    });
 
             var gui = new dat.GUI();
             gui.add(config, 'layout', ['none', 'circular'])
@@ -124,7 +124,7 @@
                         }]
                     });
                 });
-        });
+                });
     });
 </script>
 </body>

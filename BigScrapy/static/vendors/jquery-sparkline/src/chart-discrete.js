@@ -61,6 +61,6 @@ $.fn.sparkline.discrete = discrete = createClass($.fn.sparkline._base, barHighli
             color = this.calcHighlightColor(color, options);
         }
         return target.drawLine(x, ytop, x, ytop + lineHeight, color);
-    }
+        }
 });
 

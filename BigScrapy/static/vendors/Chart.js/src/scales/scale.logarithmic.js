@@ -31,7 +31,6 @@ module.exports = function (Chart) {
 			var datasets = data.datasets;
 			var getValueOrDefault = helpers.getValueOrDefault;
 			var isHorizontal = _this.isHorizontal();
-
 			function IDMatches(meta) {
 				return isHorizontal ? meta.xAxisID === _this.id : meta.yAxisID === _this.id;
 			}

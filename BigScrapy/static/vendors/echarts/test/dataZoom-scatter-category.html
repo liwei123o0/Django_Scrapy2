@@ -71,7 +71,7 @@
         chart.setOption({
             legend: {
                 data: ['scatter', 'scatter2', 'scatter3']
-            },
+                    },
             toolbox: {
                 // y: 'bottom',
                 feature: {
@@ -82,9 +82,10 @@
                     },
                     restore: {show: true},
                     saveAsImage: {}
-                }
-            },
-            tooltip: {},
+                        }
+                    },
+            tooltip: {
+                    },
             dataZoom: [
                 {
                     show: true,
@@ -114,7 +115,7 @@
                     filterMode: 'empty',
                     start: 0,
                     end: 20
-                }
+                        }
             ],
             xAxis: {
                 type: 'category',
@@ -122,14 +123,14 @@
                     show: true
                 },
                 data: xAxisData
-            },
+                    },
             yAxis: {
                 type: 'category',
                 splitLine: {
                     show: true
                 },
                 data: yAxisData
-            },
+                    },
             series: [
                 {
                     name: 'scatter',
@@ -173,7 +174,7 @@
                         return val[0] * 4;
                     },
                     data: data3
-                }
+                        }
             ]
         });
         // console.profileEnd('setOption');

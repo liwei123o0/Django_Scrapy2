@@ -285,7 +285,7 @@ define(function (require) {
                             style: {
                                 opacity: 0
                             }
-                        }
+                            }
                             // Others.
                             : {style: {opacity: 0}};
                     }

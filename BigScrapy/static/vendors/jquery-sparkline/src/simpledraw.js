@@ -7,7 +7,7 @@ $.fn.simpledraw = function (width, height, useExisting, interact) {
 
     if ($.fn.sparkline.canvas === false) {
         // We've already determined that neither Canvas nor VML are available
-        return false;
+            return false;
 
     } else if ($.fn.sparkline.canvas === undefined) {
         // No function defined yet -- need to see if we support Canvas or VML
@@ -28,7 +28,7 @@ $.fn.simpledraw = function (width, height, useExisting, interact) {
             $.fn.sparkline.canvas = false;
             return false;
         }
-    }
+        }
 
     if (width === undefined) {
         width = $(this).innerWidth();

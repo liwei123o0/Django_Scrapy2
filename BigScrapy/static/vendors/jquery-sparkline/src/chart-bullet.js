@@ -126,6 +126,6 @@ $.fn.sparkline.bullet = bullet = createClass($.fn.sparkline._base, {
             this.valueShapes.t0 = shape.id;
         }
         target.render();
-    }
+        }
 });
 

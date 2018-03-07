@@ -35,7 +35,7 @@
             xAxisData.push('类目' + i);
             data1.push(+Math.random().toFixed(2));
             data2.push(+Math.random().toFixed(2));
-        }
+                }
 
         chart.setOption({
             legend: {
@@ -45,7 +45,7 @@
                 trigger: 'axis',
                 axisPointer: {
                     type: 'line'
-                }
+                        }
             },
             xAxis: {
                 // data: ['类目1', '类目2', '类目3', '类目4', '类目5',]
@@ -90,7 +90,7 @@
                         type: 'max'
                     }]]
                 }
-            }, {
+                    }, {
                 name: 'line2',
                 type: 'line',
                 stack: 'all',
@@ -107,7 +107,7 @@
                         xAxis: 3
                     }]
                 }
-            }]
+                    }]
         });
 
         chart.on('click', function (params) {

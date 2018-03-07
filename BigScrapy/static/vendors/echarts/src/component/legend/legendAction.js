@@ -46,7 +46,6 @@ define(function (require) {
             selected: selectedMap
         };
     }
-
     /**
      * @event legendToggleSelect
      * @type {Object}

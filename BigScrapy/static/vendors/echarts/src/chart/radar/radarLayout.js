@@ -13,7 +13,6 @@ define(function (require) {
                 points[idx] = points[idx] || [];
                 points[idx][i] = coordSys.dataToPoint(val, i);
             }
-
             for (var i = 0; i < coordSys.getIndicatorAxes().length; i++) {
                 var dim = data.dimensions[i];
                 data.each(dim, pointsConverter);

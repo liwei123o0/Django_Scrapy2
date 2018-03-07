@@ -407,15 +407,15 @@ function SmartWizard(target, options) {
                 if (!wiz) {
                     wiz = new SmartWizard($(this), options);
                     $(this).data('smartWizard', wiz);
-                }
-            } else {
+            }
+        } else {
                 if (typeof SmartWizard.prototype[method] == "function") {
                     rv = SmartWizard.prototype[method].apply(wiz, Array.prototype.slice.call(args, 1));
                     return rv;
                 } else {
                     $.error('Method ' + method + ' does not exist on jQuery.smartWizard');
                 }
-            }
+        }
         });
         if (rv === undefined) {
             return allObjs;

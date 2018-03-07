@@ -65,8 +65,8 @@
 
                     for (var i = 0; i < this.data.length; i++) {
                         data[i] = data[i] & 0xFF;
-                    }
-                }
+        }
+    }
             }
 
             ArrayReader.prototype = new DataReader();
@@ -87,7 +87,7 @@
                 for (var i = this.length - 4; i >= 0; --i) {
                     if (this.data[i] === sig0 && this.data[i + 1] === sig1 && this.data[i + 2] === sig2 && this.data[i + 3] === sig3) {
                         return i - this.zero;
-                    }
+        }
                 }
 
                 return -1;
@@ -631,7 +631,7 @@
                     for (var i in this) {
                         if (typeof this[i] !== "function") {
                             newObj[i] = this[i];
-                        }
+            }
                     }
                     return newObj;
                 };
@@ -2172,7 +2172,7 @@
                     try {
                         if (type === "array" || type === "nodebuffer") {
                             result.push(String.fromCharCode.apply(null, array.slice(k, Math.min(k + chunk, len))));
-                        }
+            }
                         else {
                             result.push(String.fromCharCode.apply(null, array.subarray(k, Math.min(k + chunk, len))));
                         }

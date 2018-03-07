@@ -63,7 +63,6 @@
     .border-right-radius(0);
   }
 }
-
 // Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
 .btn-group > .btn:last-child:not(:first-child),
 .btn-group > .dropdown-toggle:not(:first-child) {
@@ -74,18 +73,15 @@
 .btn-group > .btn-group {
   float: left;
 }
-
 .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
   border-radius: 0;
 }
-
 .btn-group > .btn-group:first-child {
   > .btn:last-child,
   > .dropdown-toggle {
     .border-right-radius(0);
   }
 }
-
 .btn-group > .btn-group:last-child > .btn:first-child {
   .border-left-radius(0);
 }
@@ -95,6 +91,7 @@
 .btn-group.open .dropdown-toggle {
   outline: 0;
 }
+
 
 // Sizing
 //
@@ -112,6 +109,7 @@
   .btn-lg();
 }
 
+
 // Split button dropdowns
 // ----------------------
 
@@ -120,7 +118,6 @@
   padding-left: 8px;
   padding-right: 8px;
 }
-
 .btn-group > .btn-lg + .dropdown-toggle {
   padding-left: 12px;
   padding-right: 12px;
@@ -141,13 +138,11 @@
 .btn .caret {
   margin-left: 0;
 }
-
 // Carets in other button sizes
 .btn-lg .caret {
   border-width: @caret-width-large @caret-width-large 0;
   border-bottom-width: 0;
 }
-
 // Upside down carets for .dropup
 .dropup .btn-lg .caret {
   border-width: 0 @caret-width-large @caret-width-large;
@@ -196,18 +191,15 @@
     .border-top-radius(0);
   }
 }
-
 .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
   border-radius: 0;
 }
-
 .btn-group-vertical > .btn-group:first-child {
   > .btn:last-child,
   > .dropdown-toggle {
     .border-bottom-radius(0);
   }
 }
-
 .btn-group-vertical > .btn-group:last-child > .btn:first-child {
   .border-top-radius(0);
 }

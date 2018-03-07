@@ -13,7 +13,8 @@
         var timeout;
 
         return function debounced() {
-            var obj = this, args = arguments;
+            var obj = this,
+                args = arguments;
 
             function delayed() {
                 if (!execAsap)
@@ -34,8 +35,8 @@
     jQuery.fn[sr] = function (fn) {
         return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr);
     };
-
 })(jQuery, 'smartresize');
+
 /**
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -55,7 +56,7 @@ var CURRENT_URL = window.location.href.split('#')[0].split('?')[0],
 
 // Sidebar
 function init_sidebar() {
-// TODO: This is some kind of easy fix, maybe we can improve this
+    // TODO: This is some kind of easy fix, maybe we can improve this
     var setContentHeight = function () {
         // reset height
         $RIGHT_COL.css('min-height', $(window).height());
@@ -99,7 +100,7 @@ function init_sidebar() {
         }
     });
 
-// toggle small or large menu
+    // toggle small or large menu
     $MENU_TOGGLE.on('click', function () {
         console.log('clicked - menu toggle');
 
@@ -146,7 +147,6 @@ function init_sidebar() {
 var randNum = function () {
     return (Math.floor(Math.random() * (1 + 40 - 20))) + 20;
 };
-
 
 // Panel toolbox
 $(document).ready(function () {
@@ -202,7 +202,6 @@ $(document).ready(function () {
     }
 });
 // /Switchery
-
 
 // iCheck
 $(document).ready(function () {
@@ -270,7 +269,6 @@ function countChecked() {
     }
 }
 
-
 // Accordion
 $(document).ready(function () {
     $(".expand").on("click", function () {
@@ -296,8 +294,7 @@ if (typeof NProgress != 'undefined') {
     });
 }
 
-
-//hover and retain popover when on popover content
+// hover and retain popover when on popover content
 var originalLeave = $.fn.popover.Constructor.prototype.leave;
 $.fn.popover.Constructor.prototype.leave = function (obj) {
     var self = obj instanceof this.constructor ?
@@ -310,9 +307,9 @@ $.fn.popover.Constructor.prototype.leave = function (obj) {
         container = $(obj.currentTarget).siblings('.popover');
         timeout = self.timeout;
         container.one('mouseenter', function () {
-            //We entered the actual popover – call off the dogs
+            // We entered the actual popover – call off the dogs
             clearTimeout(timeout);
-            //Let's monitor popover content instead
+            // Let's monitor popover content instead
             container.one('mouseleave', function () {
                 $.fn.popover.Constructor.prototype.leave.call(self, self);
             });
@@ -329,39 +326,36 @@ $('body').popover({
     }
 });
 
-
 function gd(year, month, day) {
     return new Date(year, month - 1, day).getTime();
 }
 
-
 function init_flot_chart() {
 
-    if (typeof ($.plot) === 'undefined') {
+    if (typeof($.plot) === 'undefined') {
         return;
     }
 
     console.log('init_flot_chart');
 
-
     var arr_data1 = [
-        [gd(2012, 1, 1), 17],
-        [gd(2012, 1, 2), 74],
-        [gd(2012, 1, 3), 6],
-        [gd(2012, 1, 4), 39],
-        [gd(2012, 1, 5), 20],
-        [gd(2012, 1, 6), 85],
-        [gd(2012, 1, 7), 7]
+        [1525104000000, 70],
+        [gd(2018, 5, 2), 74],
+        [gd(2018, 5, 3), 6],
+        [gd(2018, 5, 4), 39],
+        [gd(2018, 5, 5), 20],
+        [gd(2018, 5, 6), 85],
+        [gd(2018, 5, 7), 7]
     ];
 
     var arr_data2 = [
-        [gd(2012, 1, 1), 82],
-        [gd(2012, 1, 2), 23],
-        [gd(2012, 1, 3), 66],
-        [gd(2012, 1, 4), 9],
-        [gd(2012, 1, 5), 119],
-        [gd(2012, 1, 6), 6],
-        [gd(2012, 1, 7), 9]
+        [gd(2018, 5, 1), 82],
+        [1525190400000, 23],
+        [gd(2018, 5, 3), 66],
+        [gd(2018, 5, 4), 9],
+        [gd(2018, 5, 5), 119],
+        [gd(2018, 5, 6), 6],
+        [gd(2018, 5, 7), 9]
     ];
 
     var arr_data3 = [
@@ -406,11 +400,11 @@ function init_flot_chart() {
         [16, 9]
     ];
 
-
     for (var i = 0; i < 30; i++) {
-        chart_plot_02_data.push([new Date(Date.today().add(i).days()).getTime(), randNum() + i + i + 10]);
+        chart_plot_02_data.push([
+            new Date(Date.today().add(i).days()).getTime(), randNum() + i + i + 10
+        ]);
     }
-
 
     var chart_plot_01_settings = {
         series: {
@@ -454,7 +448,7 @@ function init_flot_chart() {
             ticks: 8,
             tickColor: "rgba(51, 51, 51, 0.06)",
         },
-        tooltip: false
+        tooltip: true
     };
 
     var chart_plot_02_settings = {
@@ -546,25 +540,30 @@ function init_flot_chart() {
 
 
     if ($("#chart_plot_01").length) {
-        console.log('Plot1');
+        console.log('Plot1 - testing...');
+
+        var stuff = $("#chart_plot_01").data('stuff');
+        // alert(stuff);
+
+        // console.log()
 
         $.plot($("#chart_plot_01"), [arr_data1, arr_data2], chart_plot_01_settings);
     }
 
+
     if ($("#chart_plot_02").length) {
         console.log('Plot2');
 
-        $.plot($("#chart_plot_02"),
-            [{
-                label: "Email Sent",
-                data: chart_plot_02_data,
-                lines: {
-                    fillColor: "rgba(150, 202, 89, 0.12)"
-                },
-                points: {
-                    fillColor: "#fff"
-                }
-            }], chart_plot_02_settings);
+        $.plot($("#chart_plot_02"), [{
+            label: "Email Sent",
+            data: chart_plot_02_data,
+            lines: {
+                fillColor: "rgba(150, 202, 89, 0.12)"
+            },
+            points: {
+                fillColor: "#fff"
+            }
+        }], chart_plot_02_settings);
 
     }
 
@@ -585,7 +584,6 @@ function init_flot_chart() {
 
     }
     ;
-
 }
 
 
@@ -593,7 +591,7 @@ function init_flot_chart() {
 
 function init_starrr() {
 
-    if (typeof (starrr) === 'undefined') {
+    if (typeof(starrr) === 'undefined') {
         return;
     }
     console.log('init_starrr');
@@ -619,7 +617,7 @@ function init_JQVmap() {
 
     //console.log('check init_JQVmap [' + typeof (VectorCanvas) + '][' + typeof (jQuery.fn.vectorMap) + ']' );
 
-    if (typeof (jQuery.fn.vectorMap) === 'undefined') {
+    if (typeof(jQuery.fn.vectorMap) === 'undefined') {
         return;
     }
 
@@ -664,7 +662,7 @@ function init_JQVmap() {
 
 function init_skycons() {
 
-    if (typeof (Skycons) === 'undefined') {
+    if (typeof(Skycons) === 'undefined') {
         return;
     }
     console.log('init_skycons');
@@ -689,7 +687,7 @@ function init_skycons() {
 
 function init_chart_doughnut() {
 
-    if (typeof (Chart) === 'undefined') {
+    if (typeof(Chart) === 'undefined') {
         return;
     }
 
@@ -705,8 +703,8 @@ function init_chart_doughnut() {
                     "Symbian",
                     "Blackberry",
                     "Other",
-                    "Android",
-                    "IOS"
+                    "Android1",
+                    "IOS1"
                 ],
                 datasets: [{
                     data: [15, 20, 30, 10, 30],
@@ -730,7 +728,7 @@ function init_chart_doughnut() {
                 legend: false,
                 responsive: false
             }
-        }
+        };
 
         $('.canvasDoughnut').each(function () {
 
@@ -745,7 +743,7 @@ function init_chart_doughnut() {
 
 function init_gauge() {
 
-    if (typeof (Gauge) === 'undefined') {
+    if (typeof(Gauge) === 'undefined') {
         return;
     }
 
@@ -812,7 +810,7 @@ function init_gauge() {
 
 function init_sparklines() {
 
-    if (typeof (jQuery.fn.sparkline) === 'undefined') {
+    if (typeof(jQuery.fn.sparkline) === 'undefined') {
         return;
     }
     console.log('init_sparklines');
@@ -932,7 +930,7 @@ function init_sparklines() {
 
 function init_autocomplete() {
 
-    if (typeof (autocomplete) === 'undefined') {
+    if (typeof(autocomplete) === 'undefined') {
         return;
     }
     console.log('init_autocomplete');
@@ -1235,12 +1233,12 @@ function init_autosize() {
 
 function init_parsley() {
 
-    if (typeof (parsley) === 'undefined') {
+    if (typeof(parsley) === 'undefined') {
         return;
     }
     console.log('init_parsley');
 
-    $/*.listen*/('parsley:field:validate', function () {
+    $ /*.listen*/('parsley:field:validate', function () {
         validateFront();
     });
     $('#demo-form .btn').on('click', function () {
@@ -1257,7 +1255,7 @@ function init_parsley() {
         }
     };
 
-    $/*.listen*/('parsley:field:validate', function () {
+    $ /*.listen*/('parsley:field:validate', function () {
         validateFront();
     });
     $('#demo-form2 .btn').on('click', function () {
@@ -1296,7 +1294,7 @@ function onChangeTag(input, tag) {
     alert("Changed a tag: " + tag);
 }
 
-//tags input
+// tags input
 function init_TagsInput() {
 
     if (typeof $.fn.tagsInput !== 'undefined') {
@@ -1313,7 +1311,7 @@ function init_TagsInput() {
 
 function init_select2() {
 
-    if (typeof (select2) === 'undefined') {
+    if (typeof(select2) === 'undefined') {
         return;
     }
     console.log('init_toolbox');
@@ -1335,7 +1333,7 @@ function init_select2() {
 
 function init_wysiwyg() {
 
-    if (typeof ($.fn.wysiwyg) === 'undefined') {
+    if (typeof($.fn.wysiwyg) === 'undefined') {
         return;
     }
     console.log('init_wysiwyg');
@@ -1393,7 +1391,7 @@ function init_wysiwyg() {
     }
 
     $('.editor-wrapper').each(function () {
-        var id = $(this).attr('id');	//editor-one
+        var id = $(this).attr('id'); //editor-one
 
         $(this).wysiwyg({
             toolbarSelector: '[data-target="#' + id + '"]',
@@ -1412,7 +1410,7 @@ function init_wysiwyg() {
 function init_cropper() {
 
 
-    if (typeof ($.fn.cropper) === 'undefined') {
+    if (typeof($.fn.cropper) === 'undefined') {
         return;
     }
     console.log('init_cropper');
@@ -1648,7 +1646,7 @@ function init_cropper() {
 
 function init_knob() {
 
-    if (typeof ($.fn.knob) === 'undefined') {
+    if (typeof($.fn.knob) === 'undefined') {
         return;
     }
     console.log('init_knob');
@@ -1756,7 +1754,7 @@ function init_knob() {
 
 function init_InputMask() {
 
-    if (typeof ($.fn.inputmask) === 'undefined') {
+    if (typeof($.fn.inputmask) === 'undefined') {
         return;
     }
     console.log('init_InputMask');
@@ -1769,7 +1767,7 @@ function init_InputMask() {
 
 function init_ColorPicker() {
 
-    if (typeof ($.fn.colorpicker) === 'undefined') {
+    if (typeof($.fn.colorpicker) === 'undefined') {
         return;
     }
     console.log('init_ColorPicker');
@@ -1795,7 +1793,7 @@ function init_ColorPicker() {
 
 function init_IonRangeSlider() {
 
-    if (typeof ($.fn.ionRangeSlider) === 'undefined') {
+    if (typeof($.fn.ionRangeSlider) === 'undefined') {
         return;
     }
     console.log('init_IonRangeSlider');
@@ -1868,7 +1866,7 @@ function init_IonRangeSlider() {
 
 function init_daterangepicker() {
 
-    if (typeof ($.fn.daterangepicker) === 'undefined') {
+    if (typeof($.fn.daterangepicker) === 'undefined') {
         return;
     }
     console.log('init_daterangepicker');
@@ -1881,7 +1879,7 @@ function init_daterangepicker() {
     var optionSet1 = {
         startDate: moment().subtract(29, 'days'),
         endDate: moment(),
-        minDate: '01/01/2012',
+        minDate: '01/01/2018',
         maxDate: '12/31/2015',
         dateLimit: {
             days: 60
@@ -1945,7 +1943,7 @@ function init_daterangepicker() {
 
 function init_daterangepicker_right() {
 
-    if (typeof ($.fn.daterangepicker) === 'undefined') {
+    if (typeof($.fn.daterangepicker) === 'undefined') {
         return;
     }
     console.log('init_daterangepicker_right');
@@ -1958,7 +1956,7 @@ function init_daterangepicker_right() {
     var optionSet1 = {
         startDate: moment().subtract(29, 'days'),
         endDate: moment(),
-        minDate: '01/01/2012',
+        minDate: '01/01/2018',
         maxDate: '12/31/2020',
         dateLimit: {
             days: 60
@@ -2027,7 +2025,7 @@ function init_daterangepicker_right() {
 
 function init_daterangepicker_single_call() {
 
-    if (typeof ($.fn.daterangepicker) === 'undefined') {
+    if (typeof($.fn.daterangepicker) === 'undefined') {
         return;
     }
     console.log('init_daterangepicker_single_call');
@@ -2063,7 +2061,7 @@ function init_daterangepicker_single_call() {
 
 function init_daterangepicker_reservation() {
 
-    if (typeof ($.fn.daterangepicker) === 'undefined') {
+    if (typeof($.fn.daterangepicker) === 'undefined') {
         return;
     }
     console.log('init_daterangepicker_reservation');
@@ -2086,7 +2084,7 @@ function init_daterangepicker_reservation() {
 
 function init_SmartWizard() {
 
-    if (typeof ($.fn.smartWizard) === 'undefined') {
+    if (typeof($.fn.smartWizard) === 'undefined') {
         return;
     }
     console.log('init_SmartWizard');
@@ -2108,7 +2106,7 @@ function init_SmartWizard() {
 
 function init_validator() {
 
-    if (typeof (validator) === 'undefined') {
+    if (typeof(validator) === 'undefined') {
         return;
     }
     console.log('init_validator');
@@ -2147,7 +2145,7 @@ function init_validator() {
 
 function init_PNotify() {
 
-    if (typeof (PNotify) === 'undefined') {
+    if (typeof(PNotify) === 'undefined') {
         return;
     }
     console.log('init_PNotify');
@@ -2183,7 +2181,7 @@ function init_CustomNotification() {
 
     console.log('run_customtabs');
 
-    if (typeof (CustomTabs) === 'undefined') {
+    if (typeof(CustomTabs) === 'undefined') {
         return;
     }
     console.log('init_CustomTabs');
@@ -2240,7 +2238,7 @@ function init_CustomNotification() {
 
 function init_EasyPieChart() {
 
-    if (typeof ($.fn.easyPieChart) === 'undefined') {
+    if (typeof($.fn.easyPieChart) === 'undefined') {
         return;
     }
     console.log('init_EasyPieChart');
@@ -2300,9 +2298,9 @@ function init_EasyPieChart() {
 
 function init_charts() {
 
-    console.log('run_charts  typeof [' + typeof (Chart) + ']');
+    console.log('run_charts  typeof [' + typeof(Chart) + ']');
 
-    if (typeof (Chart) === 'undefined') {
+    if (typeof(Chart) === 'undefined') {
         return;
     }
 
@@ -2706,7 +2704,7 @@ function init_charts() {
 
 function init_compose() {
 
-    if (typeof ($.fn.slideToggle) === 'undefined') {
+    if (typeof($.fn.slideToggle) === 'undefined') {
         return;
     }
     console.log('init_compose');
@@ -2721,7 +2719,7 @@ function init_compose() {
 
 function init_calendar() {
 
-    if (typeof ($.fn.fullCalendar) === 'undefined') {
+    if (typeof($.fn.fullCalendar) === 'undefined') {
         return;
     }
     console.log('init_calendar');
@@ -2828,7 +2826,7 @@ function init_DataTables() {
 
     console.log('run_datatables');
 
-    if (typeof ($.fn.DataTable) === 'undefined') {
+    if (typeof($.fn.DataTable) === 'undefined') {
         return;
     }
     console.log('init_DataTables');
@@ -2837,28 +2835,22 @@ function init_DataTables() {
         if ($("#datatable-buttons").length) {
             $("#datatable-buttons").DataTable({
                 dom: "Bfrtip",
-                buttons: [
-                    {
-                        extend: "copy",
-                        className: "btn-sm"
-                    },
-                    {
-                        extend: "csv",
-                        className: "btn-sm"
-                    },
-                    {
-                        extend: "excel",
-                        className: "btn-sm"
-                    },
-                    {
-                        extend: "pdfHtml5",
-                        className: "btn-sm"
-                    },
-                    {
-                        extend: "print",
-                        className: "btn-sm"
-                    },
-                ],
+                buttons: [{
+                    extend: "copy",
+                    className: "btn-sm"
+                }, {
+                    extend: "csv",
+                    className: "btn-sm"
+                }, {
+                    extend: "excel",
+                    className: "btn-sm"
+                }, {
+                    extend: "pdfHtml5",
+                    className: "btn-sm"
+                }, {
+                    extend: "print",
+                    className: "btn-sm"
+                },],
                 responsive: true
             });
         }
@@ -2896,7 +2888,9 @@ function init_DataTables() {
     var $datatable = $('#datatable-checkbox');
 
     $datatable.dataTable({
-        'order': [[1, 'asc']],
+        'order': [
+            [1, 'asc']
+        ],
         'columnDefs': [
             {orderable: false, targets: [0]}
         ]
@@ -2915,7 +2909,7 @@ function init_DataTables() {
 
 function init_morris_charts() {
 
-    if (typeof (Morris) === 'undefined') {
+    if (typeof(Morris) === 'undefined') {
         return;
     }
     console.log('init_morris_charts');
@@ -3053,7 +3047,7 @@ function init_morris_charts() {
             hideHover: 'auto',
             lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
             data: [
-                {year: '2012', value: 20},
+                {year: '2018', value: 20},
                 {year: '2013', value: 10},
                 {year: '2014', value: 5},
                 {year: '2015', value: 5},
@@ -3076,7 +3070,7 @@ function init_morris_charts() {
 
 function init_echarts() {
 
-    if (typeof (echarts) === 'undefined') {
+    if (typeof(echarts) === 'undefined') {
         return;
     }
     console.log('init_echarts');
@@ -3252,7 +3246,11 @@ function init_echarts() {
             axisLine: {
                 show: true,
                 lineStyle: {
-                    color: [[0.2, '#86b379'], [0.8, '#68a54a'], [1, '#408829']],
+                    color: [
+                        [0.2, '#86b379'],
+                        [0.8, '#68a54a'],
+                        [1, '#408829']
+                    ],
                     width: 8
                 }
             },
@@ -5387,5 +5385,3 @@ $(document).ready(function () {
     init_autocomplete();
 
 });
-	
-

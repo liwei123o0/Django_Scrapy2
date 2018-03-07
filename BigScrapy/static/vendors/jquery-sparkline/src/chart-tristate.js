@@ -25,7 +25,7 @@ $.fn.sparkline.tristate = tristate = createClass($.fn.sparkline._base, barHighli
             if (this.colorMapByValue && this.colorMapByValue.get === undefined) {
                 this.colorMapByValue = new RangeMap(this.colorMapByValue);
             }
-        }
+            }
         this.initTarget();
     },
 
@@ -93,6 +93,6 @@ $.fn.sparkline.tristate = tristate = createClass($.fn.sparkline._base, barHighli
             color = this.calcHighlightColor(color, options);
         }
         return target.drawRect(x, y, this.barWidth - 1, height - 1, color, color);
-    }
+        }
 });
 

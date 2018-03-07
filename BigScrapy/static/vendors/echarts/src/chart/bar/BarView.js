@@ -66,7 +66,6 @@ define(function (require) {
                 }
                 return rect;
             }
-
             data.diff(oldData)
                 .add(function (dataIndex) {
                     // 空数据

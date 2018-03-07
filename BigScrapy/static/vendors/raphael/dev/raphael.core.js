@@ -75,7 +75,6 @@ define(["eve"], function (eve) {
             }
         }
     }
-
     R.version = "@@VERSION";
     R.eve = eve;
     var loaded,
@@ -543,14 +542,14 @@ define(["eve"], function (eve) {
                 }
                 var range = bod.createTextRange();
                 toHex = cacher(function (color) {
-                    try {
-                        bod.style.color = Str(color).replace(trim, E);
-                        var value = range.queryCommandValue("ForeColor");
-                        value = ((value & 255) << 16) | (value & 65280) | ((value & 16711680) >>> 16);
-                        return "#" + ("000000" + value.toString(16)).slice(-6);
-                    } catch (e) {
-                        return "none";
-                    }
+                try {
+                    bod.style.color = Str(color).replace(trim, E);
+                    var value = range.queryCommandValue("ForeColor");
+                    value = ((value & 255) << 16) | (value & 65280) | ((value & 16711680) >>> 16);
+                    return "#" + ("000000" + value.toString(16)).slice(-6);
+                } catch (e) {
+                    return "none";
+                }
                 });
             } else {
                 var i = g.doc.createElement("i");
@@ -603,7 +602,7 @@ define(["eve"], function (eve) {
                 b: b,
                 hex: R.rgb(r, g, b),
                 toString: rgbtoString
-            };
+        };
             R.is(o, "finite") && (rgb.opacity = o);
             return rgb;
         };
@@ -818,7 +817,6 @@ define(["eve"], function (eve) {
             return array.push(array.splice(i, 1)[0]);
         }
     }
-
     function cacher(f, scope, postprocessor) {
         function newf() {
             var arg = Array.prototype.slice.call(arguments, 0),
@@ -834,7 +832,6 @@ define(["eve"], function (eve) {
             cache[args] = f[apply](scope, arg);
             return postprocessor ? postprocessor(cache[args]) : cache[args];
         }
-
         return newf;
     }
 
@@ -998,7 +995,6 @@ define(["eve"], function (eve) {
         function round(x) {
             return (x + 0.5) | 0;
         }
-
         return "#" + (16777216 | round(b) | (round(g) << 8) | (round(r) << 16)).toString(16).slice(1);
     });
     /*\
@@ -1069,7 +1065,6 @@ define(["eve"], function (eve) {
 
         return d;
     }
-
     /*\
      * Raphael.parsePathString
      [ method ]
@@ -1330,7 +1325,6 @@ define(["eve"], function (eve) {
             t2 = t * t1 + 6 * p1 - 12 * p2 + 6 * p3;
         return t * t2 - 3 * p1 + 3 * p2;
     }
-
     function bezlen(x1, y1, x2, y2, x3, y3, x4, y4, z) {
         if (z == null) {
             z = 1;
@@ -1350,7 +1344,6 @@ define(["eve"], function (eve) {
         }
         return z2 * sum;
     }
-
     function getTatLen(x1, y1, x2, y2, x3, y3, x4, y4, ll) {
         if (ll < 0 || bezlen(x1, y1, x2, y2, x3, y3, x4, y4) < ll) {
             return;
@@ -1368,7 +1361,6 @@ define(["eve"], function (eve) {
         }
         return t2;
     }
-
     function intersect(x1, y1, x2, y2, x3, y3, x4, y4) {
         if (
             mmax(x1, x2) < mmin(x3, x4) ||
@@ -1403,15 +1395,12 @@ define(["eve"], function (eve) {
         }
         return {x: px, y: py};
     }
-
     function inter(bez1, bez2) {
         return interHelper(bez1, bez2);
     }
-
     function interCount(bez1, bez2) {
         return interHelper(bez1, bez2, 1);
     }
-
     function interHelper(bez1, bez2, justCount) {
         var bbox1 = R.bezierBBox(bez1),
             bbox2 = R.bezierBBox(bez2);
@@ -1467,7 +1456,6 @@ define(["eve"], function (eve) {
         }
         return res;
     }
-
     /*\
      * Raphael.pathIntersection
      [ method ]
@@ -1551,7 +1539,6 @@ define(["eve"], function (eve) {
         }
         return res;
     }
-
     /*\
      * Raphael.isPointInsidePath
      [ method ]
@@ -1623,7 +1610,7 @@ define(["eve"], function (eve) {
                     Y = Y[concat](dim.min.y, dim.max.y);
                     x = p[5];
                     y = p[6];
-                }
+            }
             }
             var xmin = mmin[apply](0, X),
                 ymin = mmin[apply](0, Y),
@@ -2479,7 +2466,6 @@ define(["eve"], function (eve) {
             this.f = 0;
         }
     }
-
     (function (matrixproto) {
         /*\
          * Matrix.add
@@ -2637,13 +2623,11 @@ define(["eve"], function (eve) {
         function norm(a) {
             return a[0] * a[0] + a[1] * a[1];
         }
-
         function normalize(a) {
             var mag = math.sqrt(norm(a));
             a[0] && (a[0] /= mag);
             a[1] && (a[1] /= mag);
         }
-
         /*\
          * Matrix.split
          [ method ]
@@ -2757,7 +2741,7 @@ define(["eve"], function (eve) {
                                     e.preventDefault = preventTouch;
                                     e.stopPropagation = stopTouch;
                                     break;
-                                }
+                            }
                             }
 
                             return fn.call(element, e, pos.x, pos.y);
@@ -2772,7 +2756,7 @@ define(["eve"], function (eve) {
                             obj.removeEventListener(touchMap[type], _f, false);
 
                         return true;
-                    };
+                };
                 };
             } else if (g.doc.attachEvent) {
                 return function (obj, type, fn, element) {
@@ -2785,7 +2769,7 @@ define(["eve"], function (eve) {
                         e.preventDefault = e.preventDefault || preventDefault;
                         e.stopPropagation = e.stopPropagation || stopPropagation;
                         return fn.call(element, e, x, y);
-                    };
+                };
                     obj.attachEvent("on" + type, f);
                     var detacher = function () {
                         obj.detachEvent("on" + type, f);
@@ -2815,11 +2799,11 @@ define(["eve"], function (eve) {
                             y = touch.clientY;
                             (e.originalEvent ? e.originalEvent : e).preventDefault();
                             break;
-                        }
                     }
+                }
                 } else {
                     e.preventDefault();
-                }
+            }
                 var node = dragi.el.node,
                     o,
                     next = node.nextSibling,
@@ -3258,7 +3242,6 @@ define(["eve"], function (eve) {
             onend && eve.on("raphael.drag.end." + this.id, onend);
             eve("raphael.drag.start." + this.id, start_scope || move_scope || this, e.clientX + scrollX, e.clientY + scrollY, e);
         }
-
         this._drag = {};
         draggable.push({el: this, start: start});
         this.mousedown(start);
@@ -3511,7 +3494,7 @@ define(["eve"], function (eve) {
             width: container.offsetWidth,
             height: container.offsetHeight
         };
-    };
+        };
     /*\
      * Paper.setSize
      [ method ]
@@ -3711,11 +3694,9 @@ define(["eve"], function (eve) {
     function x_y() {
         return this.x + S + this.y;
     }
-
     function x_y_w_h() {
         return this.x + S + this.y + S + this.width + " \xd7 " + this.height;
     }
-
     /*\
      * Element.isPointInside
      [ method ]
@@ -3878,23 +3859,23 @@ define(["eve"], function (eve) {
                                 x = +p[5];
                                 y = +p[6];
                                 continue;
-                            }
+                        }
                             if (!istotal && !subpath) {
                                 point = getPointAtSegmentLength(x, y, p[1], p[2], p[3], p[4], p[5], p[6], length - len);
                                 return {x: point.x, y: point.y, alpha: point.alpha};
                             }
-                        }
+                    }
                         len += l;
                         x = +p[5];
                         y = +p[6];
-                    }
+                }
                     sp += p.shift() + p;
                 }
                 subpaths.end = sp;
                 point = istotal ? len : subpath ? subpaths : R.findDotsAtSegment(x, y, p[0], p[1], p[2], p[3], p[4], p[5], 1);
                 point.alpha && (point = {x: point.x, y: point.y, alpha: point.alpha});
                 return point;
-            };
+        };
         };
     var getTotalLength = getLengthFactory(1),
         getPointAtLength = getLengthFactory(),
@@ -4305,16 +4286,13 @@ define(["eve"], function (eve) {
             cy = 3 * p1y,
             by = 3 * (p2y - p1y) - cy,
             ay = 1 - cy - by;
-
         function sampleCurveX(t) {
             return ((ax * t + bx) * t + cx) * t;
         }
-
         function solve(x, epsilon) {
             var t = solveCurveX(x, epsilon);
             return ((ay * t + by) * t + cy) * t;
         }
-
         function solveCurveX(x, epsilon) {
             var t0, t1, t2, x2, d2, i;
             for (t2 = x, i = 0; i < 8; i++) {
@@ -4351,10 +4329,8 @@ define(["eve"], function (eve) {
             }
             return t2;
         }
-
         return solve(t, 1 / (200 * duration));
     }
-
     elproto.onAnimation = function (f) {
         f ? eve.on("raphael.anim.frame." + this.id, f) : eve.unbind("raphael.anim.frame." + this.id);
         return this;
@@ -4375,7 +4351,6 @@ define(["eve"], function (eve) {
         this.top = percents[percents.length - 1];
         this.percents = percents;
     }
-
     /*\
      * Animation.delay
      [ method ]
@@ -4621,7 +4596,6 @@ define(["eve"], function (eve) {
         }
         eve("raphael.anim.start." + element.id, element, anim);
     }
-
     /*\
      * Raphael.animation
      [ method ]
@@ -4842,7 +4816,6 @@ define(["eve"], function (eve) {
             animationElements.splice(i--, 1);
         }
     }
-
     eve.on("raphael.remove", stopAnimation);
     eve.on("raphael.clear", stopAnimation);
     elproto.toString = function () {
@@ -4859,8 +4832,8 @@ define(["eve"], function (eve) {
                     if (items[i] && (items[i].constructor == elproto.constructor || items[i].constructor == Set)) {
                         this[this.items.length] = this.items[this.items.length] = items[i];
                         this.length++;
-                    }
                 }
+            }
             }
         },
         setproto = Set.prototype;
@@ -5446,7 +5419,6 @@ define(["eve"], function (eve) {
         function isLoaded() {
             (/in/).test(doc.readyState) ? setTimeout(isLoaded, 9) : R.eve("raphael.DOMload");
         }
-
         isLoaded();
     })(document, "DOMContentLoaded");
 

@@ -187,7 +187,7 @@ getJasmineRequireObj().ConsoleReporter = function () {
 
             }
             printNewline();
-        }
+    }
     }
 
     return ConsoleReporter;

@@ -69,7 +69,7 @@
 				backgroundColor: "rgba(220,220,220,0.5)",
 				data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
 			},]
-		},
+			},
 		options: {
 			showLines: true,
 			responsive: true,
@@ -109,10 +109,10 @@
 			dataset.data = dataset.data.map(function () {
 				return randomScalingFactor();
 			});
-		});
+			});
 
 		window.myLine.update();
-	});
+		});
 
 	$('#addDataset').click(function () {
 		var newDataset = {
@@ -142,12 +142,12 @@
 			}
 
 			window.myLine.update();
-		}
+			}
 	});
 
 	$('#removeDataset').click(function () {
 		config.data.datasets.splice(0, 1);
-		window.myLine.update();
+			window.myLine.update();
 	});
 
 	$('#removeData').click(function () {
@@ -158,7 +158,7 @@
 		});
 
 		window.myLine.update();
-	});
+		});
 </script>
 </body>
 

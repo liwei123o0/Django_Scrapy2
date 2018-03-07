@@ -130,7 +130,7 @@
         makeChart({
             timeline: {
                 symbol: 'none'
-            }
+                    }
         });
 
         function makeChart(opt) {
@@ -173,7 +173,7 @@
                     data: [
                         '2002-01-01', '2003-01-01', '2004-01-01', '2005-01-01', '2006-01-01',
                         '2007-01-01', '2008-01-01', '2009-01-01', '2010-01-01', '2011-01-01'
-                    ],
+                            ],
                     label: {
                         formatter: function (s) {
                             return (new Date(s)).getFullYear();
@@ -188,7 +188,7 @@
                     itemStyle: {
                         // normal: {symbolSize: 1}
                     }
-                },
+                        },
                 baseOption: {
                     backgroundColor: '#fff',
                     title: {
@@ -217,7 +217,7 @@
                             'type': 'value',
                             'name': 'GDP（亿元）',
                             'max': 53500
-                        },
+                                },
                         {
                             'type': 'value',
                             'name': '其他（亿元）',
@@ -255,90 +255,90 @@
                     ]
                 },
                 options: [
-                    {
-                        title: {text: '2002全国宏观经济指标'},
-                        series: [
                             {
-                                'name': 'GDP',
-                                'data': dataMap.dataGDP['2002']
+                                title: {text: '2002全国宏观经济指标'},
+                                series: [
+                                    {
+                                        'name': 'GDP',
+                                        'data': dataMap.dataGDP['2002']
+                                    },
+                                    {
+                                        'name': '金融', 'yAxisIndex': 1, 'type': 'bar',
+                                        'data': dataMap.dataFinancial['2002']
+                                    },
+                                    {
+                                        'name': '房地产', 'yAxisIndex': 1, 'type': 'bar',
+                                        'data': dataMap.dataEstate['2002']
+                                    },
+                                    {
+                                        'name': '第一产业', 'yAxisIndex': 1, 'type': 'bar',
+                                        'data': dataMap.dataPI['2002']
+                                    },
+                                    {
+                                        'name': '第二产业', 'yAxisIndex': 1, 'type': 'bar',
+                                        'data': dataMap.dataSI['2002']
+                                    },
+                                    {
+                                        'name': '第三产业', 'yAxisIndex': 1, 'type': 'bar',
+                                        'data': dataMap.dataTI['2002']
+                                    }
+                                ]
                             },
                             {
-                                'name': '金融', 'yAxisIndex': 1, 'type': 'bar',
-                                'data': dataMap.dataFinancial['2002']
+                                title: {'text': '2003全国宏观经济指标'},
+                                series: [
+                                    {'data': dataMap.dataGDP['2003']},
+                                    {'data': dataMap.dataFinancial['2003']},
+                                    {'data': dataMap.dataEstate['2003']},
+                                    {'data': dataMap.dataPI['2003']},
+                                    {'data': dataMap.dataSI['2003']},
+                                    {'data': dataMap.dataTI['2003']}
+                                ]
                             },
                             {
-                                'name': '房地产', 'yAxisIndex': 1, 'type': 'bar',
-                                'data': dataMap.dataEstate['2002']
+                                title: {'text': '2004全国宏观经济指标'},
+                                series: [
+                                    {'data': dataMap.dataGDP['2004']},
+                                    {'data': dataMap.dataFinancial['2004']},
+                                    {'data': dataMap.dataEstate['2004']},
+                                    {'data': dataMap.dataPI['2004']},
+                                    {'data': dataMap.dataSI['2004']},
+                                    {'data': dataMap.dataTI['2004']}
+                                ]
                             },
                             {
-                                'name': '第一产业', 'yAxisIndex': 1, 'type': 'bar',
-                                'data': dataMap.dataPI['2002']
+                                title: {'text': '2005全国宏观经济指标'},
+                                series: [
+                                    {'data': dataMap.dataGDP['2005']},
+                                    {'data': dataMap.dataFinancial['2005']},
+                                    {'data': dataMap.dataEstate['2005']},
+                                    {'data': dataMap.dataPI['2005']},
+                                    {'data': dataMap.dataSI['2005']},
+                                    {'data': dataMap.dataTI['2005']}
+                                ]
                             },
                             {
-                                'name': '第二产业', 'yAxisIndex': 1, 'type': 'bar',
-                                'data': dataMap.dataSI['2002']
+                                title: {'text': '2006全国宏观经济指标'},
+                                series: [
+                                    {'data': dataMap.dataGDP['2006']},
+                                    {'data': dataMap.dataFinancial['2006']},
+                                    {'data': dataMap.dataEstate['2006']},
+                                    {'data': dataMap.dataPI['2006']},
+                                    {'data': dataMap.dataSI['2006']},
+                                    {'data': dataMap.dataTI['2006']}
+                                ]
                             },
                             {
-                                'name': '第三产业', 'yAxisIndex': 1, 'type': 'bar',
-                                'data': dataMap.dataTI['2002']
-                            }
-                        ]
-                    },
-                    {
-                        title: {'text': '2003全国宏观经济指标'},
-                        series: [
-                            {'data': dataMap.dataGDP['2003']},
-                            {'data': dataMap.dataFinancial['2003']},
-                            {'data': dataMap.dataEstate['2003']},
-                            {'data': dataMap.dataPI['2003']},
-                            {'data': dataMap.dataSI['2003']},
-                            {'data': dataMap.dataTI['2003']}
-                        ]
-                    },
-                    {
-                        title: {'text': '2004全国宏观经济指标'},
-                        series: [
-                            {'data': dataMap.dataGDP['2004']},
-                            {'data': dataMap.dataFinancial['2004']},
-                            {'data': dataMap.dataEstate['2004']},
-                            {'data': dataMap.dataPI['2004']},
-                            {'data': dataMap.dataSI['2004']},
-                            {'data': dataMap.dataTI['2004']}
-                        ]
-                    },
-                    {
-                        title: {'text': '2005全国宏观经济指标'},
-                        series: [
-                            {'data': dataMap.dataGDP['2005']},
-                            {'data': dataMap.dataFinancial['2005']},
-                            {'data': dataMap.dataEstate['2005']},
-                            {'data': dataMap.dataPI['2005']},
-                            {'data': dataMap.dataSI['2005']},
-                            {'data': dataMap.dataTI['2005']}
-                        ]
-                    },
-                    {
-                        title: {'text': '2006全国宏观经济指标'},
-                        series: [
-                            {'data': dataMap.dataGDP['2006']},
-                            {'data': dataMap.dataFinancial['2006']},
-                            {'data': dataMap.dataEstate['2006']},
-                            {'data': dataMap.dataPI['2006']},
-                            {'data': dataMap.dataSI['2006']},
-                            {'data': dataMap.dataTI['2006']}
-                        ]
-                    },
-                    {
-                        title: {'text': '2007全国宏观经济指标'},
-                        series: [
-                            {'data': dataMap.dataGDP['2007']},
-                            {'data': dataMap.dataFinancial['2007']},
-                            {'data': dataMap.dataEstate['2007']},
-                            {'data': dataMap.dataPI['2007']},
-                            {'data': dataMap.dataSI['2007']},
-                            {'data': dataMap.dataTI['2007']}
-                        ]
-                    },
+                                title: {'text': '2007全国宏观经济指标'},
+                                series: [
+                                    {'data': dataMap.dataGDP['2007']},
+                                    {'data': dataMap.dataFinancial['2007']},
+                                    {'data': dataMap.dataEstate['2007']},
+                                    {'data': dataMap.dataPI['2007']},
+                                    {'data': dataMap.dataSI['2007']},
+                                    {'data': dataMap.dataTI['2007']}
+                                ]
+                            },
                     {
                         title: {'text': '2008全国宏观经济指标'},
                         series: [
@@ -382,8 +382,8 @@
                             {'data': dataMap.dataSI['2011']},
                             {'data': dataMap.dataTI['2011']}
                         ]
-                    }
-                ]
+                            }
+                        ]
             }, opt, true);
         }
 

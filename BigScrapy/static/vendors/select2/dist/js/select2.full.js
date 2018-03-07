@@ -115,7 +115,7 @@
                         i -= 2;
                       }
                     }
-                  }
+                }
                   //end trimDots
 
                   name = name.join("/");
@@ -141,15 +141,15 @@
 
                       //baseName segment has  config, find if it has one for
                       //this name.
-                      if (mapValue) {
-                        mapValue = mapValue[nameSegment];
                         if (mapValue) {
-                          //Match, update name to the new value.
-                          foundMap = mapValue;
-                          foundI = i;
-                          break;
+                          mapValue = mapValue[nameSegment];
+                          if (mapValue) {
+                            //Match, update name to the new value.
+                            foundMap = mapValue;
+                            foundI = i;
+                            break;
+                          }
                         }
-                      }
                     }
                   }
 
@@ -163,7 +163,7 @@
                   if (!foundStarMap && starMap && starMap[nameSegment]) {
                     foundStarMap = starMap[nameSegment];
                     starI = i;
-                  }
+                }
                 }
 
                 if (!foundMap && foundStarMap) {
@@ -174,7 +174,7 @@
                 if (foundMap) {
                   nameParts.splice(0, foundI, foundMap);
                   name = nameParts.join('/');
-                }
+            }
               }
 
               return name;
@@ -192,7 +192,7 @@
                 //a null so that the following concat is correct.
                 if (typeof args[0] !== 'string' && args.length === 1) {
                   args.push(null);
-                }
+            }
                 return req.apply(undef, args.concat([relName, forceSync]));
               };
             }
@@ -258,7 +258,7 @@
                 if (plugin && plugin.normalize) {
                   name = plugin.normalize(name, makeNormalize(relName));
                 } else {
-                  name = normalize(name, relName);
+                name = normalize(name, relName);
                 }
               } else {
                 name = normalize(name, relName);
@@ -303,7 +303,7 @@
                   uri: '',
                   exports: defined[name],
                   config: makeConfig(name)
-                };
+            };
               }
             };
 
@@ -345,7 +345,7 @@
                     args[i] = defined[depName];
                   } else {
                     throw new Error(name + ' missing ' + depName);
-                  }
+                }
                 }
 
                 ret = callback ? callback.apply(defined[name], args) : undefined;
@@ -360,7 +360,7 @@
                   } else if (ret !== undef || !usingExports) {
                     //Use the return value from the function.
                     defined[name] = ret;
-                  }
+                }
                 }
               } else if (name) {
                 //May just be an object definition for the module. Only
@@ -423,7 +423,7 @@
                 //that works in almond on the global level, but not guaranteed and
                 //unlikely to work in other AMD implementations.
                 setTimeout(function () {
-                  main(undef, deps, callback, relName);
+                main(undef, deps, callback, relName);
                 }, 4);
               }
 
@@ -455,11 +455,11 @@
                 //the value. Adjust args.
                 callback = deps;
                 deps = [];
-              }
+        }
 
               if (!hasProp(defined, name) && !hasProp(waiting, name)) {
                 waiting[name] = [name, deps, callback];
-              }
+        }
             };
 
             define.amd = {
@@ -757,7 +757,7 @@
 
             $.map($nodes, function (node) {
               $jqNodes = $jqNodes.add(node);
-            });
+      });
 
             $nodes = $jqNodes;
           }
@@ -1451,7 +1451,7 @@
               var $element = $this.data('element');
 
               $element.select2('close');
-            });
+      });
           });
         };
 
@@ -2088,7 +2088,7 @@
             // Generate the jQuery event for the Select2 event
             var evt = $.Event('select2:' + name, {
               params: params
-            });
+      });
 
             self.$element.trigger(evt);
 
@@ -3083,7 +3083,7 @@
 
                 if ($.inArray(id, val) === -1) {
                   val.push(id);
-                }
+          }
               }
 
               self.$element.val(val);
@@ -3471,7 +3471,7 @@
                     'Select2: The AJAX results did not return an array in the ' +
                     '`results` key of the response.'
                   );
-                }
+          }
               }
 
               callback(results);
@@ -3485,7 +3485,7 @@
               self.trigger('results:message', {
                 message: 'errorLoading'
               });
-            });
+      });
 
             self._request = $request;
           }
@@ -3763,7 +3763,7 @@
                 minimum: this.minimumInputLength,
                 input: params.term,
                 params: params
-              }
+        }
             });
 
             return;
@@ -3793,7 +3793,7 @@
                 maximum: this.maximumInputLength,
                 input: params.term,
                 params: params
-              }
+        }
             });
 
             return;
@@ -3957,7 +3957,7 @@
                 self.$searchContainer.removeClass('select2-search--hide');
               } else {
                 self.$searchContainer.addClass('select2-search--hide');
-              }
+        }
             }
           });
         };
@@ -4771,10 +4771,10 @@
                       'Select2: The language file for "' + name + '" could not be ' +
                       'automatically loaded. A fallback will be used instead.'
                     );
-                  }
+            }
 
                   continue;
-                }
+          }
               }
 
               languages.extend(language);
@@ -4826,8 +4826,8 @@
                 // If there wasn't a match, remove the object in the array
                 if (matches == null) {
                   match.children.splice(c, 1);
-                }
-              }
+          }
+        }
 
               // If any children matched, return the new object
               if (match.children.length > 0) {
@@ -5562,7 +5562,7 @@
           if ($.isArray(newVal)) {
             newVal = $.map(newVal, function (obj) {
               return obj.toString();
-            });
+      });
           }
 
           this.$element.val(newVal).trigger('change');
@@ -5661,7 +5661,7 @@
 
                 if (adapted != null) {
                   replacements.push(adapted);
-                }
+          }
               }
             });
           }
@@ -5767,7 +5767,7 @@
               if (adapted != null) {
                 // Append the old one along with the adapted one
                 return adapted + ' ' + clazz;
-              }
+        }
 
               return clazz;
             };
@@ -5894,7 +5894,7 @@
           if (!this.options.get('multiple')) {
             this.current(function (allData) {
               $.map(allData, function (data) {
-                data.selected = false;
+          data.selected = false;
               });
             });
 
@@ -5983,12 +5983,12 @@
                 // If the child didn't match, pop it off
                 if (!doesMatch) {
                   match.children.splice(c, 1);
-                }
+          }
               }
 
               if (match.children.length > 0) {
                 return match;
-              }
+        }
             }
 
             if (matcher(params.term, data.text, data)) {
@@ -6152,7 +6152,7 @@
         if ($.event.fixHooks) {
           for (var i = toFix.length; i;) {
             $.event.fixHooks[toFix[--i]] = $.event.mouseHooks;
-          }
+        }
         }
 
         var special = $.event.special.mousewheel = {
@@ -6400,7 +6400,7 @@
               // Check if we should be returning `this`
               if ($.inArray(options, thisMethods) > -1) {
                 return this;
-              }
+        }
 
               return ret;
             } else {

@@ -16,7 +16,6 @@ define(function (require) {
         }
         return data[i];
     }
-
     function ifNeedCompleteOrdinalData(data) {
         var sampleItem = firstDataNotNull(data);
         return sampleItem != null
@@ -75,8 +74,8 @@ define(function (require) {
                         // In case some one write '1', '2' istead of 1, 2
                         val = +val;
                     }
+                    }
                 }
-            }
             return val;
         };
 

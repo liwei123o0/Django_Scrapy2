@@ -35,8 +35,8 @@ $.fn.sparkline.bar = bar = createClass($.fn.sparkline._base, barHighlightMixin, 
                 if (groupMax > stackMax) {
                     stackMax = groupMax;
                 }
+                }
             }
-        }
 
         this.stacked = stacked;
         this.regionShapes = {};
@@ -74,20 +74,20 @@ $.fn.sparkline.bar = bar = createClass($.fn.sparkline._base, barHighlightMixin, 
                             } else {
                                 stackRanges[i] += val;
                             }
-                        } else {
+                            } else {
                             stackRanges[i] += Math.abs(val - (val < 0 ? stackMax : stackMin));
-                        }
+                            }
                         numValues.push(val);
-                    }
+                        }
                 }
             } else {
                 val = chartRangeClip ? clipval(values[i], clipMin, clipMax) : values[i];
                 val = values[i] = normalizeValue(val);
                 if (val !== null) {
-                    numValues.push(val);
+                        numValues.push(val);
+                    }
                 }
             }
-        }
         this.max = max = Math.max.apply(Math, numValues);
         this.min = min = Math.min.apply(Math, numValues);
         this.stackMax = stackMax = stacked ? Math.max.apply(Math, stackTotals) : max;
@@ -127,7 +127,7 @@ $.fn.sparkline.bar = bar = createClass($.fn.sparkline._base, barHighlightMixin, 
             }
         } else {
             yoffset = this.canvasHeight;
-        }
+            }
         this.yoffset = yoffset;
 
         if ($.isArray(options.get('colorMap'))) {
@@ -139,7 +139,7 @@ $.fn.sparkline.bar = bar = createClass($.fn.sparkline._base, barHighlightMixin, 
             if (this.colorMapByValue && this.colorMapByValue.get === undefined) {
                 this.colorMapByValue = new RangeMap(this.colorMapByValue);
             }
-        }
+            }
 
         this.range = range;
     },
@@ -217,7 +217,7 @@ $.fn.sparkline.bar = bar = createClass($.fn.sparkline._base, barHighlightMixin, 
             } else {
                 return undefined;
             }
-        }
+            }
         yoffsetNeg = yoffset;
         for (i = 0; i < valcount; i++) {
             val = vals[i];
@@ -227,7 +227,7 @@ $.fn.sparkline.bar = bar = createClass($.fn.sparkline._base, barHighlightMixin, 
                     continue;
                 }
                 minPlotted = true;
-            }
+                }
 
             if (range > 0) {
                 height = Math.floor(canvasHeightEf * ((Math.abs(val - xaxisOffset) / range))) + 1;
@@ -246,11 +246,11 @@ $.fn.sparkline.bar = bar = createClass($.fn.sparkline._base, barHighlightMixin, 
                 color = this.calcHighlightColor(color, options);
             }
             result.push(target.drawRect(x, y, this.barWidth - 1, height - 1, color, color));
-        }
+            }
         if (result.length === 1) {
             return result[0];
-        }
+            }
         return result;
-    }
+        }
 });
 

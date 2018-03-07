@@ -129,9 +129,9 @@ getDefaults = function () {
                     lw: 'Left Whisker', rw: 'Right Whisker'
                 }
             }
-        }
+            }
     };
-};
+    };
 
 // You can have tooltips use a css class other than jqstooltip by specifying tooltipClassname
 defaultStyles = '.jqstooltip { ' +

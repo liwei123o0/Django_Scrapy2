@@ -24,7 +24,6 @@ define(function (require) {
         return point && !isNaN(point[0]) && !isNaN(point[1]) && !(isIgnore && isIgnore(idx))
             && data.getItemVisual(idx, 'symbol') !== 'none';
     }
-
     /**
      * Update symbols draw by new data
      * @param {module:echarts/data/List} data

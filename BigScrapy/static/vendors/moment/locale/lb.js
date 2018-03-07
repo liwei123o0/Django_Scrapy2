@@ -21,7 +21,6 @@
         };
         return withoutSuffix ? format[key][0] : format[key][1];
     }
-
     function processFutureTime(string) {
         var number = string.substr(0, string.indexOf(' '));
         if (eifelerRegelAppliesToNumber(number)) {
@@ -29,7 +28,6 @@
         }
         return 'an ' + string;
     }
-
     function processPastTime(string) {
         var number = string.substr(0, string.indexOf(' '));
         if (eifelerRegelAppliesToNumber(number)) {
@@ -37,7 +35,6 @@
         }
         return 'virun ' + string;
     }
-
     /**
      * Returns true if the word before the given number loses the '-n' ending.
      * e.g. 'an 10 Deeg' but 'a 5 Deeg'

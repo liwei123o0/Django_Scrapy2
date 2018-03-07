@@ -93,7 +93,7 @@ define([
         $(this).data('select2-scroll-position', {
           x: $(this).scrollLeft(),
           y: $(this).scrollTop()
-        });
+      });
       });
 
       $watchers.on(scrollEvent, function (ev) {

@@ -45,14 +45,12 @@ define(function (require) {
             Eventful.prototype[method].call(this, eventName, handler, context);
         };
     }
-
     /**
      * @module echarts~MessageCenter
      */
     function MessageCenter() {
         Eventful.call(this);
     }
-
     MessageCenter.prototype.on = createRegisterEventWithLowercaseName('on');
     MessageCenter.prototype.off = createRegisterEventWithLowercaseName('off');
     MessageCenter.prototype.one = createRegisterEventWithLowercaseName('one');
@@ -915,7 +913,6 @@ define(function (require) {
             zlevel != null && (el.zlevel = zlevel);
         });
     }
-
     /**
      * @type {Array.<Function>}
      * @inner
@@ -985,14 +982,12 @@ define(function (require) {
         var STATUS_UPDATING = 1;
         var STATUS_UPDATED = 2;
         var STATUS_KEY = '__connectUpdateStatus';
-
         function updateConnectedChartsStatus(charts, status) {
             for (var i = 0; i < charts.length; i++) {
                 var otherChart = charts[i];
                 otherChart[STATUS_KEY] = status;
             }
         }
-
         zrUtil.each(eventActionMap, function (actionType, eventType) {
             chart._messageCenter.on(eventType, function (event) {
                 if (connectedGroups[chart.group] && chart[STATUS_KEY] !== STATUS_PENDING) {
@@ -1016,7 +1011,6 @@ define(function (require) {
         });
 
     }
-
     /**
      * @param {HTMLDomElement} dom
      * @param {Object} [theme]

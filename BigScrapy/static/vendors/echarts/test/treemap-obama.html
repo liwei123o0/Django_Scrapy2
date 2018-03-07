@@ -211,7 +211,7 @@
         newNode.discretion = node.discretion;
         newNode.value = (node.value || []).slice();
         return newNode;
-    }
+            }
 
     function getLevelOption(mode) {
         return [
@@ -241,11 +241,11 @@
                 }
             }
         ];
-    }
+            }
 
     function isValidNumber(num) {
         return num != null && isFinite(num);
-    }
+            }
 
     function getTooltipFormatter(mode) {
         var amountIndex = mode === 1 ? 1 : 0;
@@ -281,8 +281,8 @@
                 '2011 Amount: &nbsp;&nbsp;' + amount2011 + '<br>',
                 'Change From 2011: &nbsp;&nbsp;' + change
             ].join('');
-        }
-    }
+                }
+            }
 
     function init(echarts, format) {
 
@@ -322,7 +322,7 @@
                     },
                     levels: getLevelOption(0),
                     data: buildData('2012 Amount', window.obama_budget_2012)
-                }
+                        }
             ]
         });
     }

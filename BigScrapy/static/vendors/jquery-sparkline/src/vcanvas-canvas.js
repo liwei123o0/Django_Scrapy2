@@ -112,7 +112,7 @@ VCanvas_canvas = createClass(VCanvas_base, {
             if (shapeseq[i] == shapeid) {
                 shapeseq[i] = shape.id;
             }
-        }
+            }
         delete this.shapes[shapeid];
     },
 
@@ -123,7 +123,7 @@ VCanvas_canvas = createClass(VCanvas_base, {
 
         for (i = shapeids.length; i--;) {
             shapemap[shapeids[i]] = true;
-        }
+            }
         for (i = shapeseq.length; i--;) {
             sid = shapeseq[i];
             if (shapemap[sid]) {
@@ -148,7 +148,7 @@ VCanvas_canvas = createClass(VCanvas_base, {
                 this.shapes[shape.id] = shape;
                 return;
             }
-        }
+            }
     },
 
     removeShapeId: function (shapeid) {
@@ -159,7 +159,7 @@ VCanvas_canvas = createClass(VCanvas_base, {
                 shapeseq.splice(i, 1);
                 break;
             }
-        }
+            }
         delete this.shapes[shapeid];
     },
 
@@ -187,7 +187,7 @@ VCanvas_canvas = createClass(VCanvas_base, {
             this.shapes = {};
             this.shapeseq = [];
         }
-    }
+        }
 
 });
 

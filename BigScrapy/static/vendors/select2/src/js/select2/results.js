@@ -443,7 +443,7 @@ define([
             });
           } else {
             self.trigger('close', {});
-          }
+        }
 
           return;
         }
@@ -451,7 +451,7 @@ define([
         self.trigger('select', {
           originalEvent: evt,
           data: data
-        });
+      });
       });
 
     this.$results.on('mouseenter', '.select2-results__option[aria-selected]',
@@ -464,7 +464,7 @@ define([
         self.trigger('results:focus', {
           data: data,
           element: $(this)
-        });
+      });
       });
   };
 
