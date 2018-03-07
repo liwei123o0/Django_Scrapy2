@@ -13,14 +13,18 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.conf.urls import url
 from django.contrib import admin
 
+from BigScrapy import views
+
 urlpatterns = [
+    # Matches any html file - to be used for gentella
+    # Avoid using your .html in your resources.
+    # Or create a separate django app.
     url(r'^admin/', admin.site.urls),
+    url(r'^.*\.html', views.gentella_html, name='gentella'),
 
-    # app/ -> Genetelella UI and resources
-    url(r'^app/', include('BigScrapy.urls')),
-    url(r'^', include('BigScrapy.urls')),
-
+    # The home page
+    url(r'^$', views.index, name='index'),
 ]
