@@ -52,7 +52,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'gentelella.urls'
+ROOT_URLCONF = 'Django_scrapy2.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'gentelella.wsgi.application'
+WSGI_APPLICATION = 'Django_scrapy2.wsgi.application'
 
 
 # Database
