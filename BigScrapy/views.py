@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # ! /usr/bin/env python
 
+import uuid
+
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
