@@ -15,7 +15,9 @@ def index(request):
 
 
 def gentella_html(request):
+
     dictdata = {}
+
     datadict()
     ### 图标时间解决  #####
     # dt = "20180501"
@@ -48,7 +50,11 @@ def add_jiqun(request):
     ip_address = request.GET['ip_address']
     office_id = request.GET['office_id']
     project_name = request.GET['project_name']
-    Host_project.objects.create(host_name=host_name, ip_address=ip_address,
+    Host_project.objects.create(id=uuid.uuid4().hex, host_name=host_name, ip_address=ip_address,
                                 office_id=office_id, project_name=project_name)
 
     return render(request, "app/hostproject.html")
+
+
+if __name__ == '__main__':
+    print uuid.uuid4().hex
