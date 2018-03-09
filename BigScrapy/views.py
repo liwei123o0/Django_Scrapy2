@@ -2,7 +2,10 @@
 # ! /usr/bin/env python
 
 from django.http import HttpResponse
+from django.shortcuts import render
 from django.template import loader
+
+from BigScrapy.models import *
 
 
 def index(request):
@@ -38,3 +41,14 @@ def datadict():
     # for i in range(10, 100, 1):
     #     print "##%s##" % i
     #     Net_Spider.objects.create(name="aaa%s" % i, id=uuid.uuid4().hex)
+
+
+def add_jiqun(request):
+    host_name = request.GET['host_name']
+    ip_address = request.GET['ip_address']
+    office_id = request.GET['office_id']
+    project_name = request.GET['project_name']
+    Host_project.objects.create(host_name=host_name, ip_address=ip_address,
+                                office_id=office_id, project_name=project_name)
+
+    return render(request, "app/hostproject.html")

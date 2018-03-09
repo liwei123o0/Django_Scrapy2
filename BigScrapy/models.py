@@ -3,12 +3,14 @@
 
 from __future__ import unicode_literals
 
+import uuid
+
 from django.db import models
 
 
 # 爬虫配置表
 class Net_Spider(models.Model):
-    id = models.UUIDField(help_text="uuid", primary_key=True)
+    id = models.UUIDField(help_text="uuid", primary_key=True, default=uuid.uuid4().hex)
     create_by = models.CharField(help_text=u"创建者", max_length=100, default="", null=True)
     create_date = models.DateField(help_text='创建时间', auto_now_add=True, null=True)
     update_by = models.CharField(help_text=u"更新者", max_length=100, default="", null=True)
@@ -37,7 +39,7 @@ class Net_Spider(models.Model):
 
 # 数据定于表
 class Gendbtable(models.Model):
-    id = models.UUIDField(help_text="uuid", primary_key=True)
+    id = models.UUIDField(help_text="uuid", primary_key=True, default=uuid.uuid4().hex)
     dataclass_id = models.UUIDField(help_text="数据分类id", db_index=True, null=True)
     name = models.CharField(help_text=u"表名称", max_length=20, default="", null=True)
     comments = models.CharField(help_text=u"备注", max_length=50, default="", null=True)
@@ -55,7 +57,7 @@ class Gendbtable(models.Model):
 
 # 数据字段定义表
 class Gendbtable_column(models.Model):
-    id = models.UUIDField(help_text="uuid", primary_key=True)
+    id = models.UUIDField(help_text="uuid", primary_key=True, default=uuid.uuid4().hex)
     gen_gendbtable_id = models.UUIDField(help_text="uuid", db_index=True, null=True)
     name = models.CharField(help_text=u"字段名称", max_length=20, default="", null=True)
     comments = models.CharField(help_text=u"备注", max_length=50, default="", null=True)
@@ -70,7 +72,7 @@ class Gendbtable_column(models.Model):
 
 # 数据主题类型表
 class Data_class(models.Model):
-    id = models.UUIDField(help_text="uuid", primary_key=True)
+    id = models.UUIDField(help_text="uuid", primary_key=True, default=uuid.uuid4().hex)
     net_spider_id = models.UUIDField(help_text="爬虫id", db_index=True, null=True)
     parent_id = models.CharField(help_text=u"父节点编号", max_length=32, default="", db_index=True, null=True)
     parent_ids = models.TextField(help_text=u"所有父节点编号", default="", null=True)
@@ -87,8 +89,8 @@ class Data_class(models.Model):
 
 # 爬虫集群配置表
 class Host_project(models.Model):
-    id = models.UUIDField(help_text="uuid", primary_key=True)
-    office_id = models.IntegerField(help_text=u"归属部门", default=30, null=True)
+    id = models.UUIDField(help_text="uuid", primary_key=True, default=uuid.uuid4().hex)
+    office_id = models.CharField(help_text=u"归属部门", max_length=32, default="", null=True)
     ip_address = models.CharField(help_text=u"部署ip", max_length=32, default="", null=True)
     host_name = models.CharField(help_text=u"部署环境名称", max_length=32, default="", null=True)
     project_name = models.CharField(help_text=u"项目名称", max_length=50, default="", null=True)
@@ -101,7 +103,7 @@ class Host_project(models.Model):
 
 # 关键字配置表
 class Spider_keyword(models.Model):
-    id = models.UUIDField(help_text="uuid", primary_key=True)
+    id = models.UUIDField(help_text="uuid", primary_key=True, default=uuid.uuid4().hex)
     dataclass_id = models.UUIDField(help_text="数据主题类型id", db_index=True, null=True)
     keyword = models.CharField(help_text=u"关键字", max_length=32, db_index=True, default="", null=True)
     keyword_type = models.CharField(help_text=u"关键字类型", max_length=32, default="", null=True)
