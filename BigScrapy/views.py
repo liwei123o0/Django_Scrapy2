@@ -17,10 +17,9 @@ def index(request):
 
 
 def gentella_html(request):
+    Host_Project_Dict = datadict()
+    dictdata = {"Host_Project_Dict": Host_Project_Dict}
 
-    dictdata = {}
-
-    datadict()
     ### 图标时间解决  #####
     # dt = "20180501"
     # #转换成时间数组
@@ -42,9 +41,9 @@ def gentella_html(request):
 
 def datadict():
     pass
-    # for i in range(10, 100, 1):
-    #     print "##%s##" % i
-    #     Net_Spider.objects.create(name="aaa%s" % i, id=uuid.uuid4().hex)
+    Host_Project_Dict = Host_project.objects.values("host_name", "office_id", "ip_address", "project_name")
+    print Host_Project_Dict
+    return Host_Project_Dict
 
 
 def add_jiqun(request):
@@ -56,7 +55,3 @@ def add_jiqun(request):
                                 office_id=office_id, project_name=project_name)
 
     return render(request, "app/hostproject.html")
-
-
-if __name__ == '__main__':
-    print uuid.uuid4().hex
