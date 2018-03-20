@@ -3,7 +3,7 @@
 
 import uuid
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.template import loader
 
@@ -17,8 +17,20 @@ def index(request):
 
 
 def gentella_html(request):
-    Host_Project_Dict = datadict()
-    dictdata = {"Host_Project_Dict": Host_Project_Dict}
+    # 采集机管理数据
+    Host_Project_Dict = Host_project.objects.filter(del_flag=1).values("host_name", "office_id", "ip_address",
+                                                                       "project_name")
+
+    Net_Spider_Dict = Net_Spider.objects.filter(del_flag=1, spider_type="news").values("spider_name", "chinesename",
+                                                                                       "tablename", "area_id")
+
+    Net_Spider_Search = Net_Spider.objects.filter(del_flag=1).exclude(spider_type="news").values("spider_name",
+                                                                                                 "chinesename",
+                                                                                                 "tablename", "area_id")
+
+    dictdata = {"Host_Project_Dict": Host_Project_Dict, "Net_Spider_Dict": Net_Spider_Dict,
+                "Net_Spider_Search": Net_Spider_Search}
+
 
     ### 图标时间解决  #####
     # dt = "20180501"
@@ -39,19 +51,33 @@ def gentella_html(request):
     return HttpResponse(template.render(dictdata, request))
 
 
-def datadict():
-    pass
-    Host_Project_Dict = Host_project.objects.values("host_name", "office_id", "ip_address", "project_name")
-    print Host_Project_Dict
-    return Host_Project_Dict
-
-
 def add_jiqun(request):
-    host_name = request.GET['host_name']
-    ip_address = request.GET['ip_address']
-    office_id = request.GET['office_id']
-    project_name = request.GET['project_name']
+    host_name = request.POST['host_name']
+    ip_address = request.POST['ip_address']
+    office_id = request.POST['office_id']
+    project_name = request.POST['project_name']
     Host_project.objects.create(id=uuid.uuid4().hex, host_name=host_name, ip_address=ip_address,
                                 office_id=office_id, project_name=project_name)
+    return HttpResponseRedirect("app/hostproject.html")
 
+
+def remove_jiqun(request):
+    ip_address = request.POST['ip_address']
+    Host_project.objects.filter(ip_address=ip_address).update(del_flag=0)
     return render(request, "app/hostproject.html")
+
+
+def remove_spidername(request):
+    spider_name = request.POST['spidername']
+    Host_project.objects.filter(spider_name=spider_name).update(del_flag=0)
+    return render(request, "app/newsspider.html")
+
+
+def remove_search(request):
+    spider_name = request.POST['spidername']
+    Host_project.objects.filter(spider_name=spider_name).update(del_flag=0)
+    return render(request, "app/searchspider.html")
+
+
+def testindex(request):
+    return render(request, 'app/test.html')
