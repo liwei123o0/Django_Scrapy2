@@ -16,14 +16,14 @@
             <span class="count_bottom"><i class="green">4% </i> 昨日同比</span>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-clock-o"></i> 实时入库量量</span>
+            <span class="count_top"><i class="fa fa-clock-o"></i> 实时入库量总量</span>
             <div class="count">123.50</div>
             <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> 昨日同比</span>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
             <span class="count_top"><i class="fa fa-user"></i> 爬虫数</span>
-            <div class="count green">2,500</div>
-            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> 昨日同比</span>
+            <div class="count green">{{ Index_Data.spider_cont }}</div>
+            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>{{ Index_Data.spider_tb }}% </i> 昨日同比</span>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
             <span class="count_top"><i class="fa fa-user"></i> 实时调度次数</span>
@@ -37,7 +37,7 @@
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
             <span class="count_top"><i class="fa fa-user"></i> 云采集节点数</span>
-            <div class="count">7,325</div>
+            <div class="count">{{ Index_Data.host_cont }}</div>
             <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> 同月比</span>
         </div>
     </div>
