@@ -16,9 +16,9 @@ class Net_Spider(models.Model):
     remarks = models.CharField(help_text=u"备注信息", max_length=100, default="", null=True)
     del_flag = models.IntegerField(help_text=u"逻辑标记", default=1, null=True)
     spider_name = models.CharField(help_text=u"爬虫名称", max_length=100, default="", null=True)
-    net_project_id = models.UUIDField(help_text=u"项目id", default="")
+    net_project_id = models.CharField(help_text=u"项目id", max_length=255, default="", null=True)
     allowed_domains = models.CharField(help_text=u"域名", max_length=100, default="", null=True)
-    proxy = models.BooleanField(help_text=u"代理", default=False)
+    proxy = models.CharField(help_text=u"代理", max_length=100, default="false", null=True)
     keywords = models.TextField(help_text=u"关键词插入", default="", null=True)
     start_urls = models.TextField(help_text=u"入口连接", default="")
     spider_type = models.CharField(help_text=u"爬虫类型", max_length=50, default="")
@@ -67,6 +67,9 @@ class Gendbtable_column(models.Model):
     update_date = models.CharField(help_text=u"更新时间", max_length=100, default="", null=True)
     del_flag = models.IntegerField(help_text=u"逻辑标记", default=1, null=True)
 
+    def __unicode__(self):  # __str__ on Python 3
+        return self.id
+
 
 # 数据主题类型表
 class Data_class(models.Model):
@@ -84,19 +87,25 @@ class Data_class(models.Model):
     update_date = models.CharField(help_text=u"更新时间", max_length=100, default="", null=True)
     del_flag = models.IntegerField(help_text=u"逻辑标记", default=1, null=True)
 
+    def __unicode__(self):  # __str__ on Python 3
+        return self.id
+
 
 # 爬虫集群配置表
 class Host_project(models.Model):
     id = models.UUIDField(help_text="uuid", primary_key=True)
-    office_id = models.IntegerField(help_text=u"归属部门", default=30, null=True)
+    office_id = models.CharField(help_text=u"归属部门", max_length=32, default="", null=True)
     ip_address = models.CharField(help_text=u"部署ip", max_length=32, default="", null=True)
     host_name = models.CharField(help_text=u"部署环境名称", max_length=32, default="", null=True)
     project_name = models.CharField(help_text=u"项目名称", max_length=50, default="", null=True)
-    create_by = models.CharField(help_text=u"创建者", max_length=100, default="", null=True)
+    create_by = models.CharField(help_text=u"创建者", max_length=100, default="admin", null=True)
     create_date = models.DateField(help_text='创建时间', auto_now_add=True, null=True)
-    update_by = models.CharField(help_text=u"更新者", max_length=100, default="", null=True)
+    update_by = models.CharField(help_text=u"更新者", max_length=100, default="admin", null=True)
     update_date = models.CharField(help_text=u"更新时间", max_length=100, default="", null=True)
     del_flag = models.IntegerField(help_text=u"逻辑标记", default=1, null=True)
+
+    def __unicode__(self):  # __str__ on Python 3
+        return self.id
 
 
 # 关键字配置表
@@ -111,3 +120,6 @@ class Spider_keyword(models.Model):
     update_by = models.CharField(help_text=u"更新者", max_length=100, default="", null=True)
     update_date = models.CharField(help_text=u"更新时间", max_length=100, default="", null=True)
     del_flag = models.IntegerField(help_text=u"逻辑标记", default=1, null=True)
+
+    def __unicode__(self):  # __str__ on Python 3
+        return self.id

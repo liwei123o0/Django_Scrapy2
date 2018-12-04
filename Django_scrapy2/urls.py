@@ -29,4 +29,7 @@ urlpatterns = [
 
     # The home page
     url(r'^$', views.index, name='index'),
+    url(r'remove_jiqun/', views.remove_jiqun, name='remove_jiqun'),
+    url(r'add_jiqun/', views.add_jiqun, name='add_jiqun'),
+    url(r'test/', views.testindex, name='testindex')
 ]
